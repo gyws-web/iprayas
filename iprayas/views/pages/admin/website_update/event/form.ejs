@@ -1,0 +1,170 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= event_details ? 'Update' : 'New' %> Event</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/event/list">Event</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="event_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/event/form">+ Add new event</a> | 
+                    <a href="/admin/website-update/event/list">Event list</a>
+                  </span>
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Title<span class="req"> *</span></label>
+                      <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="<%= event_details ? event_details.title : ''%>">
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Content<span class="req"> *</span></label>
+                      <textarea name="description" id="description" class="form-control" placeholder="Content"><%= event_details ? event_details.description : ''%></textarea>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Date<span class="req"> *</span></label>
+                      <input type="date" name="date" id="date" class="form-control" placeholder="Date" value="<%= event_details ? event_details.date : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Tags<span class="req"> *</span></label>
+                      <select name="tag_id" id="tag_id" class="form-control" style="width: 100%;">
+                        <option value=''>Choose...</option>
+                        <% tag_list.forEach(function(tag) { %>
+                          <option value="<%=tag.tag_id %>"><%=tag.title %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Thumbnail<span class="req"> *</span></label>
+                      <div class="custom-file">                        
+                        <input type="file" name="thumbnail" class="custom-file-input" id="thumbnail">
+                        <label class="custom-file-label" for="thumbnail">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Upload Images (Max. 3)<span class="req"> *</span></label>
+                      <div class="custom-file">                        
+                        <input type="file" name="upload_files" class="custom-file-input" id="upload_files" multiple="multiple">
+                        <label class="custom-file-label" for="upload_files">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+                
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Status</label>
+                      <select name="active" id="active" class="form-control" style="width: 100%;">
+                        <option value='Enable'>Enable</option>
+                        <option value='Disable'>Disable</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <% if(event_details && event_details.thumbnail) {%>
+                      <figure class="figure" style="max-width:24%;">
+                        <img src="<%=baseurl%>contents/events/<%=event_details.event_id%>/<%=event_details.thumbnail%>" class="figure-img img-fluid rounded img-thumbnail" alt="<%=event_details.thumbnail%>">
+                        <figcaption class="figure-caption text-center"><%=event_details.thumbnail%></figcaption>
+                      </figure>
+                      <% } %>
+
+                      <% if(event_details.event_images) { %>
+                        <% event_details.event_images.forEach(function(eve_image) { %>
+                        <figure class="figure" style="max-width:24%;">
+                          <img src="<%=baseurl%>contents/events/<%=event_details.event_id%>/<%=eve_image.image%>" class="figure-img img-fluid rounded img-thumbnail" alt="<%=eve_image.image%>">
+                          <figcaption class="figure-caption text-center"><%=eve_image.image%></figcaption>
+                        </figure>
+                        <% }) %>
+                      <% } %>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="event_id" id="event_id" value="<%= event_details ? event_details.event_id : '' %>">
+                <button type="submit" class="btn btn-primary"><%= event_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(event_details) { %>
+    <script type="text/javascript">
+      document.getElementById('tag_id').value="<%= event_details.tag_id %>";
+      document.getElementById('active').value="<%= event_details.active %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

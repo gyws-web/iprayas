@@ -1,0 +1,370 @@
+<%- include ('../layouts/gyws_header') %>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+ 
+
+              <style>
+
+              .x {
+    font-size: 90%;
+    font-weight: 400;
+    padding: 0.75em;
+    letter-spacing: 1px;
+    color: white;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+       
+                  #hero {
+                width: 100%;
+                height: 70vh;
+                background: url(../img/hero-bg.jpg) top center;
+                background-size: ;
+                overflow: hidden;
+                position: relative;
+              }
+
+
+
+              #hero:before {
+                content: "";
+                background: #353a40;
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+              }
+
+              #hero .hero-container {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                top: 50px;
+                right: 0;
+                display: flex;
+                justify-content: ;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                padding: 0 15px;
+              }
+
+              @media (max-width: 991px) {
+                #hero .hero-container {
+                  top: 70px;
+                }
+              }
+
+              #hero h1 {
+                color: #fff;
+                font-family: "Raleway", sans-serif;
+                font-size: 56px;
+                font-weight: 600;
+                text-transform: uppercase;
+              }
+
+              #hero h1 span {
+                color: #f82249;
+              }
+
+              @media (max-width: 991px) {
+                #hero h1 {
+                  font-size: 34px;
+                }
+              }
+
+              #hero p {
+                color: #ebebeb;
+                font-weight: 700;
+                font-size: 20px;
+              }
+
+              @media (max-width: 991px) {
+                #hero p {
+                  font-size: 16px;
+                }
+              }
+
+              #hero .about-btn {
+                font-family: "Raleway", sans-serif;
+                font-weight: 500;
+                font-size: 14px;
+                letter-spacing: 1px;
+                display: inline-block;
+                padding: 12px 32px;
+                border-radius: 50px;
+                transition: 0.5s;
+                line-height: 1;
+                margin: 10px;
+                color: #fff;
+                -webkit-animation-delay: 0.8s;
+                animation-delay: 0.8s;
+                border: 2px solid #fed136;
+              }
+
+              #hero .about-btn:hover {
+                background: #fed136;
+                color: #fff;
+              }
+
+              @-webkit-keyframes pulsate-btn {
+                0% {
+                  transform: scale(0.6, 0.6);
+                  opacity: 1;
+                }
+                100% {
+                  transform: scale(1, 1);
+                  opacity: 0;
+                }
+              }
+
+              @keyframes pulsate-btn {
+                0% {
+                  transform: scale(0.6, 0.6);
+                  opacity: 1;
+                }
+                100% {
+                  transform: scale(1, 1);
+                  opacity: 0;
+                }
+              }
+              #about {
+                background: url("../img/about-bg.jpg");
+                background-size: cover;
+                overflow: hidden;
+                position: relative;
+                color: ;
+                padding: 60px 0 40px 0;
+              }
+
+              @media (min-width: 1024px) {
+                #about {
+                  background-attachment: fixed;
+                }
+              }
+
+              #about:before {
+                content: "";
+                background: ;
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+              }
+
+              #about h2 {
+                font-size: 36px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: ;
+              }
+
+              #about h3 {
+                font-size: 18px;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                color: ;
+              }
+
+              #about p {
+                font-size: 14px;
+                margin-bottom: 20px;
+                color: ;
+              }
+              </style>
+
+    <!--events section by Soham Chakraborty-->
+
+<br>
+<br>
+<br>
+<br>
+
+    <section id="events">
+      <h1 class="text-muted text-center">EVENTS</h1>
+
+<br>
+<br>
+      <h2 class="text-muted text-center">1. Workshop: Tech as tool</h2>
+<br><br>
+      <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <center>
+            <br>
+      <img src="https://image.freepik.com/free-vector/innovation-concept-illustration_114360-5578.jpg" width="200" height="200"style="margin-top:15px " >
+      </center>
+      </div>
+       <div class="col-sm-12 col-md-8 text-center">
+      <div class="row text-center">
+          <p style="font-family: 'sans-serif'; padding:35px;line-height: 1.75em;font-size:20px;">
+            We are conducting a Tech-as-a-tool Workshop in association with DataKind, a
+            global nonprofit that harnesses the power of data science and AI in the service of
+            humanity.
+            The aim is to make students aware of the umpteen opportunities available in the non
+            corporate world, where many issue lie unattended, plethora of problems waiting to be
+            solved, where they can use their skills and knowledge to develop tools and softwares
+            that would impact a larger audience and would bring a change at a much greater level.
+          </p>
+
+
+      </div>  </div>
+  </div>  </div>
+  <br><br>
+      <h2 class="text-muted text-center">2. Panel Discussion</h2>
+      <br><br>
+
+
+
+      <div class="container-fluid">
+        <div class="row">
+
+         <div class="col-sm-12 col-md-1"></div>
+       <div class="col-sm-12 col-md-7 text-center">
+      <div class="row text-center">
+          <p style="font-family: 'sans-serif'; padding:35px;line-height: 1.75em;font-size:20px;">
+            We are conducting a Tech-as-a-tool Workshop in association with DataKind, a
+            global nonprofit that harnesses the power of data science and AI in the service of
+            humanity.
+            The aim is to make students aware of the umpteen opportunities available in the non
+            corporate world, where many issue lie unattended, plethora of problems waiting to be
+            solved, where they can use their skills and knowledge to develop tools and softwares
+            that would impact a larger audience and would bring a change at a much greater level.
+          </p>
+
+
+      </div>  </div>
+
+      <div class="col-sm-12 col-md-4">
+        <center>
+          <br>
+      <img src="https://image.freepik.com/free-vector/meeting-concept-illustration_114360-717.jpg" width="200" height="200"style="margin-top:15px " >
+      </center>
+      </div>
+
+      </div>  </div>
+
+
+    </section>
+
+
+
+
+    <section id="events">
+      <h1 class="text-muted text-center">REGISTER NOW</h1>
+<br><br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mt-3">
+              <div class="product-1 align-items-center p-2 text-center">
+                <img class="card-img" src="https://image.freepik.com/free-vector/innovation-concept-illustration_114360-5578.jpg" alt="" class="rounded" width="160">
+                <div class="card-content">
+                  <p>Workshop: Tech as tool</p>
+
+                <!-- Button trigger modal -->
+    <button type="button" style="margin-bottom:10px;background-color: #007bff !important;
+border-color: #007bff !important;box-shadow:none !important" class="btn btn-primary" data-toggle="modal" data-target="#workshop">
+     Register Now
+    </button>
+
+                </div>
+
+      </div>
+      </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mt-3">
+              <div class="product-1 align-items-center p-2 text-center">
+                <img class="card-img" src="https://image.freepik.com/free-vector/meeting-concept-illustration_114360-717.jpg" alt="" class="rounded" width="160">
+                <div class="card-content">
+                  <p>Panel Discussion</p>
+
+                <!-- Button trigger modal -->
+    <button type="button" style="margin-bottom:10px;background-color: #007bff !important;
+border-color: #007bff !important;box-shadow:none !important" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+     Register Now
+    </button>
+
+                </div>
+
+      </div>
+      </div>
+          </div>
+        </div>
+
+        <br>  <br>
+
+        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	  <div class="modal-dialog modal-dialog-centered">
+  	    <div class="modal-content">
+          <div class='modal-header' style="background-color:#CACFD2;">
+        <h3 class='col-12 modal-title text-center'>
+          Panel Discussion
+          <button style="font-size: 36px;" type="button" class="close" data-dismiss="modal" style="outline: none;">&times;</button>
+
+        </h3>
+      </div>
+
+
+
+
+
+            <div style="text-align: center;">
+            <iframe src="https://forms.gle/1KQ8hzYYpTdfoQVt6"
+            style="width:100%; height:500px;" frameborder="0"></iframe>
+            </div>
+
+
+  	      	</div>
+  	      </div>
+
+  	    </div>
+
+
+        <div class="modal fade" id="workshop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class='modal-header' style="background-color:#CACFD2;">
+        <h3 class='col-12 modal-title text-center'>
+          Workshop: Tech as tool
+          <button style="font-size: 36px;" type="button" class="close" data-dismiss="modal" style="outline: none;">&times;</button>
+
+        </h3>
+        </div>
+
+
+
+        <div style="text-align: center;">
+        <iframe src="https://forms.gle/V9J4yUnxdh9NPn1Z7"
+        style="width:100%; height:500px;" frameborder="0"></iframe>
+        </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+        </section>
+
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<%- include ('../layouts/gyws_footer') %>

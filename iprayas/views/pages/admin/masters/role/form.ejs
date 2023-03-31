@@ -1,0 +1,94 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= role_details ? 'Update' : 'New' %> Role</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Masters</a></li>
+              <li class="breadcrumb-item"><a href="/admin/masters/role/list">Role</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="roll_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/masters/role/form">+ Add new role</a> | 
+                    <a href="/admin/masters/role/list">Role list</a>
+                  </span>
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Title<span class="req"> *</span></label>
+                      <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="<%= role_details ? role_details.title : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Priority<span class="req"> *</span></label>
+                      <input type="number" min="1" max="99" name="priority" id="priority" class="form-control" value="<%= role_details ? role_details.priority : '1'%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Active</label>
+                      <select name="active" id="active" class="form-control" style="width: 100%;">
+                        <option value='Yes'>Yes</option>
+                        <option value='No'>No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="role_id" id="role_id" value="<%= role_details ? role_details.role_id : '' %>">
+                <button type="submit" class="btn btn-primary"><%= role_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(role_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= role_details.active %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

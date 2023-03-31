@@ -1,0 +1,51 @@
+#recent-works .col-xs-12.col-sm-4.col-md-3{
+padding: 0;
+}
+#c1{
+padding: 25px;
+}
+#recent-works{
+padding-bottom: 70px;
+}
+#c1:hover{
+margin: 5px;
+}
+#im-tr {
+opacity: 1;
+display: block;
+width: 100%;
+height: auto;
+transition: .5s ease;
+backface-visibility: hidden;
+}
+#middle {
+transition: .5s ease;
+opacity: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+text-align: center;
+}
+#c1:hover #im-tr {
+opacity: 0.3;
+}
+#c1:hover #middle {
+opacity: 1;
+}
+#text {
+background-color: transparent;
+}
+.mem-names{
+margin-left: 5%
+}
+@media (max-width: 575.98px) {
+  .mem-names{
+  margin-left: 30%
+  }
+
+ }
+.content-mem{
+  margin-top: 5%
+}

@@ -1,0 +1,670 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+<style>
+  fieldset {
+    border:1px solid #ccc !important;
+    padding: 10px !important;
+  }
+  legend {
+    width:auto !important;
+    font-size:18px;
+    padding:0px 8px;
+  }
+  .stats{
+    position: relative;
+    left: 21px;
+  }
+  .header{
+    background-color: #343a40;
+    color: #fff;
+    padding: 2px;
+    font-size: 18px;
+  }
+</style>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= role_details ? 'Update' : 'New' %> Permission</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Masters</a></li>
+              <li class="breadcrumb-item"><a href="/admin/masters/role/list">Role</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" method="post">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/masters/role/list">Role & permission list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Website Update</div>
+                              <div class="stats">
+      
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input role_permission" type="checkbox" name="role_permission"
+                                      <% if(role_permission_details.role_permission=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input role_permission" type="checkbox" value="No" name="role_permission">
+                                    <% } %>
+                                    <label class="form-check-label">Role & Permission</label>
+                                  </div>
+                                  
+      
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input event" type="checkbox" name="event"
+                                      <% if(role_permission_details.event=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input event" type="checkbox" value="No" name="event">
+                                    <% } %>
+                                    <label class="form-check-label">Event</label>
+                                  </div>
+                                 
+      
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input operator" type="checkbox"  name="operator"
+                                      <% if(role_permission_details.operator=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input operator" type="checkbox" value="No" name="operator">
+                                    <% } %>                    
+                                    <label class="form-check-label">Operator</label>
+                                  </div>
+                                 
+
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input donor" type="checkbox" name="donor"                      
+                                      <% if(role_permission_details.donor=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input donor" type="checkbox" value="No" name="donor">
+                                    <% } %>                    
+                                    <label class="form-check-label">Donor</label>
+                                  </div><!-- col-3 -->
+                                  
+
+                              </div>
+                          </div>
+                        </div>
+                    </div> 
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Donation</div>
+                              <div class="stats">
+      
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input donation_program" type="checkbox" name="donation_program"                      
+                                      <% if(role_permission_details.donation_program=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input donation_program" type="checkbox" value="No" name="donation_program">
+                                    <% } %>                    
+                                    <label class="form-check-label">Donation Program</label>
+                                  </div>
+                                 
+      
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input donation_history" type="checkbox" name="donation_history"                      
+                                      <% if(role_permission_details.donation_history=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input donation_history" type="checkbox" value="No" name="donation_history">
+                                    <% } %>                    
+                                    <label class="form-check-label">Donation History</label>
+                                  </div>
+                                  
+      
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input external_record" type="checkbox" name="external_record"                      
+                                      <% if(role_permission_details.external_record=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input external_record" type="checkbox" value="No" name="external_record">
+                                    <% } %>                    
+                                    <label class="form-check-label">External Donation Record</label>
+                                  </div>
+                                 
+
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input si_record" type="checkbox" name="si_record"                      
+                                      <% if(role_permission_details.si_record=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input si_record" type="checkbox" value="No" name="si_record">
+                                    <% } %>                    
+                                    <label class="form-check-label">SI Form Record</label>
+                                  </div>
+                                  
+
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input csr_record" type="checkbox" name="csr_record"                      
+                                      <% if(role_permission_details.csr_record=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input csr_record" type="checkbox" value="No" name="csr_record">
+                                    <% } %>                    
+                                    <label class="form-check-label">CSR Record</label>
+                                  </div>
+                                  
+
+      
+                              </div>
+                          </div>
+                      </div> 
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Expenses Record</div>
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input expense_record" type="checkbox" name="expense_record"
+                                      <% if(role_permission_details.expense_record=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input expense_record" type="checkbox" value="No" name="expense_record">
+                                    <% } %>
+                                    <label class="form-check-label">Expenses Record</label>
+                                  </div>
+                                 
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Reports</div>
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input newsletter" type="checkbox" name="newsletter"
+                                      <% if(role_permission_details.newsletter=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input newsletter" type="checkbox" value="No" name="newsletter">
+                                    <% } %>
+                                    <label class="form-check-label">Newsletter</label>
+                                  </div>
+                                  
+                              </div>
+
+                              <div class="stats">
+                                <div>
+                                  <% if(role_permission_details !=null) {%>
+                                    <input class="form-check-input finance" type="checkbox" name="finance"
+                                    <% if(role_permission_details.finance=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                  <%}else{%>
+                                    <input class="form-check-input finance" type="checkbox" value="No" name="finance">
+                                  <% } %>
+                                  <label class="form-check-label">Finance Report</label>
+                                </div>
+                               
+                            </div>
+
+                            <div class="stats">
+                              <div>
+                                <% if(role_permission_details !=null) {%>
+                                  <input class="form-check-input annual" type="checkbox" name="annual"
+                                  <% if(role_permission_details.annual=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                <%}else{%>
+                                  <input class="form-check-input annual" type="checkbox" value="No" name="annual">
+                                <% } %>
+                                <label class="form-check-label">Annual Report</label>
+                              </div>
+                              
+                            </div>
+
+                          <div class="stats">
+                              <div>
+                                <% if(role_permission_details !=null) {%>
+                                  <input class="form-check-input impact" type="checkbox" name="impact"
+                                  <% if(role_permission_details.impact=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                <%}else{%>
+                                  <input class="form-check-input impact" type="checkbox" value="No" name="impact">
+                                <% } %>
+                                <label class="form-check-label">Impact Report</label>
+                              </div>
+                             
+                            </div>
+
+
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Payment Information</div>
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input payment" type="checkbox" name="payment"
+                                      <% if(role_permission_details.payment=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input payment" type="checkbox" value="No" name="payment">
+                                    <% } %>
+                                    <label class="form-check-label">Payment Information</label>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Media Blog</div>
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input media_blog" type="checkbox" name="media_blog"
+                                      <% if(role_permission_details.media_blog=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input media_blog" type="checkbox" value="No" name="media_blog">
+                                    <% } %>
+                                    <label class="form-check-label">Media Blog</label>
+                                  </div>
+                                 
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Media Links</div>
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input media_link" type="checkbox" name="media_link"
+                                      <% if(role_permission_details.media_link=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input media_link" type="checkbox" value="No" name="media_link">
+                                    <% } %>
+                                    <label class="form-check-label">Media Links</label>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Student Management</div>
+
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input student_enrollment" type="checkbox" name="student_enrollment"
+                                      <% if(role_permission_details.student_enrollment=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input student_enrollment" type="checkbox" value="No" name="student_enrollment">
+                                    <% } %>
+                                    <label class="form-check-label">Student Enrolement</label>
+                                  </div>
+                                 
+                              </div>
+
+                              <div class="stats">
+                                <div>
+                                  <% if(role_permission_details !=null) {%>
+                                    <input class="form-check-input student_class" type="checkbox" name="student_class"
+                                    <% if(role_permission_details.student_class=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                  <%}else{%>
+                                    <input class="form-check-input student_class" type="checkbox" value="No" name="student_class">
+                                  <% } %>
+                                  <label class="form-check-label">Student Class</label>
+                                </div>
+                                
+                            </div>
+                              
+                          </div>
+                        </div>
+                    </div>
+
+                       
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Donor Student</div>
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input donor_student_allotment" type="checkbox" name="donor_student_allotment"
+                                      <% if(role_permission_details.donor_student_allotment=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input donor_student_allotment" type="checkbox" value="No" name="donor_student_allotment">
+                                    <% } %>
+                                    <label class="form-check-label">Donor Student</label>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Masters</div>
+
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input role" type="checkbox" name="role"
+                                      <% if(role_permission_details.role=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input role" type="checkbox" value="No" name="role">
+                                    <% } %>
+                                    <label class="form-check-label">Role</label>
+                                  </div>
+                                  
+                              </div>
+
+                              <div class="stats">
+                                <div>
+                                  <% if(role_permission_details !=null) {%>
+                                    <input class="form-check-input designation" type="checkbox" name="designation"
+                                    <% if(role_permission_details.designation=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                  <%}else{%>
+                                    <input class="form-check-input designation" type="checkbox" value="No" name="designation">
+                                  <% } %>
+                                  <label class="form-check-label">Designation</label>
+                                </div>
+                                
+                            </div>
+
+                            <div class="stats">
+                              <div>
+                                <% if(role_permission_details !=null) {%>
+                                  <input class="form-check-input member_type" type="checkbox" name="member_type"
+                                  <% if(role_permission_details.member_type=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                <%}else{%>
+                                  <input class="form-check-input member_type" type="checkbox" value="No" name="member_type">
+                                <% } %>
+                                <label class="form-check-label">Member Type</label>
+                              </div>
+                              
+                          </div>
+
+                          <div class="stats">
+                            <div>
+                              <% if(role_permission_details !=null) {%>
+                                <input class="form-check-input donation_category" type="checkbox" name="donation_category"
+                                <% if(role_permission_details.donation_category=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                              <%}else{%>
+                                <input class="form-check-input donation_category" type="checkbox" value="No" name="donation_category">
+                              <% } %>
+                              <label class="form-check-label">Donation Category</label>
+                            </div>
+                           
+                        </div>
+
+                        <div class="stats">
+                          <div>
+                            <% if(role_permission_details !=null) {%>
+                              <input class="form-check-input donor_category" type="checkbox" name="donor_category"
+                              <% if(role_permission_details.donor_category=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                            <%}else{%>
+                              <input class="form-check-input donor_category" type="checkbox" value="No" name="donor_category">
+                            <% } %>
+                            <label class="form-check-label">Donor Category</label>
+                          </div>
+                         
+                      </div>
+
+                      <div class="stats">
+                        <div>
+                          <% if(role_permission_details !=null) {%>
+                            <input class="form-check-input team" type="checkbox" name="team"
+                            <% if(role_permission_details.team=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                          <%}else{%>
+                            <input class="form-check-input team" type="checkbox" value="No" name="team">
+                          <% } %>
+                          <label class="form-check-label">Team</label>
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                      <div>
+                        <% if(role_permission_details !=null) {%>
+                          <input class="form-check-input initiatives" type="checkbox" name="initiatives"
+                          <% if(role_permission_details.initiatives=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                        <%}else{%>
+                          <input class="form-check-input initiatives" type="checkbox" value="No" name="team">
+                        <% } %>
+                        <label class="form-check-label">Initiatives</label>
+                      </div>
+                  </div>
+
+                  </div>
+                </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                      <div class="tile">
+                          <div class="wrapper">
+                              <div class="header">Testimonial</div>
+                              <div class="stats">
+                                  <div>
+                                    <% if(role_permission_details !=null) {%>
+                                      <input class="form-check-input testimonial" type="checkbox" name="testimonial"
+                                      <% if(role_permission_details.testimonial=='Yes'){ %> value="Yes" checked="checked"  <% }else{%> value="No" <%}%> >
+                                    <%}else{%>
+                                      <input class="form-check-input testimonial" type="checkbox" value="No" name="testimonial">
+                                    <% } %>
+                                    <label class="form-check-label">Testimonial</label>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="" style="float: right;
+                position: relative;
+                bottom: 7px;">
+                  <input type="hidden" value="<%=role_details.role_id%>" name="role_id">                   
+                  <% if(role_permission_details !=null) {%>
+                    <input type="hidden" value="<%=role_permission_details.role_permission_id%>" name="role_permission_id">
+                  <%}else{%>
+                    <input type="hidden" value="" name="role_permission_id">
+                  <% } %>
+                  <input type="submit" value="Update">
+                </div>
+        
+              </div>
+            </div>
+
+             
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(role_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= role_details.active %>";
+    </script>
+
+  <% } %>
+
+
+
+<%- include ('../../layouts/footer') %>
+
+<script>$(document).ready(function () { $('.role_permission').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });});</script>
+<script>$(document).ready(function () { $('.event').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });  });</script>
+<script>
+  $(document).ready(function () {
+     $('.operator').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.donor').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.donation_program').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.donation_history').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.external_record').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.si_record').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.csr_record').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.expense_record').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.newsletter').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.finance').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.annual').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.impact').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.payment').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.media_blog').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.media_link').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.student_enrollment').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.student_class').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.donor_student_allotment').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.role').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.designation').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.member_type').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.donation_category').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+ <script>
+  $(document).ready(function () {
+     $('.donor_category').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.team').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.initiatives').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>
+<script>
+  $(document).ready(function () {
+     $('.testimonial').change(function(){ if($(this).is(':checked')){ $(this).val('Yes'); }else{ $(this).val('No'); } });
+ });
+</script>

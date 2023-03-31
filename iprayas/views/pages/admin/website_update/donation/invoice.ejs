@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<html>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 85%; margin: 0 7.5%;">
+        <div style="text-align: center; padding-left: 50px;">
+            <img src="<%=bseurl%>invoic_logo.png" style="height: 150px; width: 150px;">
+            <h3>Gopali Youth Welfare Society</h3>
+            <p>
+                <h4>(also known as One of the largest student run NGO by IIT Kharagpur students) </h4>
+                Gopali (No Shooting Area), P.O. - Salua, District - Pashchimi Midinipur </br> Kharagpur Railway
+                Settlement 721145 </br> West Bengal India
+            </p>
+        </div>
+
+        <span class="inline">
+            <strong style="padding: 30px;"> Tel. No: 03222296537 </strong>
+            <strong style="padding: 30px;"> gywsociety@gmail.com </strong>
+            <strong style="padding: 30px;"> PAN #: AAAAG5236D </strong>
+        </span>
+
+        <center style="position: relative; margin-top: 25px;margin-bottom: 21px;">
+            <strong>DONATION RECEIPT</strong>
+        </center>
+
+        <% if(data_Tra !=''){ %>
+            <span class="inline" style="font-size: 15px; position: relative;left: 100px;">
+                <strong> Receipt No: <%= data_Tra %></strong>
+                <strong style="margin: 135px;">Receipt Date: <%= reciver_date %></strong>
+            </span>
+        <% }else{ %>
+            <span class="inline" style="font-size: 15px;">
+                <strong> Receipt No: #<%= data_id %></strong>
+                <strong style="margin: 135px;">Receipt Date: <%= reciver_date %></strong>
+            </span>
+        <% } %>
+        
+
+        <p> Received with thanks from: </p>
+        <strong style="position: relative;left: 189px;bottom: 33px; font-size: 15px;">
+            <span> <%= reciver_name %></span></br>
+            <span> <%= reciver_mob %></span></br>
+        </strong>
+        
+        <p>through <strong><%= data_opt%></strong> for the following:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Cost (Rs.)</th>
+                    <th>Qty</th>
+                    <th>Amount (Rs.)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= reciver_amount %></td>
+                    <td>1</td>
+                    <td><%= reciver_amount %></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th> 
+                    <th></th>                      
+                    <th id="tot2"><%= reciver_amount %></th> 
+                </tr>
+            </tfoot>
+        </table>
+
+        <p style="font-size: 10px;">
+            This receipt is exempt from revenue stamp vide Exemption b Article 53, Schedule I of the Indian Stamp Act, 1899. Donations to One of the largest
+            student run NGO by IIT Kharagpur students qualify for deduction u/s 80G(5) of the Income Tax Act, 1961 vide certificate of exemption no. 80GG Y W S/CIT, K-XIX/Kol/10-11/3932 issued on 17-02-2011. All approvals existing on or after Oct 1, 2009 are deemed to have been extended in
+            perpetuity unless specifically withdrawn. The Government order can be seen here. This receipt is invalid in case of non-realization of the money
+            instrument or reversal of the credit card charge or reversal of donation amount for any reason.
+
+        </p>
+    </div>
+</body>
+
+</html>
+
+   

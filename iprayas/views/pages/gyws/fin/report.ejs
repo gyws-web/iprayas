@@ -1,0 +1,79 @@
+<%- include ('../layouts/gyws_header') %>
+
+
+
+
+
+<section style="padding-bottom: 0px;">
+    <div class="container-fluid">
+        <div style="margin-bottom: 5%; margin-bottom: 0;">
+            <h1 style="text-align: center; margin-top: 10%; font-size: 35px; ">Certifications</h1>
+            <div style="margin-top: 0%; margin-bottom: 0;" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-6"><img style="width: 55%; position: relative; left: 22.5%; top: 22.5%;"
+                            src="<%=baseurl%>gyws/images/financials/80g.png"></div>
+                    <div class="col-md-3 col-6"><img style="width: 100%" src="<%=baseurl%>gyws/images/financials/12aa.jpg"></div>
+                    <div class="col-md-3 col-6"><img style="width: 100%; position: relative; top: 30%;"
+                            src="<%=baseurl%>gyws/images/financials/guide.png"></div>
+                    <div class="col-md-3 col-6"><img style="width: 100%; position: relative; top: 15%;"
+                            src="<%=baseurl%>gyws/images/financials/fcra.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</section>
+
+
+
+
+<section style="padding-top:5%; border-bottom:1px solid #ccc;" class="pb-3 mb-3">
+    <h3 style="font-size:25px ;color:#E74A05;font-style:droid-serif;text-align:center;">Yogdaan Report 2019<br><br></h3>
+    <div style="text-align:center;" class="container-fluid">
+        <div style="justify-content: space-around;" class="row">
+            <div class="col-md-3 col-sm-2"></div>
+            <div class="col-md-6 col-sm-8">
+                <a href="./documents/Yogdaan_Report_2019.pdf" download>
+                    <button style="width: 95%; padding-top: 15px; padding-bottom: 15px; font-size: 15px; " type="button" class="btn btn-secondary download_button">DOWNLOAD YOGDAAN REPORT</button>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-2"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section style="padding-bottom:1%; ">
+    <div class="container-fluid">
+		<% fyear= ''; is_first=true; is_init=true;%>
+        <% report_list.forEach(function(report) { %>
+            <% if(report.year != fyear) { %>
+                <% if(!is_init) { %></div><% } %>
+                <% is_first = true; is_init = false %>
+                <% fyear = report.year %>
+                <% if(is_first) { %>
+                    <div class="row"><div class="col-12"><br><h3 class="report_h3"> Report <%=report.year %><br><br></h3></div></div>
+                    <% is_first = false %>
+                    <div class="row justify-content-md-center mb-3 pb-5" style="border-bottom:1px solid #ccc;">
+                        <div class="col-md-4">
+                            <a href="<%=baseurl%><%=report.file%>" download>
+                                <button type="button" class="btn btn-secondary download_button newsletter_button">DOWNLOAD Quarterly Financial Report (April-June)</button>
+                            </a>
+                        </div>
+                <% } %>
+            <% } else { %>
+                <div class="col-md-4">
+                    <a href="<%=baseurl%><%=report.file%>" download>
+                        <button type="button" class="btn btn-secondary download_button newsletter_button">DOWNLOAD Quarterly Financial Report (April-June)</button>
+                    </a>
+                </div>
+            <% } %>
+		<% }) %>
+    </div>
+</section>
+
+
+<%- include ('../layouts/gyws_footer') %>

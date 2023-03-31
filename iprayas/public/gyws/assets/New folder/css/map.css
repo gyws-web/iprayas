@@ -1,0 +1,24 @@
+
+
+.myDiv {
+  background-color: black;
+  color: white;
+  display: none;
+	z-index:10000;
+}
+
+#mapdiv{
+  z-index: 1
+}
+.mark-text{
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  color: white;
+  font-size: 60px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.top-cap{
+  top:50% !important;
+  bottom: auto;
+}

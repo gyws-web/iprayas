@@ -1,0 +1,71 @@
+<%- include ('../layouts/gyws_header') %>
+
+<header id="about-uss" class="masthead-au">
+    <div class="container"></div>
+</header>
+
+
+<div class="container-fluid">
+    <div class="full"></div>
+    <div class="row pad">
+        <div class="col-md-12">
+            <div class="col-md-auto">
+                <div style="font-family:'Montserrat';" class="text-center">
+                    <h3>WHO WE ARE?</h3><br>
+                    <div class="parallax1 container-fluid">
+                        <div style="font-family:'Montserrat';" class="text-cont text-left box1"><%= aboutus_details ? aboutus_details.who_we_are : ''%></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-12 box4 bg-light">
+                <!-- <p class="text-cont text-center"></p>
+            </div> -->
+            <h2 class="text-center">OUR HISTORY</h2>
+            <div style="padding: 30px 25px 30px 25px" class="container-fluid text-left">
+                    <p class="text-cont text-left"><%= aboutus_details ? aboutus_details.our_history : ''%></p>
+            </div>
+        </div>
+    </div>
+
+        <!-- </h2> -->
+        <div class="parallax2">
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="font-family:'Montserrat'" class="text-center box2">
+                        <h3>OUR VISION</h3>
+                        <p class="text-cont text-left"><%= aboutus_details ? aboutus_details.our_vision : ''%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <div style="font-family:'Montserrat'" class="text-center box3">
+                        <h3>OUR MISSION</h3>
+                        <p class="text-cont text-left"><%= aboutus_details ? aboutus_details.our_mission : ''%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <h2 style="margin-top: 6%;">FOUNDER'S MESSAGE</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2 my-auto text-center"><img id="image-mobile" src="/contents/about/founder_image.jpg"
+                style="margin-top: 10%; width:250px;" border:"10 class="b7 rounded-circle img-fluid"></div>
+        <blockquote id="message" style="font-family:'Montserrat'; color: #262626;"
+            class="col-md-6 blockquote text-left"><%= aboutus_details ? aboutus_details.founders_message : ''%><footer style="color: #262626;" class="blockquote-footer text-right">Mr. Mrinal Kanti Bhanja, Founder, GYWS
+            </footer>
+        </blockquote>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<%- include ('../layouts/gyws_footer') %>

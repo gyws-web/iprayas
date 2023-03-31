@@ -1,0 +1,177 @@
+/*
+  Theme Name: TheEvent
+  Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+  Author: BootstrapMade.com
+  License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    overflow-x: hidden;
+    padding: 0 !important;
+}
+
+.intern-headings {
+    font-size: 25px;
+    font-weight: bolder;
+}
+#za{
+  line-height: 1.75;
+  font-family: 'Montserrat';
+  font-weight: 450;
+}
+#about-read-more, #about-read-less {
+    border: hidden;
+    padding: 0px 0px;
+    color: #18d26e;
+    background-color: transparent;
+    outline: none;
+}
+
+.section-bg {
+    background-image: url('../images/section-bg.html');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.intern-category-card-parent {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (max-width: 992px) {
+    .intern-category-card-parent {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.intern-category-card {
+    background-color: #343a40;
+    border-radius: 5px;
+    padding: 25px 10px;
+    height: 100%;
+    color: #343a40;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-left: 3px solid #343a40;
+    border-right: 3px solid #343a40;
+}
+.intern-category-card img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.intern-category-card:hover {
+    transform: translateY(-4px);
+}
+.intern-category-card .intern-category-head {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color:white;
+}
+
+.modal h4 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: Poppins;
+}
+
+.modal h2 {
+    padding-bottom: 0.2em;
+    font-size: 1.3em;
+    font-weight: 600;
+    font-family: Poppins;
+}
+
+.center {
+  position:relative;
+  top:-44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-header {
+    background-color:#18d26e;
+
+}
+.modal-footer {
+    background-color: #383d43;
+}
+.modal-title{
+  text-align: center;
+}
+.modal .btn {
+    padding: 10px;
+    color: black;
+    background-color: #fed136;
+    font-size: 15px;
+    font-family: Poppins;
+    opacity: 1;
+    transition: 0.5s;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.modal .btn:hover,
+.modal .btn:focus,
+.modal .btn:active {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.intern-category-card-button .btn {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #383d43;
+    font-size: 15px;
+    font-family: Poppins;
+    opacity: 1;
+    transition: 0.5s;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.intern-category-card-button .btn:hover,
+.intern-category-card-button .btn:focus,
+.intern-category-card-button .btn:active {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+#more {display: none;}
+#more8 {display: none;}
+#more9 {display: none;}
+#more10 {display: none;}
+
+.carousel-control span.glyphicon {
+    font-size: 25px;
+}
+@media (max-width: 600px) {
+    .carousel-control span.glyphicon {
+        font-size: 20px;
+        top: 25%;
+    }
+}
+@media (min-width: 600px) and (max-width: 992px) {
+    .carousel-control span.glyphicon {
+        font-size: 20px;
+        top: 30%;
+    }
+}

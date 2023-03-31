@@ -1,0 +1,29 @@
+<%- include ('../../layouts/gyws_header') %>
+
+
+<section style="margin-top:5.5em">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center article_title"><%= article.title %></div>
+            <div class="col-12 text-center article_date"><%= moment(article.createdAt).format(shortDateFormat) %></div>
+            <div class="col-12 mt-5">
+                <img src="<%= baseurl %>contents/blogs/<%= article.blog_id %>/<%= article.featured_image %>" class="img-thumbnail article_thumb_img">
+                <span class="article_content"><%- article.blog_content %></span>
+            </div>
+            <div class="col-6 mt-3">
+                <h5>Tag:</h5>
+                <% article.blog_tags.forEach(function(tag) { %>
+                    <label class="article_tag"><%=tag.tag%></label>
+                <% }) %>
+            </div><!-- col-12 -->
+            <div class="col-6 mt-3">
+                <h5>Share:</h5>
+                <div class="addthis_inline_share_toolbox"></div>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a607af2b73ea9f6"></script>
+            </div>
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section>
+
+
+<%- include ('../../layouts/gyws_footer') %>

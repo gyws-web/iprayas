@@ -1,0 +1,83 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Update Media Links</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Wesite Update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/donation-program/list">Donation Program</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post">
+            <div class="card">
+              <!-- <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/donation-program/form">+ Add new donation program</a> | 
+                    <a href="/admin/website-update/donation-program/list">Donation program list</a>
+                  </span>
+                </h3>
+              </div> -->
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Facebook</label>
+                      <input type="text" name="facebook" id="facebook" class="form-control" placeholder="Facebook Link" value="<%= media_links_details ? media_links_details.facebook : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Youtube</label>
+                      <input type="text" name="youtube" id="youtube" class="form-control" placeholder="Youtube Link" value="<%= media_links_details ? media_links_details.youtube : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Linkedin</label>
+                      <input type="text" name="linkedin" id="linkedin" class="form-control" placeholder="Linkedin Link" value="<%= media_links_details ? media_links_details.linkedin : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Update Media Links</button>
+                  </div>
+                </div>
+              </div>
+          </form>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(media_links_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= media_links_details.active %>";
+      document.getElementById('donation_category_id').value="<%= media_links_details.donation_category_id %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>

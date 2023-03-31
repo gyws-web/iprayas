@@ -1,0 +1,130 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= testimonial_details ? 'Update' : 'New' %> Testimonial</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website Update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/testimonial/list">Testimonial</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="testimonial_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/testimonial/form">+ Add new testimonial</a> | 
+                    <a href="/admin/website-update/testimonial/list">Testimonial list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3 text-center parent-center-div">
+                    <!-- <img src="<%=baseurl%>admin/images/user.png" width="170" id="preview">
+                    <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                    <input type="file" name="upload-pp" id="upload-pp" value=""> -->
+                    <div class="vh-center-div">
+                      <%
+                      var src = baseurl + "admin/images/user.png";
+                      if(testimonial_details) {
+                        if(testimonial_details.photo != '') {
+                          src = baseurl + "contents/testimonials/" + testimonial_details.photo;
+                        } 
+                      }
+                      %>
+                      <img src="<%=src%>" id="preview">
+                      <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                      <input type="file" name="upload-pp" id="upload-pp" value="">
+                    </div><!-- .vh-center-div -->
+                  </div>
+                  <div class="col-md-9">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Name<span class="req"> *</span></label>
+                          <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="<%= testimonial_details ? testimonial_details.name : ''%>">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Designation<span class="req"> *</span></label>
+                          <input type="text" name="designation" id="designation" class="form-control" placeholder="Designation" value="<%= testimonial_details ? testimonial_details.designation : ''%>">
+                        </div>
+                      </div><!-- .col-md-12 -->
+                    </div><!-- .row -->
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Testimonial<span class="req"> *</span></label>
+                      <textarea name="testimonial" id="testimonial" class="form-control" placeholder="Testimonial" rows="8"><%= testimonial_details ? testimonial_details.testimonial : ''%></textarea>
+                    </div>
+                  </div>
+                </div><!-- .row -->
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Active</label>
+                      <select name="active" id="active" class="form-control">
+                        <option>Choose...</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div><!-- .row -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="testimonial_id" id="testimonial_id" value="<%= testimonial_details ? testimonial_details.testimonial_id : '' %>">
+                <button type="submit" class="btn btn-primary"><%= testimonial_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(testimonial_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= testimonial_details.active %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

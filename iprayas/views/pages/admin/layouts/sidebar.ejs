@@ -1,0 +1,353 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="<%=baseurl%>index3.html" class="brand-link">
+      <img src="<%=baseurl%>admin/assets/dist/img/AdminLTELogo.png"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">GYWS</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <!-- <div class="image">
+        </div>
+        <div class="info">
+        </div> -->
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Website Update
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <% if(typeof  role_permission !== 'undefined' &&  role_permission == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/role-permission/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Role & Permission</p>
+                </a>
+              </li>
+              <% } %>
+              <% if(typeof role_permission !== 'undefined' && role_permission == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/aboutus" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>About Us</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/website-update/initiatives/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Initiatives</p>
+                </a>
+              </li>
+              <% } %>
+              <% if(typeof event  !== 'undefined' && event  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/event/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Events</p>
+                </a>
+              </li>
+              <% } %>
+              <% if(typeof operator !== 'undefined' && operator == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/operator/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Operators</p>
+                </a>
+              </li>
+              <% } %>
+              <% if(typeof donor !== 'undefined' && donor == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/donor/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Donors</p>
+                </a>
+              </li>
+              <% } %>
+              
+              
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Donation
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <% if(typeof donation_program !== 'undefined' && donation_program == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/donation-program/list" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Donation Program</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof donation_history !== 'undefined' && donation_history == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/donor/donation-history" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Donation History</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof external_record  !== 'undefined' && external_record  == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/donation/donation-record/list/external" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>External Donation Record</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof si_record !== 'undefined' && si_record == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/donation/donation-record/list/si" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>SI Form Record</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof csr_record !== 'undefined' && csr_record == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/donation/donation-record/list/csr" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>CSR Record</p>
+                    </a>
+                  </li>
+                  <%}%>
+                </ul>
+              </li>
+
+              <% if(typeof expense_record  !== 'undefined' && expense_record  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/expense-record/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Expenses Record</p>
+                </a>
+              </li>
+              <%}%>
+
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Reports
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <% if(typeof newsletter  !== 'undefined' && newsletter  == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/report/newsletter/list" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Newsletter</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof finance  !== 'undefined' && finance  == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/report/finance/list" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Finance Report</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof annual  !== 'undefined' && annual  == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/report/annual/list" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Annual Report</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof impact  !== 'undefined' && impact  == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/website-update/report/impact/list" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Impact Report</p>
+                    </a>
+                  </li>
+                  <%}%>
+                </ul>
+              </li>
+
+
+              <% if(typeof payment  !== 'undefined' && payment  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/payment/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Payment Information</p>
+                </a>
+              </li>
+              <%}%>
+              <% if(typeof media_blog   !== 'undefined' && media_blog   == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/blog/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Media Blog</p>
+                </a>
+              </li>
+              <%}%>
+              <% if(typeof media_links  !== 'undefined' && media_links  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/website-update/media-links/form" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Media Links</p>
+                </a>
+              </li>
+              <%}%>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                EACH
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Student Management
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <% if(typeof student_enrollment  !== 'undefined' && student_enrollment  == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/each/student/list" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Student Enrolement</p>
+                    </a>
+                  </li>
+                  <%}%>
+                  <% if(typeof student_class  !== 'undefined' && student_class  == 'Yes') {%>
+                  <li class="nav-item">
+                    <a href="/admin/each/student-class/list" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Student Class</p>
+                    </a>
+                  </li>
+                  <%}%>
+                </ul>
+              </li>
+              <% if(typeof donor_student_allotment  !== 'undefined' && donor_student_allotment  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/each/donor-student/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Donor Student</p>
+                </a>
+              </li>
+              <%}%>
+            </ul>
+          </li>
+
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Masters
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <% if(typeof role  !== 'undefined' && role  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/masters/role/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Role</p>
+                </a>
+              </li>
+              <%}%>
+              <% if(typeof designation  !== 'undefined' && designation  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/masters/designation/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Designation</p>
+                </a>
+              </li>
+              <%}%>
+              <% if(typeof member_type  !== 'undefined' && member_type  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/masters/member-type/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Member Type</p>
+                </a>
+              </li>
+              <%}%>
+              <% if(typeof donation_category  !== 'undefined' && donation_category  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/masters/donation-category/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Donation Category</p>
+                </a>
+              </li>
+              <%}%>
+              <% if(typeof donor_category  !== 'undefined' && donor_category  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/masters/donor-category/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Donor Category</p>
+                </a>
+              </li>
+              <%}%>
+              <% if(typeof team  !== 'undefined' && team  == 'Yes') {%>
+              <li class="nav-item">
+                <a href="/admin/masters/team/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Team</p>
+                </a>
+              </li>
+              <%}%>
+              <li class="nav-item">
+                <a href="/admin/masters/initiatives/list" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Initiatives</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <% if(typeof testimonial  !== 'undefined' && testimonial  == 'Yes') {%>
+          <li class="nav-item">
+            <a href="/admin/website-update/testimonial/list" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Testimonial</p>
+            </a>
+          </li>
+          <%}%>
+
+          <li class="nav-item">
+            <a href="/admin/logout" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

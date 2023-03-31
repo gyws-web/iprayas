@@ -1,0 +1,113 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Initiatives : <%= initiatives_details ? initiatives_details.title : ''%></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website Update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/initiatives/list">Initiatives</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" method="post" enctype="multipart/form-data" name="initiatives_form">
+            <div class="card">
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+                <div class="col-12 mb-5 parent_class" id="dynId_1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Heading<span class="req"> *</span></label><span class="remove" id="1">Remove</span>
+                        <input type="text" name="sub_heading[]" id="sub_heading" class="form-control" placeholder="Title" value="<%= initiatives_details ? initiatives_details.sub_heading : ''%>">
+                        <input type="hidden" name="Initiatives_page_content_id[]" value="<%= initiatives_details ? initiatives_details.Initiatives_page_content_id : ''%>">
+                      </div>
+                    </div>
+                  </div><!--.row-->
+
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Content<span class="req"> *</span></label>
+                        <textarea name="sub_description[]" id="sub_description" class="form-control" placeholder="Content"><%= initiatives_details ? initiatives_details.sub_description : ''%></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- col-12 -->
+
+
+                <label class="add_more">+ Add More</label>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="initiatives_details" id="initiatives_details" value="<%= initiatives_details ? initiatives_details.initiatives_id : '' %>">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<%- include ('../../layouts/footer') %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var i = 0;
+    $(".parent_class").each(function(e) {
+        i++;
+        if(i == 1) $(".remove").hide();
+        console.log(i);
+    });
+
+
+    /**
+     *  Add bew Sub heading and sub description 
+     */ 
+    $(".add_more").click(function() {
+        var html = '<div class="col-12 mb-5 parent_class" id="dynId_'+(i+1)+'"><div class="row"><div class="col-md-12"><div class="form-group"><label>Heading<span class="req"> *</span></label><span class="remove" id="'+(i+1)+'">Remove</span><input type="text" name="sub_heading[]" id="sub_heading" class="form-control" placeholder="Title" value=""></div></div></div><div class="row"><div class="col-md-12"><div class="form-group"><label>Content<span class="req"> *</span></label><textarea name="sub_description[]" id="sub_description" class="form-control" placeholder="Content"></textarea></div></div></div></div>';
+        $(html).insertBefore(this);
+        i++;
+        if(i > 1) $(".remove").show();
+    });
+
+
+    /**
+     * Delete specific headline and description 
+     */
+    $(document).on("click", ".remove", function() {
+        var id = $(this).attr("id");
+        $("#dynId_"+id).remove();
+        i--;
+        console.log(i)
+        if(i == 1) $(".remove").hide();
+    });
+  })
+</script>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

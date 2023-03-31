@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RISE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+        
+<%- include ('../layouts/gyws_header') %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="<%=baseurl%>gyws/assets/css/nep.css">
+<link rel="stylesheet" href="<%=baseurl%>gyws/assets/css/nep_styles.css">
+<link rel="stylesheet" href="<%=baseurl%>gyws/assets/css/nep-style.css">
+<link rel="stylesheet" href=".<%=baseurl%>gyws/assets/css/lib_nep/animate.min.css">
+<link rel="stylesheet" href="<%=baseurl%>gyws/assets/css/lib_nep/ionicons.min.css">
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+
+<style>#more2 {display: none;} #more {display: none;}</style>
+    <section>
+        <div class="intern-main-head row justify-content-center">
+           <img class="top-image" alt="" src="<%=baseurl%>gyws/assets/img/nep/banner_laptop (1).jpg" />
+</div>
+        </div>
+	<center>
+	    <div class="col-6 col-md-4 col-lg-3 intern-category-card-button">
+         	<center class="text-center"><a href="https://dare2compete.com/o/case-challenge-2020-gopali-youth-welfare-society-145340?fbclid=IwAR2HnGG2VKwh-XHQLPAO0BuIdVyA01WloocKUfqMBD7xXp8bENYcnrDq-fs"><button type="button" class="btn">Apply Now</button></a></center>
+            </div>
+	</center>
+        <br></br>
+        <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container" style="margin-top:5%;">
+                            <h1><span class="turquoise"></span> Overview </h1>
+                            <p class="p-large">Gopali Youth Welfare Society believes that students have a huge potential to bring a change in society. To realize its vision 
+			to create an ecosystem for youth to participate in social activities, we at GYWS provide <strong> membership, volunteership and internship </strong> opportunities to 
+				them.  <span id="dots2">...</span><span id="more2">To take a step further towards bringing the youth of the nation in the frontline of solving developmental
+			 challenges,  we started Adhhyayan our first-ever <strong> nation-wide socio-innovation case challenge </strong>, this year. This opportunity for college students of our country
+			 will not only help them sharpen their <strong> problem solving skills </strong> but also make them aware about some of the <strong> most pressing developmental challenges</strong>.
+			 Unlike other competitions which happens generally on paper, if found feasible we will take their solutions to the ground level.</span></p>
+                                <a class="btn-solid-lg page-scroll" onClick="myFunction2()" id="myBtn2">LEARN MORE</a>
+                               <script>
+                                function myFunction2() {
+                                    var dots = document.getElementById("dots2");
+                                    var moreText = document.getElementById("more2");
+                                    var btnText = document.getElementById("myBtn2");
+
+                                    if (dots.style.display === "none") {
+                                        dots.style.display = "inline";
+                                        btnText.innerHTML = "Read more";
+                                        moreText.style.display = "none";
+                                    } else {
+                                        dots.style.display = "none";
+                                        btnText.innerHTML = "Read less";
+                                        moreText.style.display = "inline";
+                                    }
+                                    }
+                            </script>
+
+                    </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="gyws/assets/img/nep/header-teamwork.svg" alt="alternative">
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+
+
+
+ <!-- Objectives -->
+
+<div class="text-center intern-headings mt-5">OBJECTIVES</div>
+            <hr class="intern-head-underline">
+
+		<img style="width: 30%; margin-top: 2rem; display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;"  class="intro-img-small" src="https://scontent.fixr1-1.fna.fbcdn.net/v/t1.15752-9/175119498_1362240584132367_347089455746523686_n.png?_nc_cat=103&ccb=1-3&_nc_sid
+		=ae9488&_nc_ohc=uznDhiI2DM8AX8PjYV8&_nc_oc=AQldhryWIwsY9tQP1zuKZCQHJKYADyx3_B5bMVTVi1FlB8QaIn1_ZqUkMMo5ElyY5bYe4MrYq6IIdD3fpch8HLtg&_nc_ht=scontent.fixr1-1.
+			fna&oh=4948de8b05fe3191b77e9945a1aaf369&oe=60AAC6FC" alt="">
+
+
+
+
+
+ <!-- Judging Panel -->
+
+<div class="text-center intern-headings mt-5">JUDGING PANEL</div>
+            <hr class="intern-head-underline">
+
+<div class="jumbotron jumbotron-fluid" style="text-align: center; background-color: rgb(7,56,99); color: wheat;">
+        <div class="container">
+          <h1 class="display-4">Panel Discussion</h1>
+          <p class="lead">We organised a panel discussion for all the participants on 7th of February, with 2 panelists speaking about the problem statement. The panelists include: Dr. Urvashi Sahni and Mr. Adhitya Iyer.
+				
+        </p>
+	<a href="https://www.google.co.in/">
+        <img src="<%=baseurl%>gyws/assets/img/nep/youtube_PNG15.png" alt="" style="width: 200px; padding: 0"">
+    </a>
+        </div>
+      </div>
+<div class="row" style="padding: 2rem;">
+        <div class="col-lg-6" style="text-align: center;">
+          <img   src="<%=baseurl%>gyws/assets/img/nep/Adhitya Iyer (1).jpeg" alt="Forest" style="height:500px; border-radius: 0;">
+	<h3>Adhitya Iyer</h3>
+        </div>
+        <div class="col-lg-6" style="text-align: center;">
+          <img   src="<%=baseurl%>gyws/assets/img/nep/Image_U_Sahni small.jpg" alt="Forest" style="height:500px; border-radius: 0;">
+	<h3>Dr. Urvashi Sahni </h3>
+        </div>
+      </div>	
+
+
+
+
+
+
+
+
+
+
+ <!-- Problem statement -->
+
+<div class="text-center intern-headings mt-5">Problem Statement</div>
+            <hr class="intern-head-underline">
+
+    <div class="row" style="padding: 3rem;"	>
+        <div class="col-lg-6">
+            <div class="jumbotron" style="background-color: transparent; text-align: center;  ">
+                <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+                attention to featured content or information.</p>
+            <hr class="my-4"> -->
+                <p style="color: #85859f; line-height: 2rem; font-size: 1.2rem;">The first edition of Adhhyayan was successfully conducted in the first quarter of 2021. The developmental challenge 
+			which we gave to our participants was related to the <strong>Indian Education System</strong>. To get a glimpse of the problem statement</p>
+		<p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+                <p style="color: #85859f; line-height: 2rem; font-size: 1.2rem;">The problem statement required people to research efficient strategies to achieve some of the 
+			ambitious targets from <strong>National Education Policy 2020</strong>. 
+			They exensively worked on the problem statement for 2 months, and finally presented their solution. </p>
+                
+            </div>
+        </div>
+        <div class="col-lg-6" style="text-align: center;">
+            <img style="width: 30%; margin-top: 5rem;" class="intro-img-small" src="https://scontent.fixr1-1.fna.fbcdn.net/v/t1.15752-9/174293380_620560429058524_
+		28487933058266260_n.png?_nc_cat=111&ccb=1-3&_nc_sid=ae9488&_nc_ohc=JcG8-R00pEAAX8qMjiD&_nc_ht=scontent.fixr1-1.fna&oh=cdc2d6cb18e6dbd6a9af76f40c64d62a&oe=60ABC12B" alt="">
+        </div>
+    </div>
+
+
+
+
+
+	<div class="container-fluid">
+	    <div class="text-center intern-headings mt-5">AIM</div>
+            <hr class="intern-head-underline">
+	    <section id="about">
+          <div class="container-fluid">
+               <div class="row">
+                    <div class="col-md-offset-1 col-md-3 col-sm-12">
+                         <div class="entry-form">
+                             <p><br>To solve some of the major challenges which Indian Education System is facing.</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-offset-1 col-md-3 col-sm-12">
+                         <div class="entry-form">
+                             <p>To promote youth to come together and interact with our large network of students throughout the country and some industry experts of the domain.</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-offset-1 col-md-3 col-sm-12">
+                         <div class="entry-form">
+                             <p>To provide youth an opportunity to join our network of students and be a part of the community of socially motivated minds like yours in the long run.</p>
+                         </div>
+                    </div>
+                    <div class="col-md-offset-1 col-md-3 col-sm-12">
+                         <div class="entry-form">
+                             <p><br>To bring up ideas and strategies which will be implemented at the ground level.</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>	<div class="container">
+	    <div class="text-center intern-headings mt-5">What's a Stake - Rewards and Prizes?</div>
+            <hr class="intern-head-underline">
+            <p class="text-center text-dark mt-4 mb-4 pb-2">
+                Apart from these primary incentives we also have a lot of exciting prizes and webinars for the
+                participants, which will help them broaden their perspectives regarding what is the reality at the
+                ground level.</p>
+            <hr>
+<div class="row rewards-cards">
+  <div class="col-sm-6">
+    <div class="card">
+        <div class="card-horizontal justify-content-center" style="display: flex; flex: 1 1 auto;">
+            <div class="card-image" style="display: flex; justify-content: center; align-items: center;">
+                <img src="<%=baseurl%>gyws/assets/img/nep/winner.png" alt="" width="165px" height="195px">
+            </div>
+            <div class="card-body" >
+                <h6 class="card-text">Winner</h6>
+                <h3 class="card-title">Rs 30,000</h3>
+                <p class="card-text">Along with the cash prize and certificate, we will also provide a
+                    voucher.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+        <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
+            <div class="card-image" style="display: flex; justify-content: center; align-items: center;">
+                <img src="<%=baseurl%>gyws/assets/img/nep/first.png" alt="" width="165px" height="195px">
+            </div>
+            <div class="card-body">
+                <h6 class="card-text">First Runner Up</h6>
+                <h3 class="card-title">Rs 20,000</h3>
+                <p class="card-text">Along with the cash prize and certificate, we will also provide a
+                    voucher.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row " style="margin-top:3% ">
+  <div class="col-sm-6">
+    <div class="card">
+        <div class="card-horizontal " style="display: flex; flex: 1 1 auto;">
+            <div class="card-image" style="display: flex; justify-content: center; align-items: center;">
+                <img src="<%=baseurl%>gyws/assets/img/nep/second.png" alt="" width="165px" height="195px" >
+            </div>
+            <div class="card-body">
+                <h6 class="card-text">Second Runner Up</h6>
+                <h3 class="card-title">Rs 10,000</h3>
+                <p class="card-text">Along with the cash prize and certificate, we will also provide a
+                    voucher.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+        <div class="card-horizontal" style="display: flex; flex: 1 1 auto;">
+            <div class="card-image" style="display: flex; justify-content: center; align-items: center;">
+                <img src="<%=baseurl%>gyws/assets/img/nep/third.png" alt="" width="165px" height="195px" >
+            </div>
+            <div class="card-body">
+                <h6 class="card-text">Top 5</h6>
+                <h3 class="card-title"> Vouchers</h3>
+                <p class="card-text">Along with the cash prize and certificate, we will also provide a
+                    voucher of worth Rs. 1000 to our top 5 teams..</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+        </div>
+	<div class="container">
+            <div class="text-center intern-headings mt-5">Eligibility</div>
+            <hr class="intern-head-underline"><br><br>
+        </div>
+        <center>
+            <div class="container">
+                <div class="row mt-2 justify-content-around">
+                    <div class="col-lg-3 col-md-6 intern-inc-card" style="background-color: rgb(7,56,99); color: white;border-radius:5px">
+                        <img src="<%=baseurl%>gyws/assets/img/nep/workshops.png"><br><br>
+                        <p style="text-align: center;" class="mt-2">Enthusiastic Participation of any college student
+                            who is willing to bring up a change in the method of learning according to the National
+                            Education Policy are welcome.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 intern-inc-card " style="background-color: white; color: black;border-radius:5px">
+                        <img src="<%=baseurl%>gyws/assets/img/nep/network.png"><br><br>
+                        <p style="text-align: center;" class="mt-2">In each team, there should be 3-5 members and all
+                            the members of the team should be from one college only.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 intern-inc-card" style="background-color: rgb(7,56,99); color: white;border-radius:5px">
+                        <img src="<%=baseurl%>gyws/assets/img/nep/certification.png"><br><br>
+                        <p style="text-align: center;" class="mt-2">Students from any institute irrespective of
+                            department or field of study can come forward to participate.</p>
+                    </div>
+                </div>
+            </div>
+        </center>
+        <hr>
+        <div>
+            <div class="container">
+                <div class="container">
+            		<div class="text-center intern-headings mt-5">Important Dates & Deadline</div>
+            		<hr class="intern-head-underline"><br>        	</div>
+
+        <div class="col-12">
+<br>
+        <img src="<%=baseurl%>gyws/assets/img/competition.png" style="width:100%;height:100%;">        </div>
+      </div>
+
+
+	<div class="text-center intern-headings mt-5">STAGES</div>
+        <hr class="intern-head-underline">
+	<br><br>
+        <div class="row text-center">
+
+            <div class="col-md-4 p-3">
+                <span class="fa-stack fa-3x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-info fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading mt-4">Round - 1: Abstract Submission</h4>
+		<p style="font-family:'Montserrat';">The case will be circulated to all participants after registration individually through the mail.</p>
+		<p style="font-family:'Montserrat';">The participating teams have to submit a comprehensive abstract consisting of 3-5 pages (in pdf/.docx format) before the abstract submission deadline.</p>
+            </div>
+
+            <div class="col-md-4 p-3">
+                <span class="fa-stack fa-3x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-file-upload fa-inverse fa-stack-1x"></i>
+                </span>
+                <h4 class="service-heading mt-4">Round - 2: Presentation Submission</h4>
+		<p style="font-family:'Montserrat';">50 teams will qualify for round 2.</p>
+		<p style="font-family:'Montserrat';">A detailed approach and strategy implementation should be prepared by the selected teams in ppt format (maximum of 10 slides).</p>
+		<p style="font-family:'Montserrat';">The participants have to submit both the .pdf and .pptx form of the presentation by 7th March 21.</p>
+            </div>
+	   	    <div class="col-md-4 p-3">
+                 <span class="fa-stack fa-3x">
+                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                     <i class="fas fa-chalkboard-teacher fa-stack-1x fa-inverse"></i>
+                 </span>
+                     <h4 class="service-heading mt-4">Round - 3: Panel Presentation</h4>
+                 <p style="font-family:'Montserrat';">A total of 10 teams will be selected for the final round.</p>
+		 <p style="font-family:'Montserrat';">The team has to present its submitted ppt in front of our Judge.</p>
+		 <p style="font-family:'Montserrat';">Round 3 will be conducted on 15th March 21.</p>
+            </div>
+	<hr>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Testimonials -->
+
+<div class="text-center intern-headings mt-5">TESTIMONIALS</div>
+        <hr class="intern-head-underline">
+	<br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card d-flex mx-auto" style="height: 800px;">
+		    <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Monal.jpg"> 
+                            </div>
+
+                    <div class="card-text">
+                        <div class="card-title">Mrs. Monal Jayaram</div> The way the competition was organized was marvelous and wonderful. 
+			I would like to congratulate and appreciate the organizers for making this event possible online. 
+			Being a part of many such conversations and events with a range of people, 
+			I honestly felt that the student group has inspired me the most and I experienced the same in this event (the power of youth). 
+			I have also got good learning experience. I would like to appreciate the outstanding work of the participants. 
+			The solutions proposed by the participants can be taken forward as they are related to the education system and our country needs great minds like these. 
+			I hope the ignition put on in this competition becomes a passion for most of the participants. All the best.                    </div>
+                    <div class="footer"> <span id="name">Co-founder and Director<br></span> <span id="position"> <a
+                                href="#">Kaivalya Education Foundation</a></span> </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card d-flex mx-auto" style="height: 800px;">
+                    <div class="card-image"> <img class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/nr_mandal.jpg"> </div>
+                    <div class="card-text">
+                        <div class="card-title">Prof. NR Mandal</div> It was a good experience for me. 
+			I really congratulate the Gopali Youth Welfare Society for giving me an opportunity to be associated with this event for quite some time. 
+			It gives me immense pleasure to see that you all are furthering the cause. T
+			hough this event is completely different from my field of work, I was happy to be a part of GYWS, in fact, to learn something new. 
+			I sincerely wish and sincerely see that all have passionately completed the task by collecting the data,have analysed and have put in a quite amount of time. 
+			Possibly, there will be a few participants positively contributing to improving our national education system.                    </div>
+                    <div class="footer"> <span id="name">Ex Dean (Students' Affairs)<br></span> <span id="position">CEO of <a
+                                href="#">IIT Kharagpur</a></span> </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card d-flex mx-auto " style="height: 800px;">
+                    <div class="card-image"> <img class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Nagraj_prabhu.jpg"> </div>
+                    <div class="card-text">
+                        <div class="card-title">Mr. Nagraj Prabhu</div> A big kudos to the organizers and to the participants as everyone gave a presentation with a lot of effort, data, 
+			and substantial facts. I was thrilled to be a part of this event as it was nice to experience this event as a judge, 
+			where I have always experienced it on the other side as a social entrepreneur. 
+			I had a lot of learning for me from this event being in the field of education for the past 4 years.
+			 Some of the ideas proposed by the participants are even worth implementing as a state policy. 
+			I appreciate you all for the efforts and keep running parallely with the ideas and all the best.                    </div>
+                    <div class="footer"> <span id="name">Chief Operating Officer, BPK Technologies<br></span> <span id="position">UX Designer
+                            at <a href="#">Ex-Maths Program Head, Akshara Foundation</a></span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  <!-- Winners -->
+
+<div class="text-center intern-headings mt-5">WINNERS</div>
+        <hr class="intern-head-underline">
+	<br><br>
+
+    <div class="container">
+        <div class="row" style="">
+            <div class="col-md-6">
+                <div class="card d-flex mx-auto" style="height: 700px; padding-bottom: 20px;">
+                    <div class="card-image"> 
+			<div style="display: flex; justify-content: center; align-items: center; " class="container">
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/jam1.jpg"> 
+                            </div>
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/jam2.png"> 
+                            </div>
+                        </div>  
+		 </div>
+                    <div class="card-text">
+                        <div class="card-title" style="font-size: 3rem;">Jamians</div> GYWS&#39s  Adhyayan was so far the best case study competition that we as a team have participated in. 
+			We got to know about GYWS and its immense contribution to our society in the field of education. What stood out the most in this event was the management 
+			by the organizers and the constant feedback after each round which was smoothly handled.
+ 			We learnt a lot along the rounds about the policy & the current lags of the educational system. Developing implementable ideas
+			 for the challenges provided was definitely a thought provoking task. At the end of the day we were happy to reach the finals of the competition. 
+			From there on out it all mattered on how we were able to present our solution; although the time was an issue given the number of slides with each
+			 telling a story pertinent to the case study. 
+			In the end what we had learnt: (the presentation skills, strategy formulation or story telling) mattered so much that winning was just an icing on the cake. 
+			Incredibly happy with the experience.  
+                  </div>
+                    <div class="footer"> <span id="name"><br></span> <span id="position"> <a
+                                href="#"></a></span> </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card d-flex mx-auto" style="height: 700px; padding-bottom: 20px;">
+                    <div class="card-image"> 
+			<div style="display: flex; justify-content: center; align-items: center; " class="container">
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Sankalp Gupta.jpeg"> 
+                            </div>
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Udit Sharma.jfif"> 
+                            </div>
+                        </div>  
+		 </div>
+                    <div class="card-text">
+                        <div class="card-title" style="font-size: 3rem;">Alphas</div> Adhhyayan - the socio innovation case challenge 2021 was a marvelous event, very well structured and 
+			formulated by GYWS. The competition was a wonderful learning experience for our team in terms of exposure to the current scenario of the Indian 
+			education system. The healthy competition continuously challenged us to level up our game of “out-of-the-box thinking” and to move towards a 
+			solution-oriented approach that can be practically implemented. The competition was a lot different from other competitions we have participated 
+			in till now. The concept of assigning mentors and providing feedback based on our submissions at the end of different rounds really helped us in 
+			improving the mentioned areas. The insights shared by the esteemed panel of judges served as valuable learning lessons to us. 
+			The competition has motivated us to a great extent and we are looking forward to participating in more such events that will be organized
+			 by GYWS in the future. </div>
+                    <div class="footer"> <span id="name"><br></span> <span id="position"><a
+                                href="#"></a></span> </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card d-flex mx-auto ">
+                    <div class="card-image"> 
+			<div style="display: flex; justify-content: center; align-items: center; " class="container">
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Outliers_1_Shashwat.jpg"> 
+                            </div>
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Outliers_3_Jay.jpg"> 
+                            </div>
+                        </div> 
+			<div style="display: flex; justify-content: center; align-items: center; " class="container">
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Outliers_2_Gowri.jpeg"> 
+                            </div>
+                            <div style="padding:0 2rem;" class="">
+                                <img  class="img-fluid d-flex mx-auto win-img"
+                            src="<%=baseurl%>gyws/assets/img/nep/Outliers_4_Nitika.jpeg"> 
+                            </div>
+                        </div> 
+ 			</div>
+                    <div class="card-text">
+                        <div class="card-title" style="font-size: 3rem;">Outliers</div>Every student at some stage of his or her learning journey condemns the education system but 
+			it's easy to criticize when you are sitting on the bleachers. This case challenge provided us with an opportunity to dive into the system
+			 from the administration's perspective. Throughout the competition, we dug into the roots to research and learn about the Indian education system. 
+			As we progressed into the competition, we got further hooked with the PS and learned a lot throughout. In fact, at a point, we weren't concerned with 
+			winning or losing any longer, we just wished to be able to bring out the best of our potential as a team. 
+
+			We also got to know in depth about GYWS and the great work they have been doing as a student-run non-profit organization.
+			 The smooth coordination by their organizing team in a virtual setting is much appreciated. It very well developed the grounds for the
+			 diligent hustle ahead. The jury's feedback at different stages and mentor allocation for the finale was a unique and helpful aspect of the case
+			 challenge. In the end, we are pleased that we could live up to our team name. 
+                   </div>
+                    <div class="footer"> <span id="name"><br></span> <span id="position"> <a href="#"></a></span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+   <!--Our Impact  -->
+<div class="text-center intern-headings mt-5">OUR IMPACT</div>
+        <hr class="intern-head-underline">
+
+      <div class="container-fluid" style="text-align: center;">
+          <div class="row" >
+              <div class="col-lg-6" style="background-color: rgb(7,56,99); color: wheat; padding: 2rem; ">
+                  <p style="font-size: 1.5rem;">Reached</p>
+                  <p style="font-size: 3rem; font-weight: 600;">1,00,000+</p>
+                  <p style="font-size: 1.5rem;">students</p>
+              </div>
+              <div class="col-lg-6" style="background-color: white">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6" style="background-color: white">
+              </div>
+              <div class="col-lg-6" style="background-color: rgb(7,56,99); color: wheat; padding: 2rem; ">
+                  <p style="font-size: 1.5rem;">Participation of</p>
+                  <p style="font-size: 3rem; font-weight: 600;">200+</p>
+                  <p style="font-size: 1.5rem;">Teams</p>
+              </div>
+          </div>
+	<div class="row" >
+              <div class="col-lg-6" style="background-color: rgb(7,56,99); color: wh

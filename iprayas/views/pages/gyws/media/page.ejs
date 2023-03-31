@@ -1,0 +1,286 @@
+<%- include ('../layouts/gyws_header') %>
+
+
+<header id="about-uss" class="masthead-udy">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading text-uppercase my-auto">Media</div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="section">
+    <ul id="myTab" role="tablist" class="nav nav-tabs">
+        <!--<li class="nav-item"><a id="home-tab" data-toggle="tab" href="#blog" role="tab" aria-controls="blog"
+                aria-selected="true" class="nav-link active">Blog</a></li>-->
+        <li class="nav-item"><a id="perception-tab" data-toggle="tab" href="#perception" role="tab"
+                aria-controls="perception" aria-selected="true" class="nav-link active">Perception About Us</a></li>
+        <li class="nav-item"><a id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events"
+                aria-selected="true" class="nav-link">Events</a></li>
+        <li class="nav-item"><a id="articles-tab" data-toggle="tab" href="#articles" role="tab" aria-controls="articles"
+                aria-selected="true" class="nav-link">Newspaper Articles</a></li>
+    </ul>
+
+
+    <div id="myTabContent" class="tab-content">
+        <div id="perception" role="tabpanel" aria-labelledby="perception-tab" class="tab-pane fade show active gyws-sing-tab"><br><br>
+            <h3 class="text-center">Perception About Us</h3><br><br>
+            <div class="section">
+                <div class="row text-center">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
+                        <p>As the IIT Kharagpur batch of 2019 is graduating, our eminent seniors in IIT Kharagpur and
+                            representatives of various student associations within the campus share their experience
+                            with GYWS. Our seniors been always be a source of inspirational and motivational figures for
+                            us. It is due to sincere hardwork and exuberate leadership that society has excelled in the
+                            past years. We are thankful to all the students of IIT Kharagpur for their benevolent and
+                            wish them all the luck in their future endeavours. Our best wises to the passsing out
+                            students. </p><br>
+                        <div class="section">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p><img src="<%=baseurl%>contents/media/perception/ht.jpeg" width="350px" height="350px"></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p><img src="<%=baseurl%>contents/media/perception/ag.jpeg" width="350px" height="350px"></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p><img src="<%=baseurl%>contents/media/perception/ms.jpeg" width="350px" height="350px"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+            </div><br>
+        </div><!-- #perception -->
+
+        <div id="events" role="tabpanel" aria-labelledby="events-tab"
+            style="background-color:#f1f1f1; font-family:'Montserrat';" class="tab-pane fade"><br><br>
+            <h3 class="text-center">Events</h3>
+            <section id="portfolio_m" class="bg-light">
+                <div class="container">
+                    <div class="row">
+                        <% event_list.forEach(function(event) { %>
+                        <div class="col-md-4">
+                            <div class="portfolio_m-item" data-id="<%=event.event_id%>"><a data-toggle="modal" href="#portfolioModal1"
+                                    class="portfolio_m-link">
+                                    <div class="portfolio_m-hover">
+                                        <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div><img src="/contents/events/<%= event.event_id %>/<%= event.thumbnail %>" alt="" class="img-fluid">
+                                </a>
+                                <div class="portfolio_m-caption">
+                                    <h4 id="title_<%=event.event_id%>"><%= event.title %></h4>
+                                    <p class="text-muted"><%= event.description %></p>
+                                </div>
+                                <%
+                                var eve_img_str = '';
+                                event.event_images.forEach(function(eve_img) {
+                                    if(eve_img_str != '') {
+                                        eve_img_str += "," + eve_img.image;
+                                    } else {
+                                        eve_img_str += eve_img_str + eve_img.image;
+                                    }
+                                });
+                                %>
+                                <input type="hidden" name="" id="imgs_<%=event.event_id%>" value="<%=eve_img_str%>" />
+                            </div>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </section>
+        </div><!-- #events -->
+        <!--<div id="blog" role="tabpanel" aria-labelledby="blog-tab" class="tab-pane fade show active gyws-sing-tab">
+            <h3 class="text-center">Blog</h3><br><br>
+            <div class="section">
+                <div class="row">
+                    <% //blog_list.forEach(function(blog) { %>
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 gyws_sing_blog">
+                                <div class="row">
+                                    <a href="<%//=baseurl%>blog/<%//=blog.permalink%>" target="_blank">                                    <div class="col-12"><img src="<%//baseurl%>contents/blogs/<%//=blog.blog_id%>/<%//=blog.featured_image%>" class="img-thumbnail" style="max-width: 100%;"></div>
+                                    <div class="col-12 text-center blog_title mb-2"><%//=blog.title%></div>
+                                    <div class="col-12 text-center blog_content">
+                                        <%
+                                        //var content = blog.blog_content;
+                                        //content = content.replace(/(<([^>]+)>)/ig,"");
+                                        //content = content.substr(1, 100);
+                                        //%>
+                                        <%//= content %>...
+                                    </div>
+                                    <div class="col-12 text-center blog_date">
+                                        <%//=moment(blog.createdAt).format(shortDateFormat)%>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div><!-- .cols -->                        
+                    <%// }) %>
+                </div><!-- .row -->
+            </div><!-- .section -->
+        </div><!-- #blog -->
+    </div>
+
+
+
+
+        <div id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" class="portfolio-modal-1 modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div data-dismiss="modal" class="close-modal">
+                        <div class="lr">
+                            <div class="rl"></div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="modal-body-2"><to class="to_title"></to><br><br>
+                                    <div id="carouselExampleIndicators" data-ride="carousel" class="carousel slide">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="<%=baseurl%>gyws/assets/img/events/tads/1.jpg" alt="First slide" style="width:100%;" class="d-block">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="<%=baseurl%>gyws/assets/img/events/tads/2.jpg" alt="Second slide" style="width:100%;" class="d-block">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="<%=baseurl%>gyws/assets/img/events/tads/3.jpg" alt="Third slide" style="width:100%;" class="d-block">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="<%=baseurl%>gyws/assets/img/events/tads/4.jpg" alt="Fourth slide" style="width:100%;" class="d-block">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="<%=baseurl%>gyws/assets/img/events/tads/5.jpg" alt="Fifth slide" style="width:100%;" class="d-block">
+                                            </div>
+                                        </div>
+                                        <a href="#carouselExampleIndicators" role="button" data-slide="prev" class="carousel-control-prev">
+                                            <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a href="#carouselExampleIndicators" role="button" data-slide="next" class="carousel-control-next">
+                                            <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div><br>
+                                    <button data-dismiss="modal" type="button" class="btn btn-primary"><i class="fas fa-times"></i>Close Gallery</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div id="articles" role="tabpanel" aria-labelledby="articles-tab"
+            style="background-color:#f1f1f1; font-family:'Montserrat';" class="tab-pane fade"><br><br>
+            <h3 class="text-center">Newspaper Articles</h3>
+            <section id="portfolio_m" class="bg-light">
+                <div class="container"></div>
+                <h3 class="text-center">Covid-2019 Articles</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG7" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/abhay banga patrika ss.png" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG8" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/Chamkatha Aina.png" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG9" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/ss samagya2.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-center">General Articles</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG1" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/nw1ss.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG2" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/nw2ss.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG3" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/nw3ss.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG4" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/nw4ss.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG5" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/nw5ss.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio_m-item"><a data-target="#modalIMG6" data-toggle="modal" href="#"
+                                class="portfolio_m-link">
+                                <div class="portfolio_m-hover">
+                                    <div class="portfolio_m-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div><img src="/contents/media/newspaper_articles/nw6ss.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+</div>
+
+<%- include ('../layouts/gyws_footer') %>

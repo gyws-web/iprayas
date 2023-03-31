@@ -1,0 +1,825 @@
+<%- include ('../layouts/gyws_header') %>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=PT+Sans+Narrow&display=swap"
+    rel="stylesheet">
+
+<style>
+    .note {
+        text-align: center;
+        position: relative;
+        height: 30px;
+        bottom: -2px;
+        background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+        color: #fff;
+        font-weight: bold;
+        line-height: 80px;
+        margin-top: 5px;
+    }
+
+    .form-content {
+        padding: 2%;
+        border: 1px solid #ced4da;
+        position: relative;
+        top: 4px;
+        background-color: #a2adb7;
+        /* width: 124%;
+    right: 132px; */
+    }
+
+    .form-control {
+        border-radius: 1rem;
+
+    }
+
+    .nsty {
+        font-family: 'PT Sans Narrow', sans-serif;
+    }
+
+    .btnSubmit {
+        border: none;
+        border-radius: 1.5rem;
+        width: 100%;
+        background: #0062cc;
+        color: #fff;
+        position: relative;
+        top: 7px;
+        margin-top: 1px;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 19px;
+    }
+
+    .req {
+        color: #e93535;
+    }
+
+    body {
+        background: #f2f2f2;
+        font-family: 'Poppins', sans-serif;
+    }
+    .toggle-password{
+        float: right;
+        margin-top: -26px;
+        position: relative;
+        left: -8px;
+        font-size: 16px;
+    }
+    .dp{
+        width: 69px;
+        height: 70px;
+        position: relative;
+        margin-bottom: -22px;
+        border-radius: 45px;
+        left: 20px;
+    }
+    .bmit{
+        border: none;
+        width: 100%;
+        background: #0062cc;
+        color: #fff;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 19px;
+    }
+</style>
+
+<header id="about-uss" class="masthead-au">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading text-uppercase my-auto">REGISTER AS MEMBERS</div>
+        </div>
+    </div>
+</header>
+
+<%- include ('../layouts/op_message') %>
+
+
+        <form action="<%=baseurl%>member/save/reg" action="post" method="post" enctype="multipart/form-data" name="memberReg_form">
+            <div class="form">
+                <div class="note">
+                    <p>Personal Information</p>
+                </div>
+                <div class="form-content">
+                    <div class="row nsty">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Application For<span class="req"> *</span></label>
+                                <select name="appli_for" id="appli_for" class="form-control" <% if(memeberTempDetails!='') {%> disabled="disabled" <% }%> style="width: 100%;">
+                                    <% if(memeberTempDetails !='') { %>
+                                        <option <% if(memeberTempDetails.appli_for == "Auxiliary") {%> selected="selected" <% }%> value='Auxiliary'>Auxiliary</option>
+                                        <option <% if(memeberTempDetails.appli_for == "General") {%> selected="selected" <% }%> value='General'>General</option>
+                                        <option <% if(memeberTempDetails.appli_for == "Advisory") {%> selected="selected" <% }%> value='Advisory'>Advisory</option>
+                                        <option <% if(memeberTempDetails.appli_for == "Trustee") {%> selected="selected" <% }%> value='Trustee'>Trustee</option>
+                                        <option <% if(memeberTempDetails.appli_for == "Other") {%> selected="selected" <% }%> value='Other'>Other</option>
+                                    <%}else{%>
+                                        <option value='Auxiliary'>Auxiliary</option>
+                                        <option value='General'>General</option>
+                                        <option value='Advisory'>Advisory</option>
+                                        <option value='Trustee'>Trustee</option>
+                                        <option value='Other'>Other</option>
+                                    <%}%>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="name" id="name" readonly  value="<%=memeberTempDetails.name%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="name" id="name" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Date of birth<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="date" class="form-control" name="dob" id="dob" readonly  value="<%=memeberTempDetails.bod%>" />
+                                <%}else{%>
+                                    <input type="date" class="form-control" name="dob" id="dob" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label> Age <span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="age" id="age" readonly value="<%=memeberTempDetails.age%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="age" id="age" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Marital Status<span class="req"> *</span></label>
+                                <select name="mrt_st" id="mrt_st" class="form-control" <% if(memeberTempDetails!='') {%> disabled="disabled" <% }%> style="width: 100%;">
+                                    <% if(memeberTempDetails !='') { %>
+                                        <option <% if(memeberTempDetails.mrt_st == "Married") {%> selected="selected" <% }%> value='Married'>Married</option>
+                                        <option <% if(memeberTempDetails.mrt_st == "Singel") {%> selected="selected" <% }%> value='Singel'>Singel</option>
+                                    <%}else{%>
+                                        <option value='Married'>Married</option>
+                                        <option value='Singel'>Singel</option>
+                                    <%}%>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Gender<span class="req"> *</span></label>
+                                <select name="gen_st" id="gen_st" class="form-control" <% if(memeberTempDetails!='') {%> disabled="disabled" <% }%> style="width: 100%;">
+                                    <% if(memeberTempDetails !='') { %>
+                                        <option <% if(memeberTempDetails.gen_st == "M") {%> selected="selected" <% }%> value='M'>M</option>
+                                        <option <% if(memeberTempDetails.gen_st == "F") {%> selected="selected" <% }%> value='F'>F</option>
+                                    <%}else{%>
+                                        <option value='M'>M</option>
+                                        <option value='F'>F</option>
+                                    <%}%>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Education<span class="req"> *</span></label>
+                                <select name="edu_st" id="edu_st" class="form-control" <% if(memeberTempDetails!='') {%> disabled="disabled" <% }%> style="width: 100%;">
+                                    <% if(memeberTempDetails !='') { %>
+                                        <option <% if(memeberTempDetails.edu_st == "10 or below") {%> selected="selected" <% }%> value='10 or below'>10 or below</option>
+                                        <option <% if(memeberTempDetails.edu_st == "10+2") {%> selected="selected" <% }%> value='10+2'>10+2</option>
+                                        <option <% if(memeberTempDetails.edu_st == "Graduate") {%> selected="selected" <% }%> value='Graduate'>Graduate</option>
+                                        <option <% if(memeberTempDetails.edu_st == "PG or above") {%> selected="selected" <% }%> value='PG or above'>PG or above</option>
+                                    <%}else{%>
+                                        <option value='10 or below'>10 or below</option>
+                                        <option value='10+2'>10+2</option>
+                                        <option value='Graduate'>Graduate</option>
+                                        <option value='PG or above'>PG or above</option>
+                                    <%}%>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label> No of dependants</label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="dependants" id="dependants" readonly value="<%=memeberTempDetails.dependants%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="dependants" id="dependants" value="" />
+                                <%}%>
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label> Blood Group</label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="b_grp" id="b_grp" readonly value="<%=memeberTempDetails.b_grp%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="b_grp" id="b_grp" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Father Name<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="f_name" id="f_name" readonly  value="<%=memeberTempDetails.f_name%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="f_name" id="f_name" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> PAN/ Aadher/ College Card No.<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="card_no" id="card_no" readonly  value="<%=memeberTempDetails.card_no%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="card_no" id="card_no" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="note">
+                    <p>Address Information</p>
+                </div>
+                <div class="form-content">
+                    <div class="row nsty">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Current Address<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <textarea class="form-control" name="address" readonly id="address"><%=memeberTempDetails.address%></textarea>
+                                <%}else{%>
+                                    <textarea class="form-control" name="address" id="address"></textarea>
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Pin Code<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="pin_code" id="pin_code" readonly  value="<%=memeberTempDetails.pin_code%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="pin_code" id="pin_code" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>City</label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="city" id="city" readonly  value="<%=memeberTempDetails.city%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="city" id="city" value="" />
+                                <%}%>
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Landmark</label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="landmark" id="landmark" readonly value="<%=memeberTempDetails.landmark%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="landmark" id="landmark" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Telephone</label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="telephone" id="telephone" readonly  value="<%=memeberTempDetails.telephone%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="telephone" id="telephone" value="" />
+                                <%}%>
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Mobile Number<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="mobile" id="mobile" readonly  value="<%=memeberTempDetails.mobile%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="mobile" id="mobile" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Email<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="email" class="form-control" name="email" id="email" readonly value="<%=memeberTempDetails.email%>" />
+                                <%}else{%>
+                                    <input type="email" class="form-control" name="email" id="email" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="note">
+                    <p>Other Details</p>
+                </div>
+                <div class="form-content">
+                    <div class="row nsty">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Photo<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <!-- <input type="file" class="form-control" name="photo" id="photo" readonly  value="<%=memeberTempDetails.photo%>" /> -->
+                                    <img src="<%=baseurl%>contents/operators/<%=memeberTempDetails.photo%>" class="dp">
+                                <%}else{%>
+                                    <input type="file" class="form-control" name="photo" id="photo" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Username<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="text" class="form-control" name="username" id="username" readonly  value="<%=memeberTempDetails.username%>" />
+                                <%}else{%>
+                                    <input type="text" class="form-control" name="username" id="username" value="" />
+                                <%}%>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Password<span class="req"> *</span></label>
+                                <% if(memeberTempDetails !='') { %>
+                                    <input type="password" class="form-control" name="password" id="password" readonly value="<%=memeberTempDetails.password%>" />                                  
+                                <%}else{%>
+                                    <input type="password" class="form-control" name="password" id="password" value="" />
+                                    <span toggle="#password" class="fa fa-lg fa-eye field-icon toggle-password"></span>
+                                <%}%>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <p>Social Connect</p>
+                </div>
+
+                <div class="form-content">
+                    <div class="row nsty">
+                        <div class="row col-12" style=" margin: -2px;">
+                            <div class="col-6">
+                                <div class="card mt-3 tab-card">
+                                    <div class="card-header tab-card-header">
+                                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="one-tab" data-toggle="tab" href="#one"
+                                                    role="tab" aria-controls="One" aria-selected="true">Family Connect
+                                                    One</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two"
+                                                    role="tab" aria-controls="Two" aria-selected="false">Family Connect
+                                                    Two</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three"
+                                                    role="tab" aria-controls="Three" aria-selected="false">Family
+                                                    Connect Three</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active p-3" id="one" role="tabpanel"
+                                            aria-labelledby="one-tab">
+            
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label> Name</label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_fam_name" id="soc_fam_name" readonly value="<%= sociaList[0] ? sociaList[0].fm_name :'' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_fam_name" id="soc_fam_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label>Relationship</label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_rl_name" id="soc_rl_name" readonly value="<%= sociaList[0] ? sociaList[0].fm_rel :'' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_name" id="soc_rl_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label> Email </label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_rl_eml" id="soc_rl_eml" readonly value="<%= sociaList[0] ? sociaList[0].fm_eml :'' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_eml" id="soc_rl_eml" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                        </div>
+                                        <div class="tab-pane fade p-3" id="two" role="tabpanel"
+                                            aria-labelledby="two-tab">
+            
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label> Name</label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_fam_name" id="soc_fam_name" readonly value="<%= sociaList[1] ? sociaList[1].fm_name :''%>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_fam_name" id="soc_fam_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label>Relationship</label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_rl_name" id="soc_rl_name" readonly value="<%= sociaList[1] ? sociaList[1].fm_rel :'' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_name" id="soc_rl_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label> Email </label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_rl_eml" id="soc_rl_eml" readonly value="<%= sociaList[1] ? sociaList[1].fm_eml :'' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_eml" id="soc_rl_eml" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                        </div>
+                                        <div class="tab-pane fade p-3" id="three" role="tabpanel"
+                                            aria-labelledby="three-tab">
+            
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label> Name</label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_fam_name" id="soc_fam_name" readonly value="<%= sociaList[2] ? sociaList[2].fm_name :'' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_fam_name" id="soc_fam_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label>Relationship</label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_rl_name" id="soc_rl_name" readonly value="<%= sociaList[2] ? sociaList[2].fm_rel :'' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_name" id="soc_rl_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group nfld">
+                                                    <label> Email </label>
+                                                    <% if(sociaList !=''){ %>
+                                                        <input type="text" class="form-control" name="soc_rl_eml" id="soc_rl_eml" readonly value="<%= sociaList[2] ? sociaList[2].fm_eml :''  %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_eml" id="soc_rl_eml" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-6">
+                                <div class="card mt-3 tab-card">
+                                    <div class="card-header tab-card-header">
+                                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="one-tab" data-toggle="tab" href="#one1"
+                                                    role="tab" aria-controls="One" aria-selected="true">Social Connect
+                                                    One</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two2"
+                                                    role="tab" aria-controls="Two" aria-selected="false">Social Connect
+                                                    Two</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three3"
+                                                    role="tab" aria-controls="Three" aria-selected="false">Social
+                                                    Connect Three</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                
+                                   
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active p-3" id="one1" role="tabpanel"
+                                            aria-labelledby="one-tab">
+                                            <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label> Name</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_cnn_name" id="soc_cnn_name" readonly value="<%= sociaList[0] ? sociaList[0].so_name : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_cnn_name" id="soc_cnn_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                            <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label>Relationship</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_rl_con" id="soc_rl_con" readonly value="<%= sociaList[0] ? sociaList[0].so_rel : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_con" id="soc_rl_con" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                            <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label> Email</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_cnn_eml" id="soc_cnn_eml" readonly value="<%= sociaList[0] ? sociaList[0].so_eml : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_cnn_eml" id="soc_cnn_eml" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade p-3" id="two2" role="tabpanel"
+                                            aria-labelledby="two-tab">
+                                                        <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label> Name</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_cnn_name" id="soc_cnn_name" readonly value="<%= sociaList[1] ? sociaList[1].so_name : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_cnn_name" id="soc_cnn_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                            <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label>Relationship</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_rl_con" id="soc_rl_con" readonly value="<%= sociaList[1] ? sociaList[1].so_rel : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_con" id="soc_rl_con" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                            <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label> Email</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_cnn_eml" id="soc_cnn_eml" readonly value="<%= sociaList[1] ? sociaList[1].so_eml : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_cnn_eml" id="soc_cnn_eml" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade p-3" id="three3" role="tabpanel"
+                                            aria-labelledby="three-tab">
+                                                        <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label> Name</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_cnn_name" id="soc_cnn_name" readonly value="<%= sociaList[2] ? sociaList[2].so_name : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_cnn_name" id="soc_cnn_name" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                            <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label>Relationship</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_rl_con" id="soc_rl_con" readonly value="<%= sociaList[2] ? sociaList[2].so_rel : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_rl_con" id="soc_rl_con" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+            
+                                            <div class="col-12">
+                                                <div class="form-group nffld">
+                                                    <label> Email</label>
+                                                    <% if(sociaList !='') { %>
+                                                        <input type="text" class="form-control" name="soc_cnn_eml" id="soc_cnn_eml" readonly value="<%= sociaList[2] ? sociaList[2].so_eml : '' %>" />
+                                                    <% }else{ %>
+                                                        <input type="text" class="form-control" name="soc_cnn_eml" id="soc_cnn_eml" value="" />
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+
+               
+
+                <div class="note">
+                    <p>Term & Condition</p>
+                </div>
+                <div class="form-content">
+                    <div class="row nsty">
+                        <input class="form-control"  <% if(memeberTempDetails !='') {%> checked <% }%> style="height: 13px;" type="checkbox" name="TandC" id="TandC">
+                        <p style="margin: 20px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type
+                            specimen book. It has survived not only five centuries, but also the leap into
+                            electronic typesetting, remaining essentially unchanged. It was popularised in
+                            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                        
+                    </div>
+                </div>
+                
+                <% if(memeberTempDetails !='') { %>
+                <%}else{%>
+                    <button type="submit" id="sub" style="display: block;" class="btnSubmit">Submit</button>
+                <%} %> 
+            </div>
+        </form>
+
+
+
+
+<div style="position: relative;top: 50px;">
+    <%- include ('../layouts/gyws_footer') %>
+</div>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>
+
+<script>
+    $("#dob").change(function () {
+        var today = new Date();
+        var birthDate = new Date($('#dob').val());
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        $('#age').val(age);
+    });
+
+// $("#TandC").change(function(){
+//     if(this.checked) {
+//         $('#sub').show();
+//     }else{
+//         $('#sub').hide();
+//     } 
+// })
+
+$(".toggle-password").click(function() {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+});
+
+// $(document).ready(function() {
+//   $('.btnSubmit').on('click', function() {
+//     let empty = false;
+
+//     $('.nfld input').each(function() {
+//       empty = $(this).val().length == 0;
+//     });
+
+//     if (empty){
+//         alert("Social Conccent all fields are required!")
+//     }
+//   });
+// });
+
+// $(document).ready(function() {
+//   $('.btnSubmit').on('click', function() {
+//     let empty = false;
+
+//     $('.nffld input').each(function() {
+//       empty = $(this).val().length == 0;
+//     });
+
+//     if (empty){
+//         alert("Social Conccent all fields are required!")
+//     }
+//   });
+// });
+
+
+// $("#sub").click(function(){
+//     $("[name=soc_fam_name]").each(function(){
+//         empty = $(this).val().length == 0;  
+//         if (empty){
+//             alert("Family Conccent all tabs and fields are required!");
+//             return false;
+//         }else{
+//             return true;
+//         }
+//     });
+//     $("[name=soc_rl_name]").each(function(){
+//         empty = $(this).val().length == 0;  
+//         if (empty){
+//             alert("Family Conccent all tabs and fields are required!");
+//             return false;
+//         }else{
+//             return true;
+//         }
+//     });
+//     $("[name=soc_rl_eml]").each(function(){
+//         empty = $(this).val().length == 0;  
+//         if (empty){
+//             alert("Family Conccent all tabs and fields are required!");
+//             return false;
+//         }else{
+//             return true;
+//         }
+//     });
+//     $("[name=soc_cnn_name]").each(function(){
+//         empty = $(this).val().length == 0;  
+//         if (empty){
+//             alert("Social Conccent all tabs and fields are required!");
+//             return false;
+//         }else{
+//             return true;
+//         }
+//     });
+//     $("[name=soc_rl_con]").each(function(){
+//         empty = $(this).val().length == 0;  
+//         if (empty){
+//             alert("Social Conccent all tabs and fields are required!");
+//             return false;
+//         }else{
+//             return true;
+//         }
+//     });
+//     $("[name=soc_cnn_eml]").each(function(){
+//         empty = $(this).val().length == 0;  
+//         if (empty){
+//             alert("Social Conccent all tabs and fields are required!");
+//             return false;
+//         }else{
+//             return true;
+//         }
+//     });
+// });
+
+
+
+</script>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Welcome to GYWS</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<% if(typeof article !== 'undefined' && article != '') { %>
+<meta name="description" content="<%=article.meta_description%>">
+<meta name="keywords" content="<%=article.meta_keywords%>">
+
+<meta property="og:title" content="<%=article.title%>">
+<meta property="og:description" content="<%=article.meta_description%>">
+<meta property="og:image" content="<%=featured_image%>">
+<meta property="og:url" content="<%=article.meta_description%>">
+
+<meta name="twitter:title" content="<%=article.title%>"">
+<meta name="twitter:description" content="<%=article.meta_description%>">
+<meta name="twitter:image" content="<%=featured_image%>">
+<meta name="twitter:card" content="summary_large_image">
+<% } %>
+
+<link href='<%=baseurl%>gyws/assets/vendor/bootstrap/css/bootstrap.min.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href='<%=baseurl%>gyws/assets/css/maint.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/au.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/contact.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/members.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/support.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/map.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/initiatives.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/timeline.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/media-gallery-cards.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/top.css' rel="stylesheet" type="text/css">
+<!-- <link href='<%=baseurl%>gyws/assets/css/gal.css' rel="stylesheet" type="text/css"> -->
+<link href='<%=baseurl%>gyws/assets/css/pradon.css' rel="stylesheet" type="text/css">
+
+<!-- <link href='<%=baseurl%>gyws/assets/css/agency.min.css' rel="stylesheet" type="text/css"> -->
+<link href='<%=baseurl%>gyws/assets/css/slick.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/assets/css/slick-theme.css' rel="stylesheet" type="text/css">
+<link href='<%=baseurl%>gyws/custom/custom.gyws.css' rel="stylesheet" type="text/css">
+</head>
+
+<body id="page-top">
+    <nav id="mainNav" style="padding-top: 0px;padding-bottom: 0px;" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-brand navbar-left">
+                <a href="#page-top" class="js-scroll-trigger order-md-first order-0">
+                    <img src="<%=baseurl%>gyws/assets/img/logo.png" alt="" style="width:12em">
+                </a>
+            </span>
+            
+            <button type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fas fa-bars"></i></button>
+            <!-- <div class="menudiv"> -->
+            <% if(typeof donor_name === 'undefined') { %>
+                <ul class="toplinks">
+                    <li><a href="/member/register">Register As Member</a></li>
+                    <li>|</li>
+                    <li><a href="/donor/login">Donor Login</a></li>
+                    <li>|</li>
+                    <li><a href="/donor/registration">Donor Singup</a></li>
+                </ul>
+            <% } else { %>
+                <ul class="toplinks">
+                    <li><a href="/donor/profile"><%=donor_name ? donor_name : donor_username %></a></li>
+                    <li>|</li>
+                    <li><a href="/donor/logout">Logout</a></li>
+                </ul>
+            <% } %>
+                <input type="hidden" name="H_donor_id_header" id="is_donor_logged_in" value="<%=(typeof donor_id !== 'undefined' ? true : false)%>"/>
+                <input type="hidden" name="H_temp_donor_id_header" id="H_temp_donor_id_header" value="<%=(typeof temp_donor_id !== 'undefined' ? temp_donor_id : '')%>"/>
+                
+                <div id="navbarResponsive" class="collapse navbar-collapse">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a href="/" class="nav-link js-scroll-trigger">HOME</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link js-scroll-trigger">ABOUT US</a></li>
+                        <li class="nav-item dropdown"><a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">INITIATIVES</a>
+                            <div aria-labelledby="navbarDropdown" class="dropdown-menu bg-dark border-0">
+                                <a href="/jvm" class="dropdown-item x">JVM</a>
+                                <a href="/prayas" class="dropdown-item x">PRAYAS</a>
+                                <a href="/udyat" class="dropdown-item x">Udyat</a>
+                                <a href="/pfp" class="dropdown-item x">Aarohan</a>
+                                <a href="/kbc" class="dropdown-item x">KGP Blood Connect</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">RESOURCES</a>
+                            <div aria-labelledby="navbarDropdown" class="dropdown-menu bg-dark border-0">
+                                <a href="/resources/reports" class="dropdown-item x">Reports</a>
+                                <a href="/resources/newsletters" class="dropdown-item x">Newsletters</a>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item"><a href="/fin" class="nav-link js-scroll-trigger">RESOURCES</a></li> -->
+                        <li class="nav-item"><a href="/members" class="nav-link js-scroll-trigger">MEMBERS</a></li>
+                        <li class="nav-item"><a href="/media" class="nav-link js-scroll-trigger">MEDIA</a></li>
+                        <li class="nav-item dropdown"><a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">DONATE</a>
+                            <div aria-labelledby="navbarDropdown" class="dropdown-menu bg-dark border-0">
+                                <a href="/donate?program_type=onetime" class="dropdown-item x">Onetime</a>
+                                <a href="/donate?program_type=subscription" class="dropdown-item x">Subscription</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="/contact" class="nav-link js-scroll-trigger">CONTACT US</a></li>
+                        <li class="nav-item"><a href="http://light.gyws.org/" class="nav-link js-scroll-trigger">Light</a></li>
+                    </ul>
+                </div>
+            <!--</div>--><!-- .menudiv -->
+        </div>
+    </nav>

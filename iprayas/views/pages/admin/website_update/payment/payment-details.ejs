@@ -1,0 +1,118 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Payment Details</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website Update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/donation/donation-record/list/"><span class="don_type"></span> Record List</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post">
+            <div class="card">
+              <!-- <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/donation/donation-record/form/">+ Add new  donation record</a> | 
+                    <a href="/admin/website-update/donation/donation-record/list/"><span class="don_type"></span> Record List</a>
+                  </span>
+                </h3>
+              </div> -->
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Donor Name</label>
+                      <input type="text" class="form-control" placeholder="Name" value="<%= payment_details.name%>" <%= ( payment_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Amount (Rs.)</label>
+                      <input type="text" class="form-control" placeholder="Amount" value="<%= payment_details ? payment_details.amount : ''%>" <%= ( payment_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Order ID</label>
+                      <input type="text" class="form-control" value="<%= payment_details ? payment_details.razorpay_order_id : ''%>" <%= ( payment_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Payment Status</label>
+                      <input type="text" class="form-control" style="text-transform: capitalize;" value="<%= payment_details ? payment_details.razorpay_status : ''%>" <%= ( payment_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Date</label>
+                      <input type="text" class="form-control"  value="<%= payment_details ? moment(payment_details.createdAt).format(shortDateFormat) : ''%>" <%= ( payment_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+
+                  <% if(payment_details.razorpay_status == 'succeed') { %>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Renewal</label>
+                      <select name="renewal" id="renewal" class="form-control">
+                        <option value="">Choose...</option>
+                        <option value="New">New</option>
+                        <option value="Renewal">Renewal</option>
+                        <option value="Donated-Not Last Year">Donated-Not Last Year</option>
+                      </select>
+                    </div>
+                  </div>
+                  <% } %>
+                  
+
+                </div><!--.row-->
+              </div><!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="donation_history_id" id="donation_history_id" value="<%= payment_details ? payment_details.donation_history_id : '' %>">
+                <% if(payment_details.razorpay_status == 'succeed') { %>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <% } %>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(payment_details) { %>
+    <script type="text/javascript">
+      document.getElementById('renewal').value="<%= payment_details.renewal %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>

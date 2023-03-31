@@ -1,0 +1,158 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="text-capitalize"><%= report_details ? 'Update' : 'New' %> <%=report_type%> Report</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item text-capitalize"><a href="/admin/website-update/report/<%=report_type%>/list"><%=report_type%> Report</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="impact_report_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/report/<%=report_type%>/form">+ Add new report</a> | 
+                    <a href="/admin/website-update/report/<%=report_type%>/list">Report list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Title<span class="req"> *</span></label>
+                      <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="<%= report_details ? report_details.title : ''%>">
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Session<span class="req"> *</span></label>
+                          <select name="year" id="year" class="form-control" style="width: 100%;">
+                            <option value=''>Choose Year...</option>
+                            <% financial_session_list.forEach(function(fin_sess) { %>
+                                  <option value="<%=fin_sess %>"><%=fin_sess %></option>
+                                <% }) %>
+                          </select>
+                        </div>
+                      </div><!-- .col-md-6 -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>&nbsp;<span class="req"> *</span></label>
+                          <select name="month" id="month" class="form-control" style="width: 100%;">
+                            <option value=''>Choose Month...</option>
+                            <option value='January'>January</option>
+                            <option value='February'>February</option>
+                            <option value='March'>March</option>
+                            <option value='April'>April</option>
+                            <option value='May'>May</option>
+                            <option value='June'>June</option>
+                            <option value='July'>July</option>
+                            <option value='August'>August</option>
+                            <option value='September'>September</option>
+                            <option value='October'>October</option>
+                            <option value='November'>November</option>
+                            <option value='December'>December</option>
+                          </select>
+                        </div>
+                      </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                  </div><!-- .col-md-6 -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Upload Report<span class="req"> *</span><span class="req"> *</span></label>
+                      <div class="custom-file">                        
+                        <input type="file" name="thumbnail" class="custom-file-input" id="thumbnail">
+                        <label class="custom-file-label" for="thumbnail">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Status</label>
+                      <select name="active" id="active" class="form-control" style="width: 100%;">
+                        <option value='Enable'>Enable</option>
+                        <option value='Disable'>Disable</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <% if(report_details && report_details.file) {%>
+                      <figure class="figure" style="max-width:24%;">
+                        <a href="<%=baseurl%>contents/report/<%=report_details.report_id%>/<%=report_details.file%>" target="_blank">
+                        <img src="<%=baseurl%>admin/images/pdf.png" class="figure-img img-fluid rounded img-thumbnail" alt="<%=report_details.thumbnail%>">
+                        <figcaption class="figure-caption text-center text-capitalize"><%=report_type%> Report</figcaption>
+                        </a>
+                      </figure>
+                      <% } %>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="report_id" id="report_id" value="<%= report_details ? report_details.report_id : '' %>">
+                <input type="hidden" name="report_type" id="report_type" value="<%= report_type%>">
+                <button type="submit" class="btn btn-primary"><%= report_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(report_details) { %>
+    <script type="text/javascript">
+      document.getElementById('year').value="<%= report_details.year %>";
+      document.getElementById('month').value="<%= report_details.month %>";
+      document.getElementById('active').value="<%= report_details.active %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

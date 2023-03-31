@@ -1,0 +1,246 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Donor-Student Allotment</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">EACH</a></li>
+              <li class="breadcrumb-item"><a href="#">Donor-Student</a></li>
+              <li class="breadcrumb-item"><a href="#">List</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/each/donor-student/form">+ Allot donor to student</a> | 
+                    <a href="/admin/each/donor-student/list">Donor-student list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped thumbnail-table">
+                    <thead>
+                    <tr>
+                      <th>Sl.</th>
+                      <th>Donor</th>
+                      <th>Student</th>
+                      <th>Class</th>
+                      <th>Donation Program</th>
+                      <th>Date</th>
+                      <th>Duration</th>
+                      <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% 
+                      var sn = 1;
+                      donor_student_list.forEach(function(ds) { %>
+                      <tr>
+                        <td><%= sn %>.</td>
+                        <td>
+                          <a href="/admin/website-update/donor/form/<%=ds.donor_id%>" target="_blank" class="custom-a-color">
+                            <%
+                              var dsrc = '';
+                              if(ds.donor_photo != '') dsrc = baseurl + "contents/donors/" + ds.donor_photo;
+                              else dsrc = baseurl + "admin/images/user.png";
+                            %>
+                            <img src="<%= dsrc %>" class="img-thumbnail list-thumbnail">
+                            <%= ds.donor_name %>
+                          </a>
+                        </td>
+                        <td>
+                          <a href="/admin/each/student/form/<%=ds.student_id%>" target="_blank" class="custom-a-color">
+                            <%
+                              var ssrc = '';
+                              if(ds.student_photo != '') ssrc = baseurl + "contents/students/" + ds.student_photo;
+                              else ssrc = baseurl + "admin/images/user.png";
+                            %>
+                            <img src="<%= ssrc %>" class="img-thumbnail list-thumbnail">
+                            <%= ds.student_name %>
+                          </a>
+                        </td>
+                        <td><%= ds.standard %></td>
+                        <td><a href="/admin/website-update/donation-program/form/<%=ds.donation_program_id%>" target="_blank" class="custom-a-color"><%= ds.program_name %></a></td>
+                        <td><%= moment(ds.createdAt).format(shortDateFormat) %></td>
+                        <td><%= ds.diff %> Days</td>
+                        <td>
+                          <img src="<%=baseurl%>admin/images/send-email.jpg" class="send-email-img" id="<%=sn%>" data-toggle="modal" data-target="#sendEmailModal">
+                          <input type="hidden" id="H_donor_name_<%=sn%>" value="<%= ds.donor_name %>">
+                          <input type="hidden" id="H_donor_email_<%=sn%>" value="<%= ds.donor_email %>">
+                          <input type="hidden" id="H_donor_id_<%=sn%>" value="<%= ds.donor_id %>">
+                          <input type="hidden" id="stid_<%=sn%>" value="<%= ds.student_id %>">
+                          <input type="hidden" id="stname_<%=sn%>" value="<%= ds.student_name %>">
+                          <input type="hidden" id="stclass_<%=sn%>" value="<%= ds.standard %>">
+                        </td>
+                      </tr>
+                    <% sn++; }) %>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                      <th>Sl.</th>
+                      <th>Donor</th>
+                      <th>Student</th>
+                      <th>Class</th>
+                      <th>Donation Program</th>
+                      <th>Date</th>
+                      <th>Duration</th>
+                      <th>Email</th>
+                    </tr>
+                    </tfoot>
+                  </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="sendEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:90%;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Send Acknowledgement Email</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/admin/each/donor-student/send-email" method="post">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Recipient Name:</label>
+                  <input type="text" class="form-control" id="recipient-name" name="recipient_name" readonly="readonly">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="recipient-email" class="col-form-label">Recipient Email:</label>
+                  <input type="text" class="form-control" id="recipient-email" name="recipient_email" readonly="readonly">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="email-type" class="col-form-label">Select Email Type:</label>
+                  <select name="emailtype" id="emailtype" class="form-control">
+                  <option value="">--Select--</option>
+                  <option value="1">Renewal Thanks Mail</option>
+                  <option value="2">New Donation Thanks Mail</option>
+                  <option value="3">Delayed Allotment</option>
+                  <option value="4">School left Mail</option>
+                  <option value="5">New Allotment</option>
+                  <option value="6">Report Card</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="subject" class="col-form-label">Subject</label>
+                  <input type="text" class="form-control" id="subject" name="subject">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <textarea class="form-control" id="message" name="message"></textarea>
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <input type="hidden" name="recipient_id" id="recipient_id" value="">
+            <input type="hidden" name="sender_type" id="sender_type" value="Admin">
+            <input type="hidden" name="recipient_type" id="recipient_type" value="Donor">
+            <input type="hidden" name="st_name" id="st_name" value="">
+            <input type="hidden" name="st_id" id="st_id" value="">
+            <input type="hidden" name="st_class" id="st_class" value="">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send Email</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<%- include ('../../layouts/footer') %>
+
+<script type="text/javascript">
+  /**
+   *  Set donor email, donor name, and donor id in the email form fields of the sendEmailModal modal
+   */
+  $(".send-email-img").click(function() {
+    var id = $(this).attr('id');
+    if(id != '') {
+      $(".modal-body #recipient-name").val($("#H_donor_name_"+id).val());
+      $(".modal-body #recipient-email").val($("#H_donor_email_"+id).val());
+      $(".modal-footer #st_name").val($("#stname_"+id).val());
+      $(".modal-footer #st_id").val($("#stid_"+id).val());
+      $(".modal-footer #st_class").val($("#stclass_"+id).val());
+      $(".modal-footer #recipient_id").val($("#H_donor_id_"+id).val());
+
+      /* <p style="text-align:left;">Respected Sir/Ma’am,</p>
+      <p style='display:block; width:100%; text-align:center;'><strong>Greetings from Gopali Youth Welfare Society(GYWS)</strong>.</p><br/>
+      <p>Your allotted student has left school due to some reasons. So, we are allotting you a new student:</p><br/>
+      <p>Name:  **Student Name**<br/>Class:  **Student Class**</p><br/>
+      <p>I am attaching the report card as well.</p>
+      <br/>Regards,
+      <br/>Gopali Youth Welfare Society
+      <br/>Contact us at gywsociety@gmail.com | Visit us at <a href='https://www.gyws.org'>www.gyws.org</a>
+      <br/><a href=''>Facebook</a> | <a href=''>LinkedIn</a> | <a href=''>Twitter</a> 
+      <br/><img src='https://www.gyws.org/img/logo.png' style='height:100px;background-color:#ccc;'/>
+      
+      */
+    }
+  });
+
+
+
+  $("#emailtype").on('change', function() {
+        var type = $(this).val();
+        var stname = $("#st_name").val();
+        var stclass = $("#st_class").val();
+        if(type){
+               $.ajax ({
+                type: 'POST',
+                url: '/admin/each/donor-student/fetch-template',
+                data: { type: '' + type + '', stname: ''+stname+'', stclass: ''+stclass+'' },
+                success : function(res) {
+                    document.getElementById('subject').value = res.subject;
+                    //document.getElementById("message").value = res.body;
+                    $("#message").summernote("code", res.body);
+                },error:function(e){
+                alert("error");}
+            });
+        }
+    });
+
+
+    $(document).ready(function() {
+        $("#message").summernote();
+    });
+</script>

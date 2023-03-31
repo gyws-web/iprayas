@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<html>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 85%; margin: 0 7.5%;">
+        <div style="text-align: center; padding-left: 50px;">
+            <img src="<%=baseurl%>invoic_logo.png" style="height: 150px; width: 150px;">
+            <h3>Gopali Youth Welfare Society</h3>
+            <p>
+                <h4>(also known as One of the largest student run NGO by IIT Kharagpur students) </h4>
+                Gopali (No Shooting Area), P.O. - Salua, District - Pashchimi Midinipur </br> Kharagpur Railway
+                Settlement 721145 </br> West Bengal India
+            </p>
+        </div>
+
+        <span class="inline">
+            <strong style="padding: 30px;"> Tel. No: 03222296537 </strong>
+            <strong style="padding: 30px;"> gywsociety@gmail.com </strong>
+            <strong style="padding: 30px;"> PAN #: AAAAG5236D </strong>
+        </span>
+
+        <center style="position: relative; margin-top: 25px;margin-bottom: 21px;"><strong>DONATION RECEIPT</strong></center>
+
+        <span class="inline" style="font-size: 15px;">
+            <strong> Receipt No: <%= razorpay_order_id %></strong>
+            <strong style="margin: 125px;">Receipt Date: <%= date %></strong>
+        </span>
+
+        <p> Received with thanks from: </p>
+        <strong style="position: relative;left: 189px;bottom: 33px; font-size: 13px;">
+            <!-- <span> P Bhaskar Rao,</span></br>
+            <span> Managing Director SVISS LABSS Pvt Ltd PhaseII,SIPCOT INDL.COMPLEX,RANIPET</span></br>
+            <span> Vellore 632403</span></br>
+            <span> Tamil Nadu India </span> -->
+            <% donor_details.forEach(donor => {%>
+                <span><%= donor.name %></span><br>
+                <span><%= donor.address %></span><br>
+                <span><%= donor.city %></span><br>
+                <span><%= donor.country %></span>
+            <%  });%>
+        </strong>
+        <!-- <p>the sum of  <strong> Rs. <span id="tot"></span></strong> </p> -->
+        <% if(otherDetails!=''){ %>
+            <% otherDetails.forEach(function(vall){ %>
+                <p><strong>Interval : </strong> <%=vall.interval %></p>
+                <p><strong>Period :</strong> <%=vall.period %></p>
+            <% }) %>
+        <% } %>
+        <p>through <strong> Bank Transfer</strong> for the following:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Donation Purpose</th>
+                    <th>Cost (Rs.)</th>
+                    <th>Qty</th>
+                    <th>Amount (Rs.)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (arrPaymentDetails.length > 0) { %>
+                <% arrPaymentDetails.forEach(pay => {%>
+                <tr>
+                    <td><%=pay.title%> - <%= pay.donation_purpose %></td>
+                    <td><%= pay.amount %></td>
+                    <td><%= pay.qty %></td>
+                    <td><%= pay.total %></td>
+                </tr>
+                <%  });%>
+                <% }%>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th> 
+                    <th></th> 
+                    <th></th>                      
+                    <th id="tot2"></th> 
+                </tr>
+            </tfoot>
+        </table>
+
+        <p style="font-size: 10px;">
+            This receipt is exempt from revenue stamp vide Exemption b Article 53, Schedule I of the Indian Stamp Act, 1899. Donations to One of the largest
+            student run NGO by IIT Kharagpur students qualify for deduction u/s 80G(5) of the Income Tax Act, 1961 vide certificate of exemption no. 80GG Y W S/CIT, K-XIX/Kol/10-11/3932 issued on 17-02-2011. All approvals existing on or after Oct 1, 2009 are deemed to have been extended in
+            perpetuity unless specifically withdrawn. The Government order can be seen here. This receipt is invalid in case of non-realization of the money
+            instrument or reversal of the credit card charge or reversal of donation amount for any reason.
+
+        </p>
+    </div>
+</body>
+
+</html>
+
+    <script>
+        $(document).ready(function () {
+            $('table thead th').each(function (i) {
+                calculateColumn(i);
+            });
+        });
+        function calculateColumn(index) {
+            var total = 0;
+            $('table tr').each(function () {
+                var value = parseInt($('td', this).eq(index).text());
+                if (!isNaN(value)) {
+                    total += value;
+                }
+            });
+            $('#tot').text(total);
+            $('#tot2').text(total);
+            // $('table tfoot td').eq(index).text('Total: ' + total);
+        }
+        
+    </script>

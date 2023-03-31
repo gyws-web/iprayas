@@ -1,0 +1,559 @@
+<%- include ('../layouts/header') %>
+<%- include ('../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-12"><h4>Student</h4><hr/></div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><%=total_no_of_students%></h3>
+                <p>Total number of students</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><%=no_of_alloted_students%></h3>
+
+                <p>Number of alloted students</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><%=no_of_not_alloted_students%></h3>
+
+                <p>Students not alloted</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div><!-- .row -->
+
+
+        <div class="row">
+          <div class="col-12"><h4>Donation</h4><hr/></div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><%=no_of_cur_year_donations%></h3>
+                <p>Total number of donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Rs. <%=current_month_donation%> (<%=cur_month_number_of_donation%>)</h3>
+
+                <p>Current month donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>Rs. <%=current_year_donation%> (<%=no_of_cur_year_donations%>)</h3>
+
+                <p>Current year donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div><!-- .row -->
+
+
+        <div class="row">
+          <div class="col-12"><h4>Current year program wise total donation amount</h4><hr/></div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Rs. <%=cur_year_donation_amount_program_wise%> (<%=no_of_cur_year_donation_program_wise%>)</h3>
+                <p>Program wise total amount</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div><!-- .row -->
+
+
+        <% if(cur_month_new_donation_amount_program_wise.length > 0) { %>
+          <div class="row">
+            <div class="col-12"><h4>New donation program wise</h4><hr/></div>
+            <% cur_month_new_donation_amount_program_wise.forEach(function(item) {%>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. <%=item.total_amount%> (<%=item.number_of_cur_month_new_donation_program_wise%>)</h3>
+                    <p><%=item.program_name%></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            <% }) %>
+          </div><!-- .row -->
+        <% } else { %>
+          <div class="row">
+            <div class="col-12"><h4>New donation program wise</h4><hr/></div>
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3>Rs. 0 (0)</h3>
+                  <p>No donation</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+              </div>
+            </div>
+          </div>
+        <% } %>
+
+
+        <% if(cur_month_renewal_donation_amount_program_wise.length > 0) { %>
+          <div class="row">
+            <div class="col-12"><h4>Renew donation program wise</h4><hr/></div>
+            <% cur_month_renewal_donation_amount_program_wise.forEach(function(item) {%>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. <%=item.total_amount%> (<%=item.no_of_cur_month_renewal_donation_program_wise%>)</h3>
+                    <p><%=item.program_name%></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            <% }) %>
+          </div><!-- .row -->
+        <% } else { %>
+            <div class="row">
+              <div class="col-12"><h4>Renew donation program wise</h4><hr/></div>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. 0 (0)</h3>
+                    <p>No donation</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            </div>
+        <% } %>
+
+
+
+        <% if(cur_month_donated_donation_amount_program_wise.length > 0) { %>
+          <div class="row">
+            <div class="col-12"><h4>Donated-Not last year donation program wise</h4><hr/></div>
+            <% cur_month_donated_donation_amount_program_wise.forEach(function(item) {%>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. <%=item.total_amount%> (<%=item.no_of_cur_month_donated_donation_program_wise%>)</h3>
+                    <p><%=item.program_name%></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            <% }) %>
+          </div><!-- .row -->
+        <% } else { %>
+            <div class="row">
+              <div class="col-12"><h4>Donated-Not last year donation program wise</h4><hr/></div>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. 0 (0)</h3>
+                    <p>No donation</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            </div>
+        <% } %>
+
+
+
+
+        <div class="row">
+          <div class="col-12"><h4>New donation</h4><hr/></div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Rs. <%=total_new_donation_amount_current_month%> (<%=number_of_new_donations_current_month%>)</h3>
+                <p>Current month new donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Rs. <%=total_new_donation_amount_current_year%> (<%=total_new_donations_current_year%>)</h3>
+                <p>Current year new donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div><!-- .row -->
+
+
+
+
+
+        <div class="row">
+          <div class="col-12"><h4>Renewal donation</h4><hr/></div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Rs. <%=total_renewal_donation_amount_current_month%> (<%=number_of_renewal_donations_current_month%>)</h3>
+                <p>Current month renewal donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Rs. <%=total_renewal_donation_amount_current_year%> (<%=total_renewal_donations_current_year%>)</h3>
+                <p>Current year renewal donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div><!-- .row -->
+
+
+
+
+
+
+
+        <div class="row">
+          <div class="col-12"><h4>Donated-not last year donation</h4><hr/></div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Rs. <%=total_donated_donation_amount_current_month%></h3>
+                <p>Current month donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Rs. <%=total_donated_donation_amount_current_year%></h3>
+                <p>Current year donation</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div><!-- .row -->
+
+
+
+
+
+        <% if(institute_wise_fund_received.length > 0) { %>
+          <div class="row">
+            <div class="col-12"><h4>Institute wise donation</h4><hr/></div>
+            <% institute_wise_fund_received.forEach(function(item) {%>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. <%=item.total_amount%> (<%=item.no_of_inst_wise_fund_recv%>)</h3>
+                    <p><%=item.institute%></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            <% }) %>
+          </div><!-- .row -->
+        <% } else { %>
+            <div class="row">
+              <div class="col-12"><h4>Institute wise donation</h4><hr/></div>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. 0 (0)</h3>
+                    <p>No donation</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            </div>
+        <% } %>
+
+
+
+
+
+        <% if(cur_year_ces_record.length > 0) { %>
+          <div class="row">
+            <div class="col-12"><h4>Current year External / SI /CSR donation</h4><hr/></div>
+            <% cur_year_ces_record.forEach(function(item) {%>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. <%=item.current_year_ces_donation%> (<%=item.cur_year_number_of_ces_donation%>)</h3>
+                    <p style="text-transform: uppercase;"><%=item.type%></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            <% }) %>
+          </div><!-- .row -->
+        <% } else { %>
+            <div class="row">
+              <div class="col-12"><h4>External / SI /CSR donation</h4><hr/></div>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. 0 (0)</h3>
+                    <p>No donation</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            </div>
+        <% } %>
+
+
+
+
+
+
+
+        <% if(cur_month_ces_record.length > 0) { %>
+          <div class="row">
+            <div class="col-12"><h4>Current month External / SI /CSR donation</h4><hr/></div>
+            <% cur_month_ces_record.forEach(function(item) {%>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. <%=item.current_month_ces_donation%> (<%=item.cur_month_number_of_ces_donation%>)</h3>
+                    <p style="text-transform: uppercase;"><%=item.type%></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            <% }) %>
+          </div><!-- .row -->
+        <% } else { %>
+            <div class="row">
+              <div class="col-12"><h4>Current month External / SI /CSR donation</h4><hr/></div>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>Rs. 0 (0)</h3>
+                    <p>No donation</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                </div>
+              </div>
+            </div>
+        <% } %>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="row">
+          <div class="col-12"><h4>Expense Record</h4><hr/></div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Rs. <%=current_year_expense%></h3>
+                <p>Current year expense</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <% if(expense_month_wise.length > 0) {%>
+            <% expense_month_wise.forEach(function(item) {%>
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3>Rs. <%=item.total_amount%> (<%=item.no_of_total_donation%>)</h3>
+                  <p><%=moment(item.month, 'MM').format('MMMM')%></p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+              </div>
+            </div>
+            <% }) %>
+          <% } %>
+          <!-- ./col -->
+        </div><!-- .row -->
+
+  
+
+
+
+
+
+      </div><!-- container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<%- include ('../layouts/footer') %>

@@ -1,0 +1,38 @@
+<%- include ('../layouts/gyws_header') %>
+
+
+<header id="about-uss" class="masthead-udy">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading text-uppercase my-auto">Newsletter</div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="section">
+    <div id="newsletter" role="tabpanel" aria-labelledby="newsletter-tab"
+            style="background-color:#f1f1f1; font-family:'Montserrat';" class="tab-pane fade show active"><br><br>
+            <h3 class="text-center">Newsletter</h3><br><br>
+
+            <div style="text-align:center;" class="container-fluid">
+                <% newsletter_list.forEach(function(newsletter) { %>
+                    <h3 class="newsletter_title"><%= newsletter.title %></h3><br>
+                    <div class="row newsletter_row">
+                        <div class="col-md-3 col-sm-2"></div>
+                        <div class="col-md-6 col-sm-8">
+                            <a href="<%=baseurl%><%=newsletter.file%>" download>
+                                <button type="button" class="btn btn-secondary download_button newsletter_button">DOWNLOAD Newsletter of <%=newsletter.month%>, <%=newsletter.year%></button>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-2"></div>
+                    </div><br>
+                    <hr><br>
+                <% }) %>
+            </div><!-- container-fluid -->
+        </div>
+</div><!-- .section -->
+
+
+<%- include ('../layouts/gyws_footer') %>

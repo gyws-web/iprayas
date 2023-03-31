@@ -1,0 +1,261 @@
+<?php include 'include/head.php'; ?>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+<?php include 'include/side_bar.php'; ?>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>View Members</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">View Members</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <form action="" method="">
+               <input type="text" name="filter" class="form-control" placeholder="Filter" style="margin-bottom: 20px;">
+             </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">View Members</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+<div style="overflow-x:auto;">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          S.N
+                      </th>
+                      <th style="width: 20%">
+                          First Name
+                      </th>
+                      <th style="width: 30%">
+                          Last Name
+                      </th>
+                       <th>
+                          Member ID
+                      </th>
+                      <th>
+                          DOB
+                      </th>
+                      <th>
+                          Email
+                      </th>
+                      <th>
+                          Phone
+                      </th>
+                      <th>
+                          Address
+                      </th>
+                      <th>
+                          City
+                      </th>
+                      <th>
+                          State
+                      </th>
+                      <th>Year of joining</th>
+
+                      <th>Post Designation Year</th>
+                      <th>About</th>
+                       <th>Centre Branch</th>
+                       <th>
+                          Img
+                        </th>
+                    
+                  </tr>
+              </thead>
+              <tbody>
+                 <?php
+                 $i=1;
+                  include 'include/connect.php';
+                 $result = mysqli_query($conn, "SELECT * FROM user_form");
+                 while ($data = mysqli_fetch_array($result)) {
+                
+                 ?>
+                
+                 <tr>
+                      <td>
+                         <?php echo $i++; ?>
+                      </td>
+                      <td>
+                          <a>
+                              <?php echo $data['first_name'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+                       <td>
+                          <a>
+                              <?php echo $data['last_name'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+                       <td>
+                          <a>
+                              <?php echo $data['member_id'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+
+                      <td>
+                          <a>
+                              <?php echo $data['dob'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+
+                      <td>
+                          <a>
+                              <?php echo $data['email'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+
+                      <td>
+                          <a>
+                              <?php echo $data['phone'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+
+                      <td>
+                          <a>
+                              <?php echo $data['address'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+
+                      <td>
+                          <a>
+                              <?php echo $data['city'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+
+                      <td>
+                          <a>
+                              <?php echo $data['state'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+                         <td>
+                          <a>
+                              <?php echo $data['year_of_joining'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+                         <td>
+                          <a>
+                              <?php echo $data['post_designation_year'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+                         <td>
+                          <a>
+                              <?php echo $data['centre_branch'] ?>
+                          </a>
+                          <br/>
+                        
+                      </td>
+                         <td>
+                          <a>
+                              <?php echo $data['about'] ?>
+                          </a>
+                          <br/>
+                        
+
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../login-member/uploaded_img/<?php echo $data['image'] ?>">
+                              </li>
+                             
+                          </ul>
+                      </td>
+                    
+                      
+                      <td class="project-actions text-right">                         
+                          <!-- <a class="btn btn-info btn-sm" href="update-members.php?id=<?php echo $data['id'] ?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Update
+                          </a> -->
+                          <a class="btn btn-success btn-sm" href="#">
+                             
+                              Approve
+                          </a>
+                           
+                      </td>
+                        <td class="project-actions text-right">                         
+                          <!-- <a class="btn btn-info btn-sm" href="update-members.php?id=<?php echo $data['id'] ?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Update
+                          </a> -->
+                          <a class="btn btn-danger btn-sm" href="#" style="width: 100px;">
+                             
+                              Send Email
+                          </a>
+                           
+                      </td>
+                  </tr>
+           
+                <?php
+                 }
+                ?>
+                 
+              </tbody>
+          </table>
+        </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<?php include 'include/footer.php'; ?>

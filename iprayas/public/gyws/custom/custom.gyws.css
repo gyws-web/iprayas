@@ -1,0 +1,293 @@
+.body_top {
+    margin-top:5.5em;
+}
+
+.toplinks {
+    float:right;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 50px;
+    font-size: 13px;
+}
+
+.toplinks li {
+    display: inline;
+    list-style: none;
+    color:#fff;
+}
+
+.error {
+    font-size: 11px;
+    color: red;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+}
+
+h4.card-title {
+    margin-bottom: .75rem;
+    height: 56px;
+    overflow: hidden;
+}
+
+p.card-text {
+    height:87px;
+    overflow:hidden;
+}
+
+.donor_login .error {
+    margin-top: 20px;
+}
+
+.xd1 {
+    height:fit-content !important;
+}
+
+.contact_message {
+    font-size: 12px !important;
+    line-height: 1.3em !important;
+    letter-spacing: 0.1em !important;
+}
+.gyws-border {
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.add_minus {
+    color: #fff;
+    padding: 3px;
+    width: 30px;
+    display: inline-block;
+    text-align: center;
+    background-color: blue;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.inc_dec {
+    text-align: center;
+}
+
+.price_lbl {
+    color: #fff;
+    display: block;
+    background-color: #ccc;
+    padding: 8px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.gyws-total-bg {
+    padding: 10px 0;
+    font-weight: bold;
+    padding-right:10px;
+}
+
+.donation_buttons {
+    display:none;
+}
+
+.newsletter_title {
+    font-size:20px;color:#E74A05;font-style:droid-serif;text-align:center;
+}
+
+.newsletter_row {
+    justify-content: space-around;
+}
+
+.newsletter_button {
+    width: 95%; padding-top: 15px; padding-bottom: 15px; font-size: 15px;
+}
+
+.report_h3 {
+    font-size:25px;color:#E74A05;font-style:droid-serif;text-align:center;
+}
+
+.gyws-sing-tab {
+    background-color:#f1f1f1; font-family:'Montserrat';
+}
+
+.gyws_sing_blog {
+    border:1px solid #ccc;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom: 30px;;
+}
+
+.blog_title {
+    color: #000;
+    font-weight: bold;
+    font-size: 16px
+}
+
+.blog_content {
+    font-size:14px;
+    margin-bottom: 35px;
+}
+
+.blog_date {
+    font-size:14px;
+    position: absolute;
+    bottom: 0;
+}
+
+.blog_content, .blog_date {
+    color:#555451 !important;
+}
+
+.article_title {
+    font-size: 22px;
+    color: #000;
+    font-weight: bold;
+}
+
+.article_date {
+    font-size:13px;
+}
+
+.article_thumb_img {
+    max-width:500px;
+    float:left;
+    margin-right:30px;
+}
+
+.article_content {
+    text-align: justify;
+}
+
+.article_tag {
+    background-color: #858585;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px 12px;
+    border-radius: 5px;
+}
+
+.container_donor_menu {
+    margin-top:120px;
+}
+
+.donor_menu {
+    background-color: #ccc;
+    padding: 10px;
+    color: #fff;
+}
+
+.donor_menu li {
+    display: inline;
+    list-style: none;
+}
+
+.donor_menu li a {
+    color: #1292ec;
+    font-size: 15px;
+}
+
+.signinup {
+    padding:0;
+    margin:0;
+    width:100%;
+}
+
+.signinup li {
+    display: inline-block;
+    list-style: none;
+    width: 49%;
+    text-align: center;
+    background-color: #ecebeb;
+    padding: 7px 0;
+}
+
+#upload-pp {
+    display:none;
+}
+
+.vh-center-div {
+    height: 160px;
+    width: 160px;
+    margin: auto;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#preview {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+}
+
+.photo-upload-icon {
+    display: flex;
+    z-index: 9999;
+    position: relative;
+    margin: auto;
+    right: -55px;
+    top: -135px;
+    cursor: pointer;
+}
+
+.gyws-cc {
+    width: 20%;
+    float: left;
+}
+
+.gyws-cn {
+    width: 80%;
+}
+
+.modal-a {
+    color: #1d6ade;
+    font-size: 15px;
+}
+
+.top0 {
+    padding-top:0px !important;
+}
+
+.stu_don_bg {
+    background-color: #ccc;
+    padding: 10px 0;
+}
+
+.student-info {
+    height: 100%;
+}
+
+.student-info p {
+    margin-bottom:0px;
+    font-size: 14px;
+}
+
+.student-info .name {
+    font-size:15px;
+}
+
+.pdf_img {
+    width:50px;
+}
+
+.donor_stu_img {
+    max-width:100px;
+    float:left;
+    margin-right:20px;
+}
+
+.showDesc {
+    cursor: pointer;
+}
+
+.showDesc:focus, .close:focus {
+    outline: none;
+}
+
+@media only screen and (max-width: 991px) {
+    .container_donor_menu {
+        margin-top: 90px;
+    }
+}

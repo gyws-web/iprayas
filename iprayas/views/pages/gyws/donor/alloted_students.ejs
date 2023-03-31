@@ -1,0 +1,74 @@
+<%- include ('../layouts/gyws_header') %>
+<style type="text/css">
+    section {
+        padding-top:30px;
+    }
+</style>
+<div class="container-fluid container_donor_menu">
+    <ul class="donor_menu">
+        <li><a href="/donor/profile">Profile</a></li>
+        <li>|</li>
+        <li><a href="/donor/alloted-students">Alloted Student</a></li>
+        <li>|</li>
+        <li><a href="/donor/passbook">Passbook</a></li>     
+    </ul>
+  </div>
+
+
+<section class="container">
+        <% student_list.forEach(function(student) { %>
+            <div class="row mb-3 stu_don_bg">
+                <div class="col-sm-6 col-md-6">
+                    <img src="/contents/students/<%=student.photo%>" class="donor_stu_img img-thumbnail">
+                    <!-- </div>
+
+                    <div class="col-sm-6 col-md-3 student-info"> -->
+                    <div class="student-info">
+                        <p class="name"><%=student.name%></p>
+                        <p>Standard: <%=student.standard%></p>
+                        <p>Session: <%=student.academic_session%></p>
+                    </div>
+                </div><!-- .col-2 -->
+
+                <div class="col-sm-6 col-md-6 mt-2 text-center">
+                    <% if(student.report1 != '' && student.report1 != null) { %>
+                        <figure class="figure text-center">
+                            <a href="/contents/student_reports/<%=student.report1%>" download>
+                                <img src="/gyws/images/report-card.png" class="figure-img img-thumbnail rounded pdf_img" alt="">
+                                <figcaption class="figure-caption text-center">Report Card 1</figcaption>
+                            </a>
+                        </figure>
+                    <% } %>
+                    <% if(student.report2 != '' && student.report2 != null) { %>
+                        <figure class="figure text-center">
+                            <a href="/contents/student_reports/<%=student.report2%>" download>
+                                <img src="/gyws/images/report-card.png" class="figure-img img-thumbnail rounded pdf_img" alt="">
+                                <figcaption class="figure-caption text-center">Report Card 1</figcaption>
+                            </a>
+                        </figure>
+                    <% } %>
+                    <% if(student.report3 != '' && student.report3 != null) { %>
+                        <figure class="figure text-center">
+                            <a href="/contents/student_reports/<%=student.report3%>" download>
+                                <img src="/gyws/images/report-card.png" class="figure-img img-thumbnail rounded pdf_img" alt="">
+                                <figcaption class="figure-caption text-center">Report Card 1</figcaption>
+                            </a>
+                        </figure>
+                    <% } %>
+                    <% if(student.report4 != '' && student.report4 != null) { %>
+                        <figure class="figure text-center">
+                            <a href="/contents/student_reports/<%=student.report4%>" download>
+                                <img src="/gyws/images/report-card.png" class="figure-img img-thumbnail rounded pdf_img" alt="">
+                                <figcaption class="figure-caption text-center">Report Card 1</figcaption>
+                            </a>
+                        </figure>
+                    <% } %>
+                </div><!-- .col-8 -->
+            </div><!-- .row -->
+        <% }) %>
+</section>
+
+
+
+<%- include ('../layouts/gyws_footer') %>
+

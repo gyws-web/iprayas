@@ -1,0 +1,169 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="text-uppercase"><%=report_type %> REPORT LIST</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item text-capitalize"><a href="#"><%=report_type%> Report</a></li>
+              <li class="breadcrumb-item"><a href="#">List</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right"><a href="/admin/website-update/report/<%=report_type%>/form">+ Add new report</a></span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Sl. No.</th>
+                    <th>Title</th>
+                    <th>Session</th>
+                    <th>Date</th>
+                    <th>File</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% 
+                    var sn = 1;
+                    report_list.forEach(function(report) { %>
+                    <tr>
+                      <td><%= sn %></td>
+                      <td><%= report.title %></td>
+                      <td><%= report.year %> <%= report.month %></td>
+                      <td><%= report.createdAt %></td>
+                      <td><a href="<%=baseurl %><%=report.file %>" target="_blank"><img src="<%=baseurl %>admin/images/pdf.png" width="30"></a></td>
+                      <td>
+                        <a href="/admin/website-update/report/<%=report_type%>/form/<%= report.report_id %>" class="btn btn-success btn-sm mr-2">View</a>
+                        <button class="btn btn-danger btn-sm gyws-btn-del" data-toggle="modal" data-target="#modal-danger" data-del-id="<%= report.report_id %>">Delete</button>
+                        <form action="/admin/website-update/report/<%=report_type%>/delete" method="post" id="del_form_<%= report.report_id %>">
+                            <input type="hidden" name="report_id" id="hidden_id" value="<%= report.report_id %>">
+                            <input type="hidden" name="report_type" id="report_type" value="<%= report.report_type %>">
+                        </form>
+                        <img src="<%=baseurl%>admin/images/send-email.jpg" class="send-email-img" id="<%=sn%>" data-toggle="modal" data-target="#sendEmailModal">
+                        <input type="hidden" id="rtitle_<%=sn%>" value="<%= report.title %>">
+                        <input type="hidden" id="rdate_<%=sn%>" value="<%= report.createdAt %>">
+                        <input type="hidden" id="rattach_<%=sn%>" value="<%= report.file %>">
+                      </td>
+                    </tr>
+                  <% sn++; }) %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Sl. No.</th>
+                    <th>Title</th>
+                    <th>Session</th>
+                    <th>Date</th>
+                    <th>File</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="sendEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:90%">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Send Report Email</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/admin/website-update/report/send-email" method="post">
+          <div class="modal-body">
+
+              <div class="form-group">
+                <label for="subject" class="col-form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" value="**Report Name** from Gopali Youth Welfare Society Giving is not just about making a donation, it's about making a difference">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message" name="message"></textarea>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <input type="hidden" name="rattach" id="rattach" value="">
+            <input type="hidden" name="rtitle" id="rtitle" value="">
+            <input type="hidden" name="rdate" id="rdate" value="">
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" id="moda">Send Email</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<%- include ('../../layouts/footer') %>
+
+<script type="text/javascript">
+  /**
+   *  Set donor email, donor name, and donor id in the email form fields of the sendEmailModal modal
+   */
+    $(".send-email-img").click(function() {
+      var id = $(this).attr('id');
+      if(id != '') {
+        var title = $("#rtitle_"+id).val();
+        var date = $("#rdate_"+id).val();
+        var sub = title+" from Gopali Youth Welfare Society Giving is not just about making a donation, it's about making a difference";
+        var html = "<p style='display:block; width:100%; text-align:center;'><strong>Giving is not just about making a donation, it's about making a difference</strong>";
+        
+        html += "<br><p>We would like to express our gratitude and appreciation for your generosity in support of our initiatives which has made a remarkable difference in the lives of those underprivileged children and helped us in ensuring their bright future.</p>";
+        html += "<br><p style='text-align:left;'>Here we would like to share the following reports:</p>";
+        html += "<br><p><strong>Report:</strong> "+title+"   <strong>Dated: </strong>:"+ date + "</p>";
+
+        html += "<br>Regards,";
+        html += "<br>Gopali Youth Welfare Society";
+        html += "<br>Contact us at gywsociety@gmail.com | Visit us at <a href='https://www.gyws.org'>www.gyws.org</a>";
+        html += "<br><a href=''>Facebook</a> | <a href=''>LinkedIn</a> | <a href=''>Twitter</a> ";
+        html += "<br><img src='https://www.gyws.org/img/logo.png' style='height:100px;background-color:#ccc;'>";
+
+        $(".modal-body #subject").val(sub);
+        $(".modal-body #message").summernote("code",html);
+        $(".modal-footer #rattach").val($("#rattach_"+id).val());
+        $(".modal-footer #rtitle").val($("#rtitle_"+id).val());
+      }
+
+  });
+  $("#moda").click(function() {
+    $("#sendEmailModal").modal("hide")
+  });
+
+  $(document).ready(function() {
+    $('#message').summernote();
+  });
+</script>

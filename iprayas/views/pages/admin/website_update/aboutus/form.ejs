@@ -1,0 +1,86 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1> About Us</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">
+                <button type="submit" class="btn btn-primary"><%= aboutus_details ? 'Update' : 'Save' %></button>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+            <form  action="" method="post" enctype="multipart/form-data" name="aboutus_form">
+                <div class="card">
+                  <%- include ('../../layouts/op_message') %>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Who we are<span class="req"> *</span></label>
+                          <textarea name="who_we_are" id="who_we_are" class="form-control" placeholder="Who we are" style="min-height: 250px;"><%= aboutus_details ? aboutus_details.who_we_are : ''%></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Our History<span class="req"> *</span></label>
+                          <textarea name="our_history" id="our_history" class="form-control" placeholder="Our History" style="min-height: 250px;"><%= aboutus_details ? aboutus_details.our_history : ''%></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Our Vision<span class="req"> *</span></label>
+                          <textarea name="our_vision" id="our_vision" class="form-control" placeholder="Our Vision" style="min-height: 250px;"><%= aboutus_details ? aboutus_details.our_vision : ''%></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Our Mission<span class="req"> *</span></label>
+                          <textarea name="our_mission" id="our_mission" class="form-control" placeholder="Our Mission" style="min-height: 250px;"><%= aboutus_details ? aboutus_details.our_mission : ''%></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Founders Message<span class="req"> *</span></label>
+                          <textarea name="founders_message" id="founders_message" class="form-control" placeholder="Founders Message" style="min-height: 250px;"><%= aboutus_details ? aboutus_details.founders_message : ''%></textarea>
+                        </div>
+                      </div>
+                    </div><!--.row-->
+                  </div><!-- /.card-body -->
+                  <div class="card-footer">
+                    <input type="hidden" name="aboutus_id" id="aboutus_id" value="<%= aboutus_details ? aboutus_details.aboutus_id : '' %>">
+                    <button type="submit" class="btn btn-primary"><%= aboutus_details ? 'Update' : 'Save' %></button>
+                  </div>
+    
+                </div>
+              </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

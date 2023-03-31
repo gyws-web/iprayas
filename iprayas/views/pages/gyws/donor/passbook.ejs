@@ -1,0 +1,61 @@
+<%- include ('../layouts/gyws_header') %>
+<style type="text/css">
+    section {
+        padding-top:30px;
+    }
+</style>
+
+<div class="container-fluid container_donor_menu">
+    <ul class="donor_menu">
+        <li><a href="/donor/profile">Profile</a></li>
+        <li>|</li>
+        <li><a href="/donor/alloted-students">Alloted Student</a></li>
+        <li>|</li>
+        <li><a href="/donor/passbook">Passbook</a></li>     
+    </ul>
+  </div>
+
+
+<section class="container">
+
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>Sl.</th>
+            <th>Date</th>
+            <th>Order ID</th>
+            <th>Status</th>
+            <th>Amount</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% 
+            var sn = 1;
+            payment_list.forEach(function(payment) { %>
+            <tr>
+              <td><%= sn %></td>
+              <td><%=moment(payment.createdAt).format(dateFormatWithTime)%></td>
+              <td><%=payment.razorpay_order_id%></td>
+              <td><%=payment.razorpay_status%></td>
+              <td><i class="fa fa-inr"></i>&nbsp;<%=payment.amount%></td>
+            </tr>
+          <% sn++; }) %>
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Sl.</th>
+            <th>Date</th>
+            <th>Order ID</th>
+            <th>Status</th>
+            <th>Amount</th>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+</section>
+
+
+
+<%- include ('../layouts/gyws_footer') %>
+

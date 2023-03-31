@@ -1,0 +1,89 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Donation Category List</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Masters</a></li>
+              <li class="breadcrumb-item"><a href="#">Donation Category</a></li>
+              <li class="breadcrumb-item"><a href="#">List</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right"><a href="/admin/masters/donation-category/form">+ Add new donation category</a></span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Sl. No.</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% 
+                    var sn = 1;
+                    donation_category_list.forEach(function(dc) { %>
+                    <tr>
+                      <td><%= sn %></td>
+                      <td><%= dc.title %></td>
+                      <td><%= dc.priority %></td>
+                      <td><%= dc.active %></td>
+                      <td>
+                        <a href="/admin/masters/donation-category/form/<%= dc.donation_category_id %>" class="btn btn-success btn-sm mr-2">View</a>
+                        <button class="btn btn-danger btn-sm gyws-btn-del" data-toggle="modal" data-target="#modal-danger" data-del-id="<%= dc.donation_category_id %>">Delete</button>
+                        <form action="/admin/masters/donation-category/delete" method="post" id="del_form_<%= dc.donation_category_id %>">
+                            <input type="hidden" name="donation_category_id" id="hidden_id" value="<%= dc.donation_category_id %>">
+                        </form>
+                      </td>
+                    </tr>
+                  <% sn++; }) %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Sl. No.</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<%- include ('../../layouts/footer') %>

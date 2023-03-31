@@ -1,0 +1,840 @@
+/*
+  jvm pages css starts
+*/
+body div.shortintro h2{
+  text-align: center;
+  font-size: 75%;
+  margin-top: -2%;
+  margin-bottom: 2.5%;
+}
+.xbox {
+  height: auto;
+  margin-left: 5%;
+  text-align: center;
+}
+.xrow {
+  margin-top: 2.5%;
+}
+.jvm_intro h5 {
+  margin-bottom: 3%;
+}
+.jvm_intro p {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+/* .xbox i {
+  font-size: 250%;
+  border-radius: 100%;
+  border: 1px solid blue;
+  padding: 3%;
+  color: purple;
+  background: #f1f1f1;
+}
+.xbox i:hover {
+  color: #f1f1f1;
+  background: purple;
+} */
+.yrow {
+  margin-top: 5%;
+}
+.ybox h5 {
+  margin-left: 15%;
+}
+.ybox h6 {
+  padding-bottom: 5%;
+}
+.ybox {
+  text-align: center;
+  height: auto;
+}
+
+.xbox h5 {
+  margin-top: 3%;
+}
+.col-md-5 {
+  margin-left: 5%;
+}
+.ybox i {
+  font-size: 500%;
+  border-radius: 100%;
+  border: 1px solid blue;
+  padding: 5%;
+  color: purple;
+  background: #f1f1f1;
+  margin-top: 5%;
+  margin-bottom: 1.5%;
+  margin-left: 10%;
+}
+.ybox i:hover {
+  color: #f1f1f1;
+  background: purple;
+}
+@media screen and (max-width: 992px) {
+  body div.shortintro {
+    margin-top: 6.5em;
+  }
+  body div.layout .yrow p {
+    font-size: 100%;
+    margin-top: 1%;
+  }
+  body div.layout .ybox {
+    margin-bottom: 2.5%;
+  }
+  #div_h4_t {
+    margin-right: 2%;
+  }
+  #div_h4_c {
+    margin-left: 2%;
+  }
+  body div.layout .yrow i {
+    font-size: 300%;
+  }
+  body div.layout .yrow h3 {
+    font-size: 150%;
+  }
+  #qoutes {
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}
+@media screen and (max-width: 662px) {
+  body div.layout .yrow p {
+    font-size: 75%;
+    margin-top: 0%;
+  }
+  body div.layout .dbox {
+    margin-bottom: 0.5%;
+  }
+  #div_h4_t {
+    margin-right: 0%;
+  }
+  #div_h4_c {
+    margin-left: 0%;
+  }
+  body div.layout .yrow i {
+    font-size: 250%;
+  }
+  body div.layout .yrow h3 {
+    font-size: 125%;
+  }
+  #quotes {
+    margin-bottom: 0%;
+    margin-top: 0%;
+  }
+  .yrow {
+    float: left;
+  }
+}
+/*
+  jvm pages css ends
+*/
+
+/* udyat page starts */
+
+.shortintro {
+  margin-top: 10em;
+}
+.shortintro h1 {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 2.5%;
+}
+.shortintro p {
+  font-size: 125%;
+  text-align: center;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+.dbox {
+  height: auto;
+  margin-bottom: 5%;
+}
+.dbox i {
+  font-size: 450%;
+  border-radius: 100%;
+  border: 1px solid blue;
+  padding: 10%;
+  color: purple;
+  background: #f1f1f1;
+  margin-top: 7.5%;
+}
+.dbox i:hover {
+  color: #f1f1f1;
+  background: purple;
+}
+
+.dbox img {
+  font-size: 450%;
+  margin-top: 10%;
+  margin-left: 25%;
+}
+.h4_t {
+  text-align: left;
+  text-decoration: underline;
+}
+.h4_c {
+  text-align: right;
+  text-decoration: underline;
+}
+#div_h4_t {
+  margin-right: 4%;
+}
+#div_h4_c {
+  margin-left: 4%;
+}
+
+.dbox p {
+  font-size: 125%;
+  margin-top: 2%;
+}
+.h4_p_c {
+  text-align: right;
+}
+.h4_p_t {
+  text-align: left;
+}
+#more {
+  display: none;
+}
+#seeMore {
+  cursor: pointer;
+  color: red;
+}
+.layout h3 {
+  font-size: 200%;
+  margin-bottom: 5%;
+  text-align: center;
+  margin-top: 1.5%;
+  text-decoration: underline;
+}
+#quotes {
+  text-align: center;
+  background: #f1f1f1;
+  border: 1px solid blue;
+  padding: 1%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
+.symbols {
+  font-size: 125%;
+}
+@media screen and (max-width: 992px) {
+  body div.shortintro {
+    margin-top: 6.5em;
+  }
+  body div.layout .arow p {
+    font-size: 100%;
+    margin-top: 1%;
+  }
+  body div.layout .dbox {
+    margin-bottom: 2.5%;
+  }
+  body div.layout .arow i {
+    margin-top: 20%;
+  }
+  body div.layout .arow h4 {
+    font-size: 125%;
+  }
+  #div_h4_t {
+    margin-right: 2%;
+  }
+  #div_h4_c {
+    margin-left: 2%;
+  }
+  body div.layout i {
+    font-size: 300%;
+  }
+  body div.layout h3 {
+    font-size: 150%;
+  }
+  #qoutes {
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}
+@media screen and (max-width: 662px) {
+  body div.layout .arow p {
+    font-size: 75%;
+    margin-top: 0%;
+  }
+  body div.layout .dbox {
+    margin-bottom: 0.5%;
+  }
+  body div.layout .arow h4 {
+    font-size: 100%;
+  }
+  body div.layout .arow i {
+    margin-top: 30%;
+  }
+  #div_h4_t {
+    margin-right: 0%;
+  }
+  #div_h4_c {
+    margin-left: 0%;
+  }
+  body div.layout i {
+    font-size: 250%;
+  }
+  body div.layout h3 {
+    font-size: 125%;
+  }
+  #quotes {
+    margin-bottom: 0%;
+    margin-top: 0%;
+  }
+}
+
+/* udyat page ends */
+
+/* prayas page starts */
+
+#portfolio_m .portfolio_m-item {
+  right: 0;
+  margin: 0 0 15px;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-link {
+  position: relative;
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-link .portfolio_m-hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  opacity: 0;
+  background: rgba(254, 209, 54, 0.9);
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-link .portfolio_m-hover:hover {
+  opacity: 1;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-link .portfolio_m-hover .portfolio_m-hover-content {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 20px;
+  margin-top: -12px;
+  text-align: center;
+  color: white;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-link .portfolio_m-hover .portfolio_m-hover-content i {
+  margin-top: -12px;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-link .portfolio_m-hover .portfolio_m-hover-content h3,
+#portfolio_m .portfolio_m-item .portfolio_m-link .portfolio_m-hover .portfolio_m-hover-content h4 {
+  margin: 0;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-caption {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: center;
+  background-color: #fff;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-caption h4 {
+  margin: 0;
+  text-transform: none;
+}
+
+#portfolio_m .portfolio_m-item .portfolio_m-caption p {
+  font-size: 16px;
+  font-style: italic;
+  margin: 0;
+  font-family: 'Montserrat';
+}
+
+#portfolio_m * {
+  z-index: 2;
+}
+
+@media (min-width: 767px) {
+  #portfolio_m .portfolio_m-item {
+    margin: 0 0 30px;
+  }
+}
+
+.portfolio_m-modal-1 {
+  padding-right: 0px !important;
+}
+
+.portfolio_m-modal-1 .modal-dialog {
+  margin:   rem;
+  max-width: 70%;
+}
+.portfolio_m-modal-1 .modal-content {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.portfolio_m-modal-1 .modal-content h2 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.portfolio_m-modal-1 .modal-content p {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-1 .modal-content p.item-intro {
+  font-size: 16px;
+  font-style: italic;
+  margin: 20px 0 30px;
+  font-family: 'Montserrat';
+}
+
+.portfolio_m-modal-1 .modal-content ul.list-inline {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-1 .modal-content img {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-1 .modal-content button {
+  cursor: pointer;
+}
+
+.portfolio_m-modal-1 .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.portfolio_m-modal-1 .close-modal:hover {
+  opacity: 0.3;
+}
+
+.portfolio_m-modal-1 .close-modal .lr {
+  /* Safari and Chrome */
+  z-index: 1051;
+  width: 1px;
+  height: 55px;
+  margin-left: 35px;
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-1 .close-modal .lr .rl {
+  /* Safari and Chrome */
+  z-index: 1052;_m
+  width: 1px;
+  height: 55px;
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-2 {
+  padding-right: 0px !important;
+}
+
+.portfolio_m-modal-2 .modal-dialog {
+  margin:   rem;
+  max-width: 70%;
+}
+.portfolio_m-modal-2 .modal-content {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.portfolio_m-modal-2 .modal-content h2 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.portfolio_m-modal-2 .modal-content p {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-2 .modal-content p.item-intro {
+  font-size: 16px;
+  font-style: italic;
+  margin: 20px 0 30px;
+  font-family: 'Montserrat';
+}
+
+.portfolio_m-modal-2 .modal-content ul.list-inline {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-2 .modal-content img {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-2 .modal-content button {
+  cursor: pointer;
+}
+
+.portfolio_m-modal-2 .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.portfolio_m-modal-2 .close-modal:hover {
+  opacity: 0.3;
+}
+
+.portfolio_m-modal-2 .close-modal .lr {
+  /* Safari and Chrome */
+  z-index: 1051;
+  width: 1px;
+  height: 55px;
+  margin-left: 35px;
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-2 .close-modal .lr .rl {
+  /* Safari and Chrome */
+  z-index: 1052;
+  width: 1px;
+  height: 55px;
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #212529;
+}
+.portfolio_m-modal-3 {
+  padding-right: 0px !important;
+}
+
+.portfolio_m-modal-3 .modal-dialog {
+  margin:   rem;
+  max-width: 70%;
+}
+.portfolio_m-modal-3 .modal-content {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.portfolio_m-modal-3 .modal-content h2 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.portfolio_m-modal-3 .modal-content p {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-3 .modal-content p.item-intro {
+  font-size: 16px;
+  font-style: italic;
+  margin: 20px 0 30px;
+  font-family: 'Montserrat';
+}
+
+.portfolio_m-modal-3 .modal-content ul.list-inline {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-3 .modal-content img {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-3 .modal-content button {
+  cursor: pointer;
+}
+
+.portfolio_m-modal-3 .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.portfolio_m-modal-3 .close-modal:hover {
+  opacity: 0.3;
+}
+
+.portfolio_m-modal-3 .close-modal .lr {
+  /* Safari and Chrome */
+  z-index: 1051;
+  width: 1px;
+  height: 55px;
+  margin-left: 35px;
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-3 .close-modal .lr .rl {
+  /* Safari and Chrome */
+  z-index: 1052;
+  width: 1px;
+  height: 55px;
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-4 {
+  padding-right: 0px !important;
+}
+
+.portfolio_m-modal-4 .modal-dialog {
+  margin:   rem;
+  max-width: 70%;
+}
+.portfolio_m-modal-4 .modal-content {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.portfolio_m-modal-4 .modal-content h2 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.portfolio_m-modal-4 .modal-content p {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-4 .modal-content p.item-intro {
+  font-size: 16px;
+  font-style: italic;
+  margin: 20px 0 30px;
+  font-family: 'Montserrat';
+}
+
+.portfolio_m-modal-4 .modal-content ul.list-inline {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-4 .modal-content img {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-4 .modal-content button {
+  cursor: pointer;
+}
+
+.portfolio_m-modal-4 .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.portfolio_m-modal-4 .close-modal:hover {
+  opacity: 0.3;
+}
+
+.portfolio_m-modal-4 .close-modal .lr {
+  /* Safari and Chrome */
+  z-index: 1051;
+  width: 1px;
+  height: 55px;
+  margin-left: 35px;
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-4 .close-modal .lr .rl {
+  /* Safari and Chrome */
+  z-index: 1052;
+  width: 1px;
+  height: 55px;
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-6 {
+  padding-right: 0px !important;
+}
+
+.portfolio_m-modal-6 .modal-dialog {
+  margin:   rem;
+  max-width: 70%;
+}
+.portfolio_m-modal-6 .modal-content {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.portfolio_m-modal-6 .modal-content h2 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.portfolio_m-modal-6 .modal-content p {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-6 .modal-content p.item-intro {
+  font-size: 16px;
+  font-style: 'montserrat';
+  margin: 20px 0 30px;
+  font-family: 'Montserrat';
+}
+
+.portfolio_m-modal-6 .modal-content ul.list-inline {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-6 .modal-content img {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-6 .modal-content button {
+  cursor: pointer;
+}
+
+.portfolio_m-modal-6 .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.portfolio_m-modal-6 .close-modal:hover {
+  opacity: 0.3;
+}
+
+.portfolio_m-modal-6 .close-modal .lr {
+  /* Safari and Chrome */
+  z-index: 1051;
+  width: 1px;
+  height: 55px;
+  margin-left: 35px;
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-6 .close-modal .lr .rl {
+  /* Safari and Chrome */
+  z-index: 1052;
+  width: 1px;
+  height: 55px;
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-5 {
+  padding-right: 0px !important;
+}
+
+.portfolio_m-modal-5 .modal-dialog {
+  margin:   rem;
+  max-width: 70%;
+}
+.portfolio_m-modal-5 .modal-content {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.portfolio_m-modal-5 .modal-content h2 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.portfolio_m-modal-5 .modal-content p {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-5 .modal-content p.item-intro {
+  font-size: 16px;
+  font-style: italic;
+  margin: 20px 0 30px;
+  font-family:'Montserrat'
+}
+
+.portfolio_m-modal-5 .modal-content ul.list-inline {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-5 .modal-content img {
+  margin-bottom: 30px;
+}
+
+.portfolio_m-modal-5 .modal-content button {
+  cursor: pointer;
+}
+
+.portfolio_m-modal-5 .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.portfolio_m-modal-5 .close-modal:hover {
+  opacity: 0.3;
+}
+
+.portfolio_m-modal-5 .close-modal .lr {
+  /* Safari and Chrome */
+  z-index: 1051;
+  width: 1px;
+  height: 55px;
+  margin-left: 35px;
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #212529;
+}
+
+.portfolio_m-modal-5 .close-modal .lr .rl {
+  /* Safari and Chrome */
+  z-index: 1052;
+  width: 1px;
+  height: 55px;
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #212529;
+}
+

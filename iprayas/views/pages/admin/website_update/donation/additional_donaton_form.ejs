@@ -1,0 +1,166 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= donation_details ? 'Update' : 'New' %> <span class="don_type"><%=type%></span> Donation Record</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Wesite Update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/donation/donation-record/list/<%=type%>"><span class="don_type"><%=type%></span> Record List</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="donation_record_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/donation/donation-record/form/<%=type%>">+ Add new <%=type%> donation record</a> | 
+                    <a href="/admin/website-update/donation/donation-record/list/<%=type%>"><span class="don_type"><%=type%></span> Record List</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Name<span class="req"> *</span></label>
+                      <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="<%= donation_details ? donation_details.name : ''%>" <%= ( donation_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Email<span class="req"> *</span></label>
+                      <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<%= donation_details ? donation_details.email : ''%>" <%= ( donation_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Mobile<span class="req"> *</span></label>
+                      <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Mobile" value="<%= donation_details ? donation_details.mobile : ''%>" <%= ( donation_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Amount<span class="req"> *</span></label>
+                      <input type="text" name="amount" id="amount" class="form-control" placeholder="Amount" value="<%= donation_details ? donation_details.amount : ''%>" <%= ( donation_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Payment Option<span class="req"> *</span></label>
+                      <select name="payment_option" id="payment_option" class="form-control" <%= ( donation_details ? 'readonly=readonly' : '') %></select>>
+                        <option value=''>Choose...</option>
+                        <% if(type == "external") {%>
+                          <option value="Bank Transfer">Bank Transfer</option>
+                          <option value="Cash">Cash</option>
+                          <option value="Cheque">Cheque</option>
+                        <% } %>
+                        <% if(type == "csr") {%>
+                          <option value="CSR">CSR</option>
+                        <% } %>
+                        <% if(type == "si") {%>
+                          <option value="SI Form">SI Form</option>
+                        <% } %>
+                      </select>
+                    </div>
+                  </div>
+                  <% if(type == "external") {%>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Transaction ID</label>
+                      <input type="text" name="transaction_id" id="transaction_id" class="form-control" placeholder="Transaction ID" value="<%= donation_details ? donation_details.transaction_id : ''%>" <%= ( donation_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+                  <% } %>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Date<span class="req"> *</span></label>
+                      <input type="date" name="date" id="date" class="form-control" placeholder="Date" value="<%= donation_details ? donation_details.date : ''%>" <%= ( donation_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+                  <% if(type != "external") {%>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Defaulter Month<span class="req"> *</span></label>
+                      <input type="number" name="defaulter_month" id="defaulter_month" class="form-control" placeholder="defaulter_month" value="<%= donation_details ? donation_details.defaulter_month : ''%>" <%= ( donation_details ? 'readonly=readonly' : '') %>>
+                    </div>
+                  </div>
+                  <% } %>
+
+                  <% if(type == "external") {%>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Renewal</label>
+                      <select name="renewal" id="renewal" class="form-control">
+                        <option value=''>Choose...</option>
+                        <option value="New">New</option>
+                        <option value="Renewal">Renwal</option>
+                        <option value="Donated-Not Last Year">Donated-Not Last Year</option>
+                      </select>
+                    </div>
+                  </div>
+                  <% } %>
+
+                  <% if(type == "csr" || type == "si") {%>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Payment Received<span class="req"> *</span></label>
+                        <select name="payment_received" id="payment_received" class="form-control">
+                          <option value=''>Choose...</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <% } %>
+
+                </div><!--.row-->
+              </div><!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="add_don_record_id" id="add_don_record_id" value="<%= donation_details ? donation_details.add_don_record_id : '' %>">
+                <input type="hidden" name="type" id="type" value="<%= donation_details ? donation_details.type : '' %>">
+                <button type="submit" class="btn btn-primary"><%= donation_details ? 'Update' : 'Save' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(donation_details) { %>
+    <script type="text/javascript">
+      document.getElementById('payment_option').value="<%= donation_details.payment_option %>";
+      document.getElementById('payment_received').value="<%= donation_details.payment_received %>";
+      document.getElementById('renewal').value="<%= donation_details.renewal %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

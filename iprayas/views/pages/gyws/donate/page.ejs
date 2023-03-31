@@ -1,0 +1,30 @@
+<%- include ('../layouts/gyws_header') %>
+
+<header id="about-uss" class="masthead-au">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading text-uppercase my-auto">GIVE A HELPING HAND <br><br>
+                <a href="#donatetop" style="margin-top: 2.5%" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">Donate Now</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="donatetop" style="margin-bottom: 5%">
+    <div style="margin-top: 5%" class="container">
+        <h3 style="text-align: center;">DONATION CATEGORIES</h3><br><br><br>
+        <div class="row">
+            <% donation_category_list.forEach(function(dc) { %>
+                <div class="col-md-3 col-sm-6 text-center">
+                    <a href="<%=baseurl%>donate/<%=dc.slug%>?program_type=<%=program_type%>"><img src="<%=baseurl%>contents/donation_categories/<%=dc.photo%>" style="max-width: 200px;"><br><br>
+                        <p><%=dc.title%></p>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+<%- include ('../layouts/gyws_footer') %>

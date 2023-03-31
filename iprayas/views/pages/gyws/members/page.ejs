@@ -1,0 +1,159 @@
+<%- include ('../layouts/gyws_header') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+<style>
+.npstyle1{
+    position: relative;
+    right: 118px;
+    top: 4px;
+}
+.select_active{
+    background-color: #e9f121;
+    color: #0b0707;
+    position: relative;
+    left: -20px;
+    margin-right: -40px;
+}
+</style>
+
+<header id="about-uss" class="masthead-au">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading text-uppercase my-auto">MEMBERS</div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-3 npstyle1">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-primary text-white text-uppercase">Initiatives</div>
+                <ul class="list-group category_block">
+                    <% initiatives_list.forEach(function(inList) { %>
+                        <li class="list-group-item"><a data-toggle="pill" href="#" class="nav-link click <% if(inintiative_title.title == inList.title){%> select_active <% } %>" data-type="initiatives" data-id="<%= inList.initiatives_id %>"><%= inList.title %></a></li>                       
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-primary text-white text-uppercase">Members</div>
+                <ul class="list-group category_block">
+                    <% member_type_list.forEach(function(mt) { %>
+                        <li class="list-group-item"><a data-toggle="pill" href="#" class="nav-link click1 <% if(member_title.title == mt.title){%> select_active <% } %>" data-type="members" data-id="<%= mt.member_type_id %>"><%= mt.title %></a></li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+
+        <% if(type != ''){ %>
+            <% if(type == "initiatives"){ %>
+                <div class="col">
+                    <h3 style="position: relative;left: 388px;"><%= inintiative_title.title %></h3>
+                    <div class="row" style="background-color: #c4bdbd;">
+                        <% if(coordinatorsList !=''){ %>
+                            <div class="col-12" style="position: relative;left: 355px;padding: 6px;">
+                                <h5>COORDINATORS</h5>
+                            </div>
+                            <% coordinatorsList.forEach(function(coo) {%>                        
+                                <div class="col-3">
+                                    <img class="card-img-top rounded-circle" src="<%=baseurl%>contents/operators/<%=coo.photo%>" alt="Card image cap" style="height: 100px; width: 100px;">
+                                    <h6 class="card-title"><%=coo.name %></h6>
+                                    <!-- <ul class="list-inline social-buttons">
+                                        <li class="list-inline-item"><a href="mailto:<%=coo.email%>"><i class="fas fa-envelope"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=coo.facebook_link%>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=coo.linkedin_link%>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul> -->
+                                </div>
+                            <% }) %>
+                        <% } %>
+                    </div>
+
+                    <div class="row" style="background-color: #c4bdbd;position: relative;top: 10px;">
+                        <% if(headTeamList !=''){ %>
+                            <div class="col-12" style="position: relative;left: 355px;padding: 6px;">
+                                <h5>SPONSORSHIP TEAM</h5>
+                                <h5>HEADS</h5>
+                            </div>
+                            <% headTeamList.forEach(function(htl) {%>                        
+                                <div class="col-3">
+                                    <img class="card-img-top rounded-circle" src="<%=baseurl%>contents/operators/<%=htl.photo%>" alt="Card image cap" style="height: 100px; width: 100px;">
+                                    <h6 class="card-title"><%=htl.name %></h6>
+                                    <!-- <ul class="list-inline social-buttons">
+                                        <li class="list-inline-item"><a href="mailto:<%=htl.email%>"><i class="fas fa-envelope"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=htl.facebook_link%>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=htl.linkedin_link%>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul> -->
+                                </div>
+                            <% }) %>
+                        <% } %>
+
+                        <% if(SEMTeamList !=''){ %>
+                            <div class="col-12" style="position: relative;left: 355px;padding: 6px;">
+                                <h5>SENIOP EXECUTIVE OFFICERS</h5>
+                            </div>
+                            <% SEMTeamList.forEach(function(sem) {%>                        
+                                <div class="col-3">
+                                    <img class="card-img-top rounded-circle" src="<%=baseurl%>contents/operators/<%=sem.photo%>" alt="Card image cap" style="height: 100px; width: 100px;">
+                                    <h6 class="card-title"><%=sem.name %></h6>
+                                    <!-- <ul class="list-inline social-buttons">
+                                        <li class="list-inline-item"><a href="mailto:<%=sem.email%>"><i class="fas fa-envelope"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=sem.facebook_link%>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=sem.linkedin_link%>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul> -->
+                                </div>
+                            <% }) %>
+                        <% } %>
+                    </div>
+                </div>
+            <% }else{ %>                
+                <div class="col">
+                    <h3 style="position: relative;left: 327px;"><%= member_title.title %></h3>
+                    <div class="row" style="background-color: #c4bdbd;">
+                        <% if(operator_list !=''){ %>
+                            <% operator_list.forEach(function(operator) {%>                
+                                <div class="col-3">
+                                    <img class="card-img-top rounded-circle" src="<%=baseurl%>contents/operators/<%=operator.photo%>" alt="Card image cap" style="height: 100px; width: 100px;">
+                                    <h4><%=operator.name %></h4>
+                                    <p class="text-muted"><%=(operator.department != '' ? operator.department : operator.designation_details.title)%></p>
+                                    <!-- <ul class="list-inline social-buttons">
+                                        <li class="list-inline-item"><a href="mailto:<%=operator.email%>"><i class="fas fa-envelope"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=operator.facebook_link%>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="list-inline-item"><a href="<%=operator.linkedin_link%>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul> -->
+                                </div>
+                            <% }) %>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+
+        <% } %>
+        
+    </div>
+</div>
+
+
+
+
+
+<%- include ('../layouts/gyws_footer') %>
+
+
+
+<script>
+$(document).ready(function(){
+  $(".click").click(function(){
+    var id = $(this).attr("data-id");
+    var type = $(this).attr("data-type");
+    window.location.href =  "<%= baseurl %>members/"+type+'/'+id;   
+  });
+});
+
+$(document).ready(function(){
+  $(".click1").click(function(){
+    var id = $(this).attr("data-id");
+    var type = $(this).attr("data-type");
+    window.location.href =  "<%= baseurl %>members/"+type+'/'+id;
+  });
+});
+</script>

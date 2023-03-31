@@ -1,0 +1,199 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= donation_program_details ? 'Update' : 'New' %> Donation Program</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Wesite Update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/donation-program/list">Donation Program</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="donation-program_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/donation-program/form">+ Add new donation program</a> | 
+                    <a href="/admin/website-update/donation-program/list">Donation program list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3 text-center parent-center-div">
+                    <!-- <img src="<%=baseurl%>admin/images/user.png" width="170" id="preview">
+                    <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                    <input type="file" name="upload-pp" id="upload-pp" value=""> -->
+                    <div class="vh-center-div">
+                      <%
+                      var src = baseurl + "admin/images/donation.png";
+                      if(donation_program_details) {
+                        if(donation_program_details.photo != '') {
+                          src = baseurl + "contents/donation_programs/" + donation_program_details.photo;
+                        } 
+                      }
+                      %>
+                      <img src="<%=src%>" id="preview" class="square_preview">
+                      <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                      <input type="file" name="upload-pp" id="upload-pp" value="">
+                    </div><!-- .vh-center-div -->
+                  </div>
+                  <div class="col-md-9">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Program Name<span class="req"> *</span></label>
+                          <input type="text" name="program_name" id="program_name" class="form-control" placeholder="Program Name" value="<%= donation_program_details ? donation_program_details.program_name : ''%>">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Program ID<span class="req"> *</span></label>
+                              <div class="">
+                                <input type="text" name="program_id" id="program_id" class="form-control" placeholder="Program ID" readonly value="<%= donation_program_details ? donation_program_details.program_id : ''%>">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Category<span class="req"> *</span></label>
+                              <div class="">
+                                <select name="donation_category_id" id="donation_category_id" class="form-control">
+                                  <option value=''>Choose...</option>
+                                  <% donation_category_list.forEach(function(dc) { %>
+                                      <option value="<%= dc.donation_category_id %>"><%= dc.title %></option>
+                                  <% }) %>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Program Type<span class="req"> *</span></label>
+                              <div class="">
+                                <select name="program_type" id="program_type" class="form-control">
+                                  <option value=''>Choose...</option>
+                                  <option value="onetime">Onetime</option>
+                                  <option value="subscription">Subscription</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div><!-- .col-md-12 -->
+                    </div><!-- .row -->
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Amount Type<span class="req"> *</span></label>
+                      <select name="amount_type" id="amount_type" class="form-control">
+                        <option value=''>Choose...</option>
+                        <option value="Fixed">Fixed</option>
+                        <option value="Flexible">Flexible</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Amount<span class="req"> *</span></label>
+                      <input type="number" name="cost" id="cost" class="form-control" placeholder="Amount" value="<%= donation_program_details ? donation_program_details.cost : ''%>">
+                    </div>
+                  </div>
+                </div><!-- .row -->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Tax Benifit</label>
+                      <input type="text" name="tax_benifit" id="tax_benifit" class="form-control" placeholder="Tax Benifit" value="<%= donation_program_details ? donation_program_details.tax_benifit : ''%>"/>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Donor Signup Required<span class="req"> *</span></label>
+                      <select name="donor_signup_required" id="donor_signup_required" class="form-control">
+                        <option value=''>Choose...</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Description</label>
+                      <textarea name="description" id="description" class="form-control" placeholder="Description" style="min-height:260px;"><%= donation_program_details ? donation_program_details.description : ''%></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Active</label>
+                      <select name="active" id="active" class="form-control">
+                        <option>Choose...</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div> 
+              </div><!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="donation_program_id" id="donation_program_id" value="<%= donation_program_details ? donation_program_details.donation_program_id : '' %>">
+                <button type="submit" class="btn btn-primary"><%= donation_program_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(donation_program_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= donation_program_details.active %>";
+      document.getElementById('amount_type').value="<%= donation_program_details.amount_type %>";
+      document.getElementById('program_type').value="<%= donation_program_details.program_type %>";
+      document.getElementById('donation_category_id').value="<%= donation_program_details.donation_category_id %>";
+      document.getElementById('donor_signup_required').value="<%= donation_program_details.donor_signup_required %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

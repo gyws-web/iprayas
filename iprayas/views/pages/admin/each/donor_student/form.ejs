@@ -1,0 +1,299 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= donor_student_details ? 'Update' : 'New' %> Donor-Student Allotment</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">EACH</a></li>
+              <li class="breadcrumb-item"><a href="/admin/each/donor-student/list">Donor-Student</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <!-- <form action="" action="post" method="post" enctype="multipart/form-data"> -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/each/donor-student/form">+ Allot donor to student</a> | 
+                    <a href="/admin/each/donor-student/list">Donor-Student list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5>Select Student</h5>
+                  </div>
+                  <div class="col-md-12 gyws-filter">
+                    <form action="" method="get" name="donor_student_form">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label>Session<span class="req"> *</span></label>
+                            <select class="form-control" name="session" id="session">
+                              <option value="">Choose ...</option>
+                              <% academic_session_list.forEach(function(aca_sess) { %>
+                                <option value="<%=aca_sess %>"><%=aca_sess %></option>
+                              <% }) %>
+                            </select>
+                          </div>
+                        </div><!-- col-3-->
+  
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label>Class<span class="req"> *</span></label>
+                            <select class="form-control" name="standard" id="standard">
+                              <option value="">Choose ...</option>
+                            <option value="LKG">LKG</option>
+                            <option value="UKG">UKG</option>
+                            <option value="Nursery">Nursery</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                            </select>
+                          </div>
+                        </div><!-- col-3-->
+  
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label>Section<span class="req"> *</span></label>
+                            <select class="form-control" name="section" id="section">
+                              <option value="">Choose ...</option>
+                              <option value="A">A</option>
+                              <option value="B">B</option>
+                              <option value="C">C</option>
+                              <option value="D">D</option>
+                              <option value="E">E</option>
+                            </select>
+                          </div>
+                        </div><!-- col-3-->
+  
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label>Gender<span class="req"> *</span></label>
+                            <select class="form-control" name="gender" id="gender">
+                              <option value="">Choose ...</option>
+                              <option value="M">Male</option>
+                              <option value="F">Female</option>
+                            </select>
+                          </div>
+                        </div><!-- col-3-->
+  
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn-custom-top">Get List</button>
+                        </div><!-- col-3-->
+                      </div><!-- .row -->
+                    </form>
+                  </div><!-- .col-md-12 -->
+
+                  <div class="col-md-12">
+                    <table id="example1" class="table table-bordered table-striped thumbnail-table">
+                      <thead>
+                      <tr>
+                        <th>Sl.</th>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Session</th>
+                        <th class="text-center sorting-arrow-hide"><input type="checkbox" class="selectAll"></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <% 
+                        var sn = 1;
+                        student_list.forEach(function(student) { %>
+                        <tr>
+                          <td><%= sn %>.</td>
+                          <td>
+                            <%
+                              var src = '';
+                              if(student.photo != '') src = baseurl + "contents/students/" + student.photo;
+                              else src = baseurl + "admin/images/user.png";
+                            %>
+                            <img src="<%= src %>" class="img-thumbnail list-thumbnail">
+                          </td>
+                          <td><%= student.name %></td>
+                          <td><%= (typeof student.student_class !== 'undefined' ? student.student_class[0].standard : student.standard) %></td>
+                          <td><%= student.academic_session %></td>
+                          <td class="text-center"><input type="checkbox" name="student_id" class="student_id" class="checkbox" value="<%=student.student_id %>"></td>
+                        </tr>
+                      <% sn++; }) %>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th>Sl.</th>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Session</th>
+                        <th class="text-center"><input type="checkbox" class="selectAll"></th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div><!--.row-->
+              </div><!-- /.card-body -->
+
+
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Select Donor<span class="req"> *</span></label>
+                          <select name="donor_ids" id="donor_ids" class="form-control donor_ids" multiple="multiple">
+                            <option value=''>Select Donor...</option>
+                            <% donor_list.forEach(function(donor) { %>
+                              <option value="<%=donor.donor_id %>"><%=donor.name %></option>
+                            <% }) %>
+                          </select>
+                        </div><!-- .form-group -->
+                      </div><!-- .cols -->
+                      <div class="col-md-8">
+
+                      </div><!-- .cols -->
+                    </div><!-- .row -->
+                  </div><!-- .cols -->
+                </div><!--.row-->
+              </div><!-- /.card-body -->
+
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Select Donation Scheme<span class="req"> *</span></label>
+                          <select name="donation_program_id" id="donation_program_id" class="form-control donation_program_id">
+                            <option value=''>Select Donor...</option>
+                            <% donation_program_list.forEach(function(donation) { %>
+                              <option value="<%=donation.donation_program_id %>"><%=donation.program_name %></option>
+                            <% }) %>
+                          </select>
+                        </div><!-- .form-group -->
+                      </div><!-- .cols -->
+                      <div class="col-md-8">
+
+                      </div><!-- .cols -->
+                    </div><!-- .row -->
+                  </div><!-- .cols -->
+                </div><!--.row-->
+              </div><!-- /.card-body -->
+
+
+              <div class="card-footer">
+                <form action="" action="post" method="post">
+                  <input type="hidden" name="H_donor_ids" id="H_donor_ids" value="">
+                  <input type="hidden" name="H_donation_program_id" id="H_donation_program_id" value="">
+                  <input type="hidden" name="H_student_ids" id="H_student_ids" value="">
+                  <input type="hidden" name="H_academic_session" id="H_academic_session" value="<%=session%>">
+                  <input type="hidden" name="H_standard" id="H_standard" value="<%=standard%>">
+                  <button type="submit" class="btn btn-primary">OK</button>
+                </form>
+              </div>
+              
+            </div>
+          <!-- </form> -->
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <% if(student_list) { %>
+    <script type="text/javascript">
+      document.getElementById('standard').value="<%= standard %>";
+      document.getElementById('section').value="<%= section %>";
+      document.getElementById('gender').value="<%= gender %>";
+      document.getElementById('session').value="<%= session %>";
+    </script>
+  <% } %>
+
+
+  <% if(donor_student_details) { %>
+    <script type="text/javascript">
+      document.getElementById('standard').value="<%= donor_student_details.student_class[0].standard %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>
+
+
+
+
+<script type="text/javascript">
+  /**
+   * Enable Select2 plugin in the Donor select tag 
+  */
+  $(".donor_ids").select2({
+    placeholder: "Select donor",
+    allowClear: true
+  });
+
+
+  /**
+   * Enable Select2 plugin in the Donation program select tag 
+  */
+  $(".donation_program_id").select2({
+    placeholder: "Select donation program",
+    allowClear: true
+  });
+
+
+  /**
+   * Get the selected donor ids and assigned them to the hidden text field 
+  */
+  $("#donor_ids").change(function() {
+      $("#H_donor_ids").val($(this).val());
+  });
+
+
+  /**
+   * Get the selected donation program id and assigned it to the hidden text field 
+  */
+  $("#donation_program_id").change(function() {
+      $("#H_donation_program_id").val($(this).val());
+  });
+
+  
+  /**
+   * Get the selected student ids and assigned them to the hidden text field 
+  */
+  $(".student_id").click(function() {
+    var student_ids = [];
+    $.each($("input[name='student_id']:checked"), function(){            
+      student_ids.push($(this).val());
+    });
+    $("#H_student_ids").val(student_ids.toString());
+  })
+</script>

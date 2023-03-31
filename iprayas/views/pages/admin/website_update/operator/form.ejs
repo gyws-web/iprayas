@@ -1,0 +1,282 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= operator_details ? 'Update' : 'New' %> Operator</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/operator/list">Operator</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="operator_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/operator/form">+ Add new operator</a> | 
+                    <a href="/admin/website-update/operator/list">Operator list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3 text-center parent-center-div">
+                    <!-- <img src="<%=baseurl%>admin/images/user.png" width="170" id="preview">
+                    <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                    <input type="file" name="upload-pp" id="upload-pp" value=""> -->
+                    <div class="vh-center-div">
+                      <%
+                      var src = baseurl + "admin/images/user.png";
+                      if(operator_details) {
+                        if(operator_details.photo != '') {
+                          src = baseurl + "contents/operators/" + operator_details.photo;
+                        } 
+                      }
+                      %>
+                      <img src="<%=src%>" id="preview">
+                      <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                      <input type="file" name="upload-pp" id="upload-pp" value="">
+                    </div><!-- .vh-center-div -->
+                  </div>
+                  <div class="col-md-9">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Name<span class="req"> *</span></label>
+                          <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="<%= operator_details ? operator_details.name : ''%>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Email<span class="req"> *</span></label>
+                          <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="<%= operator_details ? operator_details.email : ''%>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Member Type<span class="req"> *</span></label>
+                          <select name="member_type_id" id="member_type_id" class="form-control">
+                            <option value=''>Choose...</option>
+                            <% member_type_list.forEach(function(member_type) {%>
+                                <option <% if(operator_details.member_type_id == member_type.member_type_id){ %>selected="selected" <% }%> value="<%=member_type.member_type_id%>"> <%=member_type.title%></option>
+                            <% }) %>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Inintiative<span class="req"> *</span></label>   
+                              <input type="hidden" id="tabInt" value="<%=operator_details.inintiative_id %>">
+                              <select name="inintiative_id" id="arrinintiativ" class="form-control" multiple>
+                                <option disabled>Choose...</option>
+                                  <% initiatives_list.forEach(function(inId) { %>
+                                    <option value="<%=inId.initiatives_id%>"><%=inId.title%></option>
+                                  <% }) %>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Team<span class="req"> *</span></label>
+                              <input type="hidden" id="tabTme" value="<%=operator_details.team_id %>">
+                              <select name="team_id" id="team_id" class="form-control" multiple>
+                                <option disabled>Choose...</option>
+                                <% team_list.forEach(function(tm) {%>
+                                    <option value="<%=tm.team_id%>"><%=tm.title%></option>
+                                <% }) %>
+                              </select>
+                            </div>
+                          </div>
+                          
+                          <!-- <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Department<span class="req"> *</span></label>
+                              <input type="text" name="department" id="department" class="form-control" placeholder="Department" value="<%= operator_details ? operator_details.department : ''%>">
+                            </div>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div><!-- .row -->
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Role<span class="req"> *</span></label>
+                      <select name="role_id" id="role_id" class="form-control" style="width: 100%;">
+                        <option value=''>Choose...</option>
+                        <% role_list.forEach(function(role) { %>
+                          <option value="<%=role.role_id %>"><%=role.title %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Designation<span class="req"> *</span></label>
+                      <select name="current_designation_id" id="current_designation_id" class="form-control" style="width: 100%;">
+                        <option value=''>Choose...</option>
+                        <% designation_list.forEach(function(designation) { %>
+                          <option value="<%=designation.designation_id %>"><%=designation.title %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Username<span class="req"> *</span></label>
+                      <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="<%= operator_details ? operator_details.username : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Password<span class="req"> *</span></label>
+                      <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="<%= operator_details ? operator_details.password : ''%>">
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Bio<span class="req"> *</span></label>
+                      <textarea name="bio" id="bio" class="form-control" placeholder="Bio"><%= operator_details ? operator_details.bio : ''%></textarea>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Facebook Link</label>
+                      <input type="text" name="facebook_link" id="facebook_link" class="form-control" placeholder="Facebook Link" value="<%= operator_details ? operator_details.facebook_link : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Linkedin Link</label>
+                      <input type="text" name="linkedin_link" id="linkedin_link" class="form-control" placeholder="Linkedin Link" value="<%= operator_details ? operator_details.linkedin_link : ''%>">
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+                
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Mobile</label>
+                      <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Mobile" value="<%= operator_details ? operator_details.mobile : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Status</label>
+                      <select name="active" id="active" class="form-control" style="width: 100%;">
+                        <option value='Enable'>Enable</option>
+                        <option value='Disable'>Disable</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  
+                </div><!--.row-->
+
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="operator_id" id="operator_id" value="<%= operator_details ? operator_details.operator_id : '' %>">
+                <button type="submit" class="btn btn-primary"><%= operator_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(operator_details) { %>
+    <script type="text/javascript">
+      document.getElementById('member_type_id').value="<%= operator_details.member_type_id %>";
+      document.getElementById('role_id').value="<%= operator_details.role_id %>";
+      document.getElementById('current_designation_id').value="<%= operator_details.current_designation_id %>";
+      document.getElementById('active').value="<%= operator_details.active %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>
+
+<script>
+$(document).ready(function () {
+  $('#member_type_id').change(function(){
+    var typeText = $( "#member_type_id option:selected" ).text();
+    if(typeText = "Head"){
+      $("#inintiative_id").attr("required", "true");
+    }else{
+      alert(false);
+    }
+  })  
+})
+</script>
+<script>
+$(document).ready(function () {
+  var values=$('#tabInt').val()
+  $.each(values.split(","), function(i,e){
+      $("#arrinintiativ option[value='" + e + "']").prop("selected", true);
+  });
+})
+
+$(document).ready(function () {
+  var values=$('#tabTme').val()
+  $.each(values.split(","), function(i,e){
+      $("#team_id option[value='" + e + "']").prop("selected", true);
+  });
+})
+
+</script>

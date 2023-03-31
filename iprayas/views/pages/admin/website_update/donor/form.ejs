@@ -1,0 +1,265 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= donor_details ? 'Update' : 'New' %> Donor</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Wesite Update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/donor/list">Donor</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="donor_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/donor/form">+ Add new donor</a> | 
+                    <a href="/admin/website-update/donor/list">Donor list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3 text-center parent-center-div">
+                    <!-- <img src="<%=baseurl%>admin/images/user.png" width="170" id="preview">
+                    <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                    <input type="file" name="upload-pp" id="upload-pp" value=""> -->
+                    <div class="vh-center-div">
+                      <%
+                      var src = baseurl + "admin/images/user.png";
+                      if(donor_details) {
+                        if(donor_details.photo != '') {
+                          src = baseurl + "contents/donors/" + donor_details.photo;
+                        } 
+                      }
+                      %>
+                      <img src="<%=src%>" id="preview">
+                      <img src="<%=baseurl%>admin/images/photo-upload.png" width="30" class="photo-upload-icon">
+                      <input type="file" name="upload-pp" id="upload-pp" value="">
+                    </div><!-- .vh-center-div -->
+                  </div>
+                  <div class="col-md-9">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Donor Name<span class="req"> *</span></label>
+                          <input type="text" name="name" id="name" class="form-control" placeholder="Donor Name" value="<%= donor_details ? donor_details.name : ''%>">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Contact Number<span class="req"> *</span></label>
+                              <div class="">
+                                <input type="text" name="country_code_1" id="country_code_1" class="form-control gyws-cc"  value="<%= donor_details ? donor_details.country_code_1 : ''%>">
+                                <input type="text" name="contact_no" id="contact_no" class="form-control gyws-cn" placeholder="Contact Number" value="<%= donor_details ? donor_details.contact_no : ''%>">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Alternative Contact Number</label>
+                              <div class="">
+                                <input type="text" name="country_code_2" id="country_code_2" class="form-control gyws-cc"  value="<%= donor_details ? donor_details.country_code_2 : ''%>">
+                                <input type="text" name="alt_contact_no" id="alt_contact_no" class="form-control gyws-cn" placeholder="Alternative Contact Number" value="<%= donor_details ? donor_details.alt_contact_no : ''%>">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div><!-- .col-md-12 -->
+                    </div><!-- .row -->
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Country<span class="req"> *</span></label>
+                      <input type="text" name="country" id="country" class="form-control" placeholder="Country" value="<%= donor_details ? donor_details.country : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>State<span class="req"> *</span></label>
+                      <input type="text" name="state" id="state" class="form-control" placeholder="State" value="<%= donor_details ? donor_details.state : ''%>">
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>City</label>
+                      <input type="text" name="city" id="city" class="form-control" placeholder="City" value="<%= donor_details ? donor_details.city : ''%>">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>PIN /Zipcode<span class="req"> *</span></label>
+                      <input type="text" name="pin" id="pin" class="form-control" placeholder="PIN/Zipcode" value="<%= donor_details ? donor_details.pin : ''%>">
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Address<span class="req"> *</span></label>
+                      <textarea name="address" id="address" class="form-control" placeholder="Address"><%= donor_details ? donor_details.address : ''%></textarea>
+                    </div>
+                  </div><!-- .col-md-12 -->
+                </div><!-- .row -->
+                
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Email<span class="req"> *</span></label>
+                      <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="<%= donor_details ? donor_details.email : ''%>">
+                    </div>
+                  </div><!-- .col-md-12 -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Aadhar Number<span class="req"> *</span></label>
+                      <input type="text" name="aadhar" id="aadhar" class="form-control" placeholder="Aadhar" value="<%= donor_details ? donor_details.aadhar : ''%>">
+                    </div>
+                  </div><!-- .col-md-12 -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>PAN Number<span class="req"> *</span></label>
+                      <input type="text" name="pan" id="pan" class="form-control" placeholder="PAN" value="<%= donor_details ? donor_details.pan : ''%>">
+                    </div>
+                  </div><!-- .col-md-12 -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Source<span class="req"> *</span></label>
+                      <select name="source" id="source" class="form-control">
+                        <option value=''>Choose ...</option>
+                        <option value="Sponsorship Team">Sponsorship Team</option>
+                        <option value="General">General</option>
+                      </select>
+                    </div>
+                  </div><!-- .col-md-12 -->
+                </div><!-- .row -->
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Member Concerned<span class="req"> *</span></label>
+                      <select name="member_concerned" id="member_concerned" class="form-control">
+                        <option value=''>Choose ...</option>
+                        <% operator_list.forEach(function(operator) { %>
+                            <option value="<%=operator.operator_id%>"><%=operator.name%></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                  </div><!-- .col-md-12 -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Institute<span class="req"> *</span></label>
+                      <input type="text" name="institute" id="institute" class="form-control" placeholder="Institute" value="<%= donor_details ? donor_details.institute : ''%>">
+                    </div>
+                  </div><!-- .col-md-12 -->
+                </div><!-- .row -->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Username<span class="req"> *</span></label>
+                      <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="<%= donor_details ? donor_details.username : ''%>" />
+                    </div>
+                  </div><!-- .col-md-12 -->
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Password<span class="req"> *</span></label>
+                      <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="<%= donor_details ? donor_details.password : ''%>" />
+                    </div>
+                  </div><!-- .col-md-12 -->
+                </div><!-- .row -->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Status</label>
+                      <select name="active" id="active" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Blocked">Blocked</option>
+                      </select>
+                    </div>
+                  </div><!-- .col-md-12 -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Donor Category<span class="req"> *</span></label>
+                      <select name="donor_category_id" id="donor_category_id" class="form-control">
+                        <% donor_list.forEach(function(tm) {%>
+                            <option <% if(donor_details.donor_category_id== tm.donor_category_id){ %>selected="selected" <% }%> value="<%=tm.donor_category_id%>"><%=tm.title%></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                  </div><!-- .col-md-12 -->
+                </div><!-- .row -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="donor_id" id="donor_id" value="<%= donor_details ? donor_details.donor_id : '' %>">
+                <button type="submit" class="btn btn-primary"><%= donor_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(donor_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= donor_details.active %>";
+      document.getElementById('source').value="<%= donor_details.source %>";
+      document.getElementById('member_concerned').value="<%= donor_details.member_concerned %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

@@ -1,0 +1,187 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Student List</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item"><a href="#">Student</a></li>
+              <li class="breadcrumb-item"><a href="#">List</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/each/student/form">+ Add new student</a> | 
+                    <a href="/admin/each/student/list">Student list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                
+                <div class="col-md-12 gyws-filter">
+                  <form action="" action="post" method="post" enctype="multipart/form-data" name="student_list_form">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label>Session<span class="req"> *</span></label>
+                          <select class="form-control" name="session" id="session">
+                            <option value=''>Choose ...</option>
+                            <% academic_session_list.forEach(function(aca_sess) { %>
+                              <option value="<%=aca_sess %>"><%=aca_sess %></option>
+                            <% }) %>
+                          </select>
+                        </div>
+                      </div><!-- col-3-->
+
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label>Class<span class="req"> *</span></label>
+                          <select class="form-control" name="standard" id="standard">
+                            <option value="">Choose ...</option>
+                            <option value="LKG">LKG</option>
+                            <option value="UKG">UKG</option>
+                            <option value="Nursery">Nursery</option>
+		            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
+                        </div>
+                      </div><!-- col-3-->
+
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label>Section<span class="req"> *</span></label>
+                          <select class="form-control" name="section" id="section">
+                            <option value="">Choose ...</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                          </select>
+                        </div>
+                      </div><!-- col-3-->
+
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label>Gender<span class="req"> *</span></label>
+                          <select class="form-control" name="gender" id="gender">
+                            <option value="">Choose ...</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                          </select>
+                        </div>
+                      </div><!-- col-3-->
+
+                      <div class="col-md-4">
+                          <button type="submit" class="btn btn-primary btn-custom-top">Get List</button>
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          <button type="submit" class="btn btn-primary btn-custom-top">Excel Report</button>
+                      </div><!-- col-3-->
+                    </div><!-- .row -->
+                  </form>
+                </div><!-- .col-md-12 -->
+
+
+                <table id="example1" class="table table-bordered table-striped thumbnail-table">
+                  <thead>
+                  <tr>
+                    <th>Sl.</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Father</th>
+                    <th>Contact</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% 
+                    var sn = 1;
+                    student_list.forEach(function(student) { %>
+                    <tr>
+                      <td><%= sn %></td>
+                      <td>
+                        <%
+                          var src = '';
+                          if(student.photo != '') src = baseurl + "contents/students/" + student.photo;
+                          else src = baseurl + "admin/images/user.png";
+                        %>
+                        <img src="<%= src %>" class="img-thumbnail list-thumbnail">
+                      </td>
+                      <td><%= student.name %></td>
+                      <td><%= (typeof student.student_class !== 'undefined' ? student.student_class[0].standard : student.standard) %></td>
+                      <td><%= student.father_name %></td>
+                      <td><%= student.contact_no %></td>
+                      <td>
+                        <a href="/admin/each/student/form/<%= student.student_id %>" class="btn btn-success btn-sm mr-2">View</a>
+                        <a href="/admin/each/student/report/<%= student.student_id %>/<%= session %>" class="btn btn-info btn-sm mr-2">Report</a>
+                        <button class="btn btn-danger btn-sm gyws-btn-del" data-toggle="modal" data-target="#modal-danger" data-del-id="<%= student.student_id %>">Delete</button>
+                        <form action="/admin/each/student/delete" method="post" id="del_form_<%= student.student_id %>">
+                            <input type="hidden" name="student_id" id="hidden_id" value="<%= student.student_id %>">
+                        </form>
+                      </td>
+                    </tr>
+                  <% sn++; }) %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Sl.</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Father</th>
+                    <th>Contact</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(student_list) { %>
+    <script type="text/javascript">
+      document.getElementById('standard').value="<%= standard %>";
+      document.getElementById('section').value="<%= section %>";
+      document.getElementById('gender').value="<%= gender %>";
+      document.getElementById('session').value="<%= session %>";
+    </script>
+  <% } %>
+
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>

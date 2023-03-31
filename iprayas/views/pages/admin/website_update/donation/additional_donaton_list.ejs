@@ -1,0 +1,161 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <link href="/views/pages/admin/website_update/donation/loader.css"> -->
+<div id="loading" style="position: relative;margin-left: 655px;">
+  <p><img src="<%=baseurl%>/loading.gif"></p>
+</div>
+<style>
+  #loading {
+    display: none;
+  }
+</style>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1><span class="don_type"><%=type%></span> Donation Record List</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Website update</a></li>
+            <li class="breadcrumb-item"><a href="#">Donation Program</a></li>
+            <li class="breadcrumb-item"><a href="#">List</a></li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title" style="width: 100%;">
+              <span class="float-right">
+                <a href="/admin/website-update/donation/donation-record/form/<%=type%>">+ Add new <%=type%> donation
+                  record</a> |
+                <a href="/admin/website-update/donation/donation-record/list/<%=type%>"><span
+                    class="don_type"><%=type%></span> donation record list</a>
+              </span>
+            </h3>
+          </div>
+          <%- include ('../../layouts/op_message') %>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Sl.</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Mobile</th>
+                  <th>Send Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% 
+                    var sn = 1;
+                    add_donation_list.forEach(function(donation) { %>
+                <tr>
+                  <td><%= sn %></td>
+                  <td><%= donation.amount%></td>
+                  <td><%= donation.date %></td>
+                  <td><%= donation.name %></td>
+                  <td><%= donation.mobile %></td>
+                  <td><img src="<%=baseurl%>admin/images/send-email.jpg" class="send-email-img sendEmail"
+                      data-Tra="<%= donation.transaction_id %>" data-opt="<%= donation.payment_option %>"
+                      data-date="<%=donation.date%>" data-mobile="<%= donation.mobile %>"
+                      data-email="<%=donation.email%>" data-name="<%=donation.name%>"
+                      data-id ="<%=donation.add_don_record_id%>"
+                      data-amount="<%= donation.amount%>">
+                  </td>
+                  <td>
+                    <a href="/admin/website-update/donation/donation-record/form/<%=type%>/<%= donation.add_don_record_id %>"
+                      class="btn btn-success btn-sm mr-2">View</a>
+                    <button class="btn btn-danger btn-sm gyws-btn-del" data-toggle="modal" data-target="#modal-danger"
+                      data-del-id="<%= donation.add_don_record_id %>">Delete</button>
+                    <form action="/admin/website-update/donation/donation-record/delete" method="post"
+                      id="del_form_<%= donation.add_don_record_id %>">
+                      <input type="hidden" name="add_don_record_id" id="hidden_id"
+                        value="<%= donation.add_don_record_id %>">
+                      <input type="hidden" name="type" id="h_type" value="<%= donation.type %>">
+                    </form>
+                  </td>
+                </tr>
+                <% sn++; }) %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Sl.</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Mobile</th>
+                  <th>Send Email</th>
+                  <th>Action</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+      </div><!-- .col-12 -->
+    </div><!-- .row -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+
+
+<%- include ('../../layouts/footer') %>
+
+
+<script>
+  $(document).ajaxStart(function () {
+    $("#loading").show();
+  }).ajaxStop(function () {
+    $("#loading").hide();
+  });
+
+  $(".sendEmail").click(function () {
+    var reciver_mail = $(this).attr("data-email");
+    var reciver_name = $(this).attr("data-name");
+    var reciver_amount = $(this).attr("data-amount");
+    var reciver_date = $(this).attr("data-date");
+    var reciver_mob = $(this).attr("data-mobile");
+    var data_opt = $(this).attr("data-opt");
+    var data_Tra = $(this).attr("data-Tra");
+    var data_id = $(this).attr("data-id");
+    $.ajax({
+      type: "post",
+      url: "/admin/website-update/donation/donation-record/sendMail",
+      data: {
+        reciver_mail: reciver_mail,
+        reciver_name: reciver_name,
+        reciver_amount: reciver_amount,
+        reciver_date: reciver_date,
+        reciver_mob: reciver_mob,
+        data_opt: data_opt,
+        data_Tra: data_Tra,
+        data_id : data_id
+      },
+      success: function (data) {
+        console.log(data);
+        alert(data.message);
+      }
+    });
+  });
+
+</script>

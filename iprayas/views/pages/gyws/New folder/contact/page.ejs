@@ -1,0 +1,105 @@
+<%- include ('../layouts/gyws_header') %>
+
+<div id="contatti" class="container-fluid mt-5" style="margin-top:120px !important;">
+    <div class="container-fluid">
+        <div style="height:500px;" class="row maps xd"><iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.960628936669!2d87.2910206149543!3d22.27948118533436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d41313ab1978d%3A0xfa15d2e24afcf94d!2sGopali+Youth+Welfare+Society!5e0!3m2!1sen!2sin!4v1562858366712!5m2!1sen!2sin"
+                style="border:0" allowfullscreen="" frameborder="0"></iframe>
+            <div class="xd1">
+                <h2 class="text-uppercase mt-3 font-weight-bold text-white">DROP YOUR SUGGESTION</h2>
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="text" placeholder="Name" required class="form-control mt-2" name="name">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="email" placeholder="Email" required="" class="form-control mt-2" name="email">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="number" placeholder="Contact No" required="" class="form-control mt-2" name="contact_number">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea id="exampleFormControlTextarea1" placeholder="Message" rows="3" required="" class="form-control" name="message"></textarea>
+                            </div>
+                        </div>
+                        <% if(s_msg != '' || e_msg != '') {%>
+                            <div class="col-12">
+                                <label class="contact_message">
+                                    <% if(s_msg != '') {%>
+                                        <%= s_msg %>
+                                    <% } %>
+
+                                    <% if(e_msg != '') {%>
+                                        <%= e_msg %>
+                                    <% } %>
+                                </label>
+                            </div>
+                        <% } %>
+                        <div class="col-12  mb-2"><button type="submit" class="btn btn-light">SUBMIT</button></div>
+                    </div>
+                </form>
+            </div>
+            <div class="text-white xd3">
+                <h2 class="text-uppercase mt-4 font-weight-bold text-center">Where we are</h2><i
+                    class="fas fa-phone mt-3"></i><a href="tel:+"> (03222) 296537</a><br><i
+                    class="fa fa-envelope mt-3"></i><a href="">gywsoffice@gmail.com</a><br><br><i
+                    class="fas fa-globe mt-3"></i> Gopali Youth Welfare Society(Main Office),<br>Gopali (No-shooting
+                Area),<br> P.O. – Salua, Dist. – Paschim Medinipur,<br> West Bengal, Pin-721145.<div class="my-4"><a
+                        href="https://www.facebook.com/gyws.iitkgp/"><i class="fab fa-facebook fa-3x pr-4"></i></a><a
+                        href="https://www.linkedin.com/company/gopali-youth-welfare-society?originalSubdomain=in"><i
+                            class="fab fa-linkedin fa-3x"></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section id="team" class="pb-5">
+    <div class="container">
+        <div class="row">
+            <% operator_list.forEach(function(operator) { %>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div ontouchstart="this.classList.toggle('hover');" class="image-flip">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img src="/contents/operators/<%=operator.photo%>" alt="card image" class="img-fluid"></p>
+                                        <h4 class="card-title"><span style="font-size:14px"><%= operator.name %></span>
+                                        </h4>
+                                        <p class="card-text"><%= operator.designation_details.title %></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">Reach us</h4><br><br>
+                                        <p class="card-text"> 
+                                            <%= operator.designation_details.title == "President" ?  "Office time: 5:00pm to 8:00pm" : "Phone: " + operator.mobile %>  
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            <% }) %>
+            <!-- Team member-->
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<%- include ('../layouts/gyws_footer') %>

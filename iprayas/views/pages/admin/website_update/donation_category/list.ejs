@@ -1,0 +1,102 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Donor List</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item"><a href="#">Donor</a></li>
+              <li class="breadcrumb-item"><a href="#">List</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/donor/form">+ Add new donor</a> | 
+                    <a href="/admin/website-update/donor/list">Donor list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Sl.</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% 
+                    var sn = 1;
+                    donor_list.forEach(function(donor) { %>
+                    <tr>
+                      <td><%= sn %></td>
+                      <td>
+                        <%
+                          var src = '';
+                          if(donor.photo != '') src = baseurl + "contents/donors/" + donor.photo;
+                          else src = baseurl + "admin/images/user.png";
+                        %>
+                        <img src="<%= src %>" class="img-thumbnail list-thumbnail">
+                      </td>
+                      <td><%= donor.name %></td>
+                      <td><%= donor.country_code_1 %> &nbsp; <%= donor.contact_no %></td>
+                      <td><%= donor.email %></td>
+                      <td>
+                        <a href="/admin/website-update/donor/form/<%= donor.donor_id %>" class="btn btn-success btn-sm mr-2">View</a>
+                        <button class="btn btn-danger btn-sm gyws-btn-del" data-toggle="modal" data-target="#modal-danger" data-del-id="<%= donor.donor_id %>">Delete</button>
+                        <form action="/admin/website-update/donor/delete" method="post" id="del_form_<%= donor.donor_id %>">
+                            <input type="hidden" name="donor_id" id="hidden_id" value="<%= donor.donor_id %>">
+                        </form>
+                      </td>
+                    </tr>
+                  <% sn++; }) %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Sl.</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<%- include ('../../layouts/footer') %>

@@ -1,0 +1,81 @@
+<%- include ('../layouts/gyws_header') %>
+
+<style>
+#more {display: none;}
+
+@media screen and (min-width: 780px){
+.center {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  }}
+@media screen and (max-width: 780px){
+.center {
+align-items: center;
+
+}
+}
+</style>
+<header id="about-uss" class="masthead-au">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading text-uppercase my-auto">
+                DONATE NOW 
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid">
+    <div class="row xrow" style="margin-left: 20px">
+<div class="col-md-6" style="padding : 10px; font-size: 17px">
+            <center>
+            <p>One of the primary initiatives of GYWS is the English-medium school- Jagriti Vidya Mandir (JVM), established in 2008, that is currently providing free of cost education to over 240 students from classes Nursery to Std. 5. We have been successfully running this school for over 11 years and have impacted the lives of over 1000 families through this initiative.
+ 
+                                                  <span id="dots">...</span><span id="more">In our pursuit to constantly provide a better environment for holistic development of our students, we are presently building a hostel for the students who have passed out of JVM. This hostel would support the students to continue their education and prevent them from dropping out of school due to non-conducive environments. 
+
+                                                  As a part of this plan, we are conducting Helping Hands, a Pan India Donation Drive. The theme of the donation drive this year would be <b>Annapoorna</b>  which aims to raise funds for the hostel mess of JVM. Even a contribution as small as Rs. 74* could help us feed a child for an entire day!
+
+                                                  We invite you to be a part of our initiative to be the helping hand to help us ensure little children get the right nourishment inorder to keep learning!
+
+*including payment gateway charges
+</span></p>
+            <button class="btn btn-primary btn-lg  text-uppercase js-scroll-trigger" onclick="myFunction()" id="myBtn">Read more</button>
+</center>
+        </div>
+
+        <div class="col-md-6" style="padding : 10px; font-size: 17px;">
+         <center>
+   <div class="center">
+            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_GgzTHkVMROpr7S" async> </script> </form>
+
+</div>
+ </center>
+        </div>
+    </div>
+</div><br>
+
+
+<%- include ('../layouts/gyws_footer') %>
+
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+
+
+<!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_GgzTHkVMROpr7S" async> </script> </form> -->

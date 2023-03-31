@@ -1,0 +1,89 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Donation History</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item"><a href="#">Donation History</a></li>
+              <li class="breadcrumb-item"><a href="#">List</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Sl.</th>
+                    <th>Donor name</th>
+                    <!-- <th>Recept No. </th> -->
+                    <th>Currency</th>
+                    <th>Amount</th>
+                    <th>Payment Status</th>
+                    <th>Payment Date</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% 
+                    var sn = 1;
+                    payment_list.forEach(function(payment) { %>
+                    <tr>
+                      <td><%= sn %></td>
+                      <td><a href="/admin/website-update/donor/form/<%=payment.donor_id%>" target="_blank"><%= payment.name %></a></td>
+                      <!-- <td><%= payment.receipt %></td> -->
+                      <td><%= payment.currency %> </td>
+                      <td>Rs. <%= payment.amount %></td>
+                      <td> <%= payment.razorpay_order_id %></td>
+                      <td> <%= payment.razorpay_status %></td>
+                      <td> <%= moment.unix(payment.razorpay_created_at).format(dateFormatWithTime) %></td>
+                      <td><a href="/admin/website-update/payment/details/<%= payment.donation_history_id %>" class="btn btn-success btn-sm mr-2">View</a></td>
+                    </tr>
+                  <% sn++; }) %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Sl.</th>
+                    <th>Donation Id</th>
+                    <!-- <th>Recept No. </th> -->
+                    <th>Currency</th>
+                    <th>Amount</th>
+                    <th>Payment Status</th>
+                    <th>Payment Date</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<%- include ('../../layouts/footer') %>

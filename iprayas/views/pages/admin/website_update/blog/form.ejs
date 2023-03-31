@@ -1,0 +1,217 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= blog_details ? 'Update' : 'New' %> Blog</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Website update</a></li>
+              <li class="breadcrumb-item"><a href="/admin/website-update/blog/list">Blog</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" action="post" method="post" enctype="multipart/form-data" name="blog_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/website-update/blog/form">+ Add new blog</a> | 
+                    <a href="/admin/website-update/blog/list">Blog list</a>
+                  </span>
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Title<span class="req"> *</span></label>
+                      <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="<%= blog_details ? blog_details.title : ''%>">
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Permalink<span class="req"> *</span></label>
+                      <input type="text" name="permalink" id="permalink" class="form-control" placeholder="Permalink" value="<%= blog_details ? blog_details.permalink : ''%>">
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Content<span class="req"> *</span></label>
+                      <textarea name="blog_content" id="blog_content" class="form-control blog_content" placeholder="Content"><%= blog_details ? blog_details.blog_content : ''%></textarea>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Status<span class="req"> *</span></label>
+                      <select name="active" id="active" class="form-control" style="width: 100%;">
+                        <option value=''>choose....</option>>
+                        <option value='Publish'>Publish</option>
+                        <option value='Draft'>Draft</option>
+                      </select>
+                    </div>
+                  </div>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Featured Image<span class="req"> *</span></label>
+                      <div class="custom-file">                        
+                        <input type="file" name="featured_image" class="custom-file-input" id="featured_image">
+                        <label class="custom-file-label" for="thumbnail">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Tags</label>
+                      <input type="text" name="tags" id="tags" class="form-control" placeholder="Tags" value="">
+                    </div>
+                  </div>
+                </div><!-- row -->
+
+                <div class="row">
+                  <% if(blog_details && blog_details.featured_image != '') {%>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <figure class="figure" style="max-width:24%;">
+                        <a href="<%=baseurl%>contents/blogs/<%=blog_details.blog_id%>/<%=blog_details.featured_image%>" target="_blank">
+                        <img src="<%=baseurl%>contents/blogs/<%=blog_details.blog_id%>/<%=blog_details.featured_image%>" class="figure-img img-fluid rounded img-thumbnail" alt="Featured image">
+                        <figcaption class="figure-caption text-center text-capitalize">Featured Image</figcaption>
+                        </a>
+                      </figure>
+                    </div>
+                  </div>
+                  <% } %>
+
+
+                  <% if(blog_details && blog_details.blog_tags) {%>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%
+                        var tags = '';
+                        if(blog_details && blog_details.blog_tags) {
+                          blog_details.blog_tags.forEach(function(tag_arr) {
+                          %>
+                            <label class="tag_lbl"><%=tag_arr.tag%><span class="close" id="<%=tag_arr.blog_tag_id%>">X</span></label>
+                          <%
+                          });
+                        }
+                      %>
+                      </div>
+                    </div>
+                    <% } %>
+                </div><!--.row-->
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Meta Description</label>
+                      <div class="custom-file">                        
+                        <textarea name="meta_description" class="form-control" id="meta_description"><%=blog_details.meta_description%></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Meta Keywords<span class="req"> *</span></label>
+                      <input type="text" name="meta_keywords" id="meta_keywords" class="form-control" placeholder="Meta Keywords (,) separated" value="<%=blog_details.meta_keywords%>">
+                    </div>
+                  </div>
+                </div><!-- row -->
+
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="blog_id" id="blog_id" value="<%= blog_details ? blog_details.blog_id : '' %>">
+                <input type="hidden" name="H_remove_tag_ids" id="H_remove_tag_ids" value="">
+                <button type="submit" class="btn btn-primary"><%= blog_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+
+
+
+        
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(blog_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= blog_details.active %>";
+    </script>
+  <% } %>
+
+  
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>
+
+<script>
+  $(function () {
+    // Summernote
+    $('.blog_content').summernote()
+  })
+
+
+  
+  $(document).ready(function() {
+
+    //Adding the tag ids which to be removed and remove the tag from the form 
+    var remove_existing_tag_ids = [];
+    $(document).on("click", ".tag_lbl .close", function() {
+      var tag_id = $(this).attr('id');
+      remove_existing_tag_ids.push(tag_id);
+      $("#H_remove_tag_ids").val(remove_existing_tag_ids);
+      $(this).parent('label').remove();
+    });
+  })
+
+</script>
+

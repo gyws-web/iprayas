@@ -1,0 +1,44 @@
+header.masthead-pr .intro-text .intro-heading {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+header.masthead-pr .intro-text {
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+header.masthead-pr {
+  margin-top: 5.5em;
+  text-align: center;
+  color: white;
+  background-image: url("../img/top/prayas-top.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+header.masthead-udy .intro-text .intro-heading {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+header.masthead-udy .intro-text {
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+header.masthead-udy {
+  margin-top: 5.5em;
+  text-align: center;
+  color: white;
+  background-image: url("../img/top/udyat-top.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}

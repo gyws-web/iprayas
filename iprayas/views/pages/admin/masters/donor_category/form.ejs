@@ -1,0 +1,104 @@
+<%- include ('../../layouts/header') %>
+<%- include ('../../layouts/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= donor_category_details ? 'Update' : 'New' %> Donor Category</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Masters</a></li>
+              <li class="breadcrumb-item"><a href="/admin/masters/donor-category/list">Donor Category</a></li>
+              <li class="breadcrumb-item"><a href="#">Form</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <form action="" method="post" enctype="multipart/form-data" name="donor_category_form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="width: 100%;">
+                  <span class="float-right">
+                    <a href="/admin/masters/donor-category/form">+ Add new donor category</a> | 
+                    <a href="/admin/masters/donor-category/list">Donor category list</a>
+                  </span>
+                </h3>
+              </div>
+              <%- include ('../../layouts/op_message') %>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+
+
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-9">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Title<span class="req"> *</span></label>
+                              <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="<%= donor_category_details ? donor_category_details.title : ''%>">
+                            </div>
+                          </div>
+      
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Priority<span class="req"> *</span></label>
+                              <input type="number" min="1" max="99" name="priority" id="priority" class="form-control" value="<%= donor_category_details ? donor_category_details.priority : '1'%>">
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Active</label>
+                              <select name="active" id="active" class="form-control" style="width: 100%;">
+                                <option value='Yes'>Yes</option>
+                                <option value='No'>No</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div><!-- col-md-9 -->
+                    </div><!-- .row -->
+                  </div><!-- col-md-12 -->
+                </div><!--.row-->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="donor_category_details" id="donor_category_details" value="<%= donor_category_details ? donor_category_details.donor_category_id : '' %>">
+                <button type="submit" class="btn btn-primary"><%= donor_category_details ? 'Update' : 'Create' %></button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- .col-12 -->
+      </div><!-- .row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <% if(donor_category_details) { %>
+    <script type="text/javascript">
+      document.getElementById('active').value="<%= donor_category_details.active %>";
+    </script>
+  <% } %>
+
+<%- include ('../../layouts/footer') %>
+
+<script src="<%=baseurl%>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<%=baseurl%>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<%=baseurl%>plugins/form-validation.js"></script>
