@@ -1016,9 +1016,9 @@ Firstly, people are under the chains of their financial insecurities. They think
     <?php include 'include/footer.php'; ?>
 
     <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script>
-        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-        
+
 $(document).ready(function (e) {
 
     $(".gallery-filter .active").click(function(){
