@@ -555,7 +555,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-1 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item WorkProcess" style="display:none">
+                <div class="col-lg-12 col-sm-12 single-item WorkProcess" >
 
                     <div class="container">
                         <div class="row">
@@ -639,7 +639,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-2 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item Incentives" style="display:none">
+                <div class="col-lg-12 col-sm-12 single-item Incentives">
 
                     <div class="container">
                         <div class="row">
@@ -703,7 +703,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-3 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item Volunteering" style="display:none">
+                <div class="col-lg-12 col-sm-12 single-item Volunteering">
 
                     <div class="container">
                         <div class="row">
@@ -819,7 +819,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-5 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item FinanceandFunding" style="display:none">
+                <div class="col-lg-12 col-sm-12 single-item FinanceandFunding">
 
                     <div class="container">
                         <div class="row">
@@ -955,7 +955,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-6 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item CorporatePartnerships" style="display:none">
+                <div class="col-lg-12 col-sm-12 single-item CorporatePartnerships">
 
                     <div class="container">
                         <div class="row">
@@ -1016,3 +1016,15 @@ Firstly, people are under the chains of their financial insecurities. They think
     <?php include 'include/footer.php'; ?>
 
     <script src="js/main.js"></script>
+    <script>
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        
+$(document).ready(function (e) {
+
+    $(".gallery-filter .active").click(function(){
+        alert("Hi");
+     });
+     
+     $('.gallery-filter .active').click();
+});
+</script>
