@@ -3,6 +3,15 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J71SLVCQ9Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J71SLVCQ9Z');
+</script>
     <meta charset="utf-8">
     <title>Prayas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
