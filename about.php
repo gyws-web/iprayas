@@ -1021,9 +1021,9 @@ Firstly, people are under the chains of their financial insecurities. They think
 
 $(document).ready(function (e) {
 
-    $(".gallery-filter .active").click(function(){
-        alert("Hi");
-     });
+    // $(".gallery-filter .active").click(function(){
+    //     alert("Hi");
+    //  });
      
      $('.gallery-filter .active').click();
 });
