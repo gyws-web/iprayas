@@ -475,8 +475,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                                         </div>
                                         <div id="faqCollapse-5" class="collapse" aria-labelledby="faqHeading-5" data-parent="#accordion">
                                             <div class="card-body">
-                                                 The answer can be divided into two parts: Head Quarter node to Centre node Knowledge transfer Knowledge transfer in the member of the nodes We make plans at the HQ with the involvement of centres and distribute it to the Centre Coordinators. Then later the Centre Coordinators further distributes the plan and divides the work among the City/Campus Ambassador and the Volunteers. Now comes the distribution of plans among the centre nodes, Each of the teams at HQ node is assigned a certain number of centres and then the member of that team manages the centre. Distribution of knowledge is either through various groups formed or through calls or others means of communication. And often we have skype meetings with the centres which help us keep in contact with them and also regular contact is the key to management. The involvement of centres in the planning part help us to tackle the regional problems that the centres faced. Here is the hierarchy: _attach the images from the annual plan regarding the hierarchy_ Hierarchy helps us to stream down the content easily and feedbacks are accessible easily, also the workflow is properly defined.
-                                            </div>
+                                                <p> The answer can be divided into two parts: Head Quarter node to Centre node Knowledge transfer Knowledge transfer in the member of the nodes We make plans at the HQ with the involvement of centres and distribute it to the Centre Coordinators. Then later the Centre Coordinators further distributes the plan and divides the work among the City/Campus Ambassador and the Volunteers. Now comes the distribution of plans among the centre nodes, Each of the teams at HQ node is assigned a certain number of centres and then the member of that team manages the centre. Distribution of knowledge is either through various groups formed or through calls or others means of communication. And often we have skype meetings with the centres which help us keep in contact with them and also regular contact is the key to management. The involvement of centres in the planning part help us to tackle the regional problems that the centres faced. Here is the hierarchy: _attach the images from the annual plan regarding the hierarchy_ Hierarchy helps us to stream down the content easily and feedbacks are accessible easily, also the workflow is properly defined.</p>                                            </div>
                                         </div>
                                     </div>
                                     <div class="card">
@@ -556,7 +555,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-1 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item WorkProcess">
+                <div class="col-lg-12 col-sm-12 single-item WorkProcess" style="display:none">
 
                     <div class="container">
                         <div class="row">
@@ -640,7 +639,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-2 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item Incentives">
+                <div class="col-lg-12 col-sm-12 single-item Incentives" style="display:none">
 
                     <div class="container">
                         <div class="row">
@@ -704,7 +703,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-3 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item Volunteering">
+                <div class="col-lg-12 col-sm-12 single-item Volunteering" style="display:none">
 
                     <div class="container">
                         <div class="row">
@@ -820,7 +819,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-5 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item FinanceandFunding">
+                <div class="col-lg-12 col-sm-12 single-item FinanceandFunding" style="display:none">
 
                     <div class="container">
                         <div class="row">
@@ -956,7 +955,7 @@ Firstly, people are under the chains of their financial insecurities. They think
                 </div><!-- /Item-6 -->
             </div>
             <div class="gallery-items row">
-                <div class="col-lg-12 col-sm-12 single-item CorporatePartnerships">
+                <div class="col-lg-12 col-sm-12 single-item CorporatePartnerships" style="display:none">
 
                     <div class="container">
                         <div class="row">
