@@ -400,7 +400,7 @@
                 </ul><!-- /.gallery filter -->
             </div>
             <div class="gallery-items row" >
-                <div class="col-lg-12 col-sm-12 single-item GeneralFAQs">
+                <div class="col-lg-12 col-sm-12 single-item GeneralFAQs" style="position:relative">
                     <div class="container">
                         <div class="row">
                             <!-- ***** FAQ Start ***** -->
@@ -1026,8 +1026,7 @@ $(document).ready(function (e) {
     //  });
      
      $('.gallery-filter .active').click();
-     $(".GeneralFaqs").css({"position": "relative"});
-     $(".gallery-items").css({"min-height": "500px","height":"auto"});
+
 
 });
 </script>
