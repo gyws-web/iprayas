@@ -167,6 +167,10 @@ p,.text{
 	color: #888888;
 	font-weight: 400;	
 }
+.event-details p{
+	font-size: 14px;
+		line-height: 16px;
+}
 
 .auto-container{
 	position:static;
