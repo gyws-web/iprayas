@@ -53,7 +53,9 @@
             background-color: white;
             overflow: hidden;
         }
-
+.gallery-items{
+    min-height:400px;
+}
         .right>figure.front {
             background-position: right;
             border-radius: 0 10px 10px 0;

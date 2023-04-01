@@ -68,7 +68,7 @@
                         <div class="promo-content" style="text-align: center;">
                             <img src="img/1.png" alt="prmo icon" style="height: 65px">
                             <h3>Our Mission</h3>
-                            <p style="text-align: justify; padding-top 15px;"> PRAYAS exists to deliver Gopali Youth Welfare Society's learnings, expertise & experience to involve Youth in social problem solving to the youth throughout the nation.</p>
+                            <p style="text-align: justify; padding-top 15px;">PRAYAS was created to share the knowledge, skills, and experience of the Gopali Youth Welfare Organization with youth across the country in order to engage them in social problem solving.</p>
                             <!-- <a href="#">Read More</a> -->
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <div class="promo-content" style="text-align: center;">
                             <img src="img/2.png" alt="prmo icon">
                             <h3>Our Plan</h3>
-                            <p style="text-align: justify;">We plan to involve our centers into the end-to-end development of a nation-wide social intiative for the initial period, with an aim to empower them with the required skills to identify problems in their own locality and design social initiatives as they mature.</p>
+                            <p style="text-align: justify;">For the initial phase, we intend to involve our centres in the whole creation of a national social initiative with the goal of equipping them with the necessary skills to pinpoint issues in their own communities and create social initiatives as they evolve.</p>
                             <!-- <a href="#">Read More</a> -->
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="promo-content" style="text-align: center;">
                             <img src="img/3.png" alt="prmo icon">
                             <h3>Our Vision</h3>
-                            <p style="text-align: justify;">We aim to build a network of autonomous student-run centers across India, to provide them with a platform for ensuring the fulfillment of Sustainable Development Goals for the weaker sections of the Society.</p>
+                            <p style="text-align: justify;">In order to give them a platform for guaranteeing the completion of the Sustainable Development Goals for the weakest sectors of society, we want to create a network of independent, student-run centres across India.</p>
                             <!-- <a href="#">Read More</a> -->
                         </div>
                     </div>
@@ -171,6 +171,119 @@
                     <p>Help today because tomorrow you may be the one who <br> needs more helping!</p> -->
             </div><!-- /Section Heading -->
             <div id="event-carousel" class="events-wrap owl-Carousel">
+                <div class="events-item">
+                    <div class="event-thumb">
+                        <img src="img/events/internship.jpg" alt="events" >
+                    </div>
+                    <div class="event-details">
+                        <strong>Internship</strong>
+
+                        <!-- <div class="event-info">
+                            <p><i class="ti-calendar"></i>No of schools attended workshop: 15+</p>
+                            <p><i class="ti-calendar"></i>No of teachers who participated in workshop: 51+</p>
+                        </div> -->
+                        <br>
+                        <p>In this initiative creative minds from various institutes are chosen for identifying issues of society and finding the respective solution for the same. Youth and creative mind from different institute will be selected and these youth will be trained by highly qualified experienced Professors of IIT Kharagpur.</p>
+                        <!-- <a href="#" class="default-btn">Read More</a> -->
+                    </div>
+                </div><!-- Event-1 -->
+                <div class="events-item">
+                    <div class="event-thumb">
+                        <img src="img/events/computer.jpg" alt="events" >
+                    </div>
+                    <div class="event-details">
+                        <strong>Computer coaching</strong>
+
+                        <!-- <div class="event-info">
+                            <p><i class="ti-calendar"></i>No of schools attended workshop: 15+</p>
+                            <p><i class="ti-calendar"></i>No of teachers who participated in workshop: 51+</p>
+                        </div> -->
+                        <br>
+                        <p>The skill development team of Prayas have successfully completed its computer training every six month. In this training program participants go through computer examination. Beneficiaries who enrolled for the training program cleared the test and were awarded with the course completion certificate. So far a total of 112 beneficiaries have been awarded with the computer training certificate since the program started in 2017.  </p>
+                        <!-- <a href="#" class="default-btn">Read More</a> -->
+                    </div>
+                </div><!-- Event-1 -->
+                <div class="events-item">
+                    <div class="event-thumb">
+                        <img src="img/events/tailoring.jpg" alt="events" >
+                    </div>
+                    <div class="event-details">
+                        <strong>Tailoring</strong>
+
+                        <!-- <div class="event-info">
+                            <p><i class="ti-calendar"></i>No of schools attended workshop: 15+</p>
+                            <p><i class="ti-calendar"></i>No of teachers who participated in workshop: 51+</p>
+                        </div> -->
+                        <br>
+                        <p>A tailoring test was conducted for the students from the previous batch and certificate were awarded to 50 beneficiaries </p>
+                        <!-- <a href="#" class="default-btn">Read More</a> -->
+                    </div>
+                </div><!-- Event-1 -->
+                <div class="events-item">
+                    <div class="event-thumb">
+                        <img src="img/events/agriculture.jpg" alt="events" >
+                    </div>
+                    <div class="event-details">
+                        <strong>Agricultural Project</strong>
+<!-- 
+                        <div class="event-info">
+                            <p><i class="ti-calendar"></i>No of schools attended workshop: 15+</p>
+                            <p><i class="ti-calendar"></i>No of teachers who participated in workshop: 51+</p>
+                        </div> -->
+                        <br>
+                        <p>To enable the small, marginal, tenant farmers and landless agricultural workers to work for themselves a forum for creating a just, humane and sustainable environment to be an alternative to mechanized and capital intensive agro-technology in order that they may ensure for themselves adequate livelihood opportunities.</p>
+                        <!-- <a href="#" class="default-btn">Read More</a> -->
+                    </div>
+                </div><!-- Event-1 -->
+                <div class="events-item">
+                    <div class="event-thumb">
+                        <img src="img/events/plantation.jpg" alt="events" >
+                    </div>
+                    <div class="event-details">
+                        <strong>Tree Plantation</strong>
+
+                        <!-- <div class="event-info">
+                            <p><i class="ti-calendar"></i>No of schools attended workshop: 15+</p>
+                            <p><i class="ti-calendar"></i>No of teachers who participated in workshop: 51+</p>
+                        </div> -->
+                        <br>
+                        <p>A Tree Plantation, forest plantation, plantation forest or timber plantation is a forest planted for high volume production of wood, usually by planting one type of tree as a monoculture forest. </p>
+                        <!-- <a href="#" class="default-btn">Read More</a> -->
+                    </div>
+                </div><!-- Event-1 -->
+                <div class="events-item">
+                    <div class="event-thumb">
+                        <img src="img/events/clean_india.jpg" alt="events" >
+                    </div>
+                    <div class="event-details">
+                        <strong>Clean India</strong>
+
+                        <!-- <div class="event-info">
+                            <p><i class="ti-calendar"></i>No of schools attended workshop: 15+</p>
+                            <p><i class="ti-calendar"></i>No of teachers who participated in workshop: 51+</p>
+                        </div> -->
+                        <br>
+                        <p>It was launched to promote cleanliness in society. Till now, it has successfully covered 4041 cities across India. It is on of the important campaigns launched by the Government of India. The ultimate objective is to maintain a healthy and clean environment. </p>
+                        <!-- <a href="#" class="default-btn">Read More</a> -->
+                    </div>
+                </div><!-- Event-1 -->
+                <div class="events-item">
+                    <div class="event-thumb">
+                    <img src="img/events/smile.jpg" alt="events" >
+                    </div>
+                    <div class="event-details">
+                        <strong>Earn a Smile</strong>
+
+                        <!-- <div class="event-info">
+                            <p><i class="ti-calendar"></i>No of schools attended workshop: 15+</p>
+                            <p><i class="ti-calendar"></i>No of teachers who participated in workshop: 51+</p>
+                        </div> -->
+                        <br>
+                        <p> Access To quality education through infrastructural development for 240 Students (06 -14 years) Kharagpur sub division of Paschim Medinipur district, West Bengal. Shaping the future of children who belong to the below poverty line and do not have access to education, good food and Gopali Youth Welfare Society is changing lives of people in and around Kharagpur by providing quality education to underprivileged children and ensuring a life of dignity for adults by conducting relevant skill development programs. </p>
+                        <!-- <a href="#" class="default-btn">Read More</a> -->
+                    </div>
+                </div><!-- Event-1 -->
+
                 <div class="events-item">
                     <div class="event-thumb">
                         <img src="gopali-img/rise.jpg" alt="events" >
