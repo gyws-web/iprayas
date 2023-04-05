@@ -403,7 +403,6 @@
     </section><!-- /Team Section -->
 
 
-    <?php include 'include/footer.php'; ?>
 
     <script type="text/javascript">
         function memberfilter() {
@@ -533,3 +532,5 @@
             });
         });
     </script>
+
+<?php include 'include/footer.php'; ?>

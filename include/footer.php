@@ -13,7 +13,7 @@
     animation: glow 1.5s linear infinite alternate;
     float: left;
 }
-    </style>
+</style>
       <section class="widget-section padding">
             <div class="container">
                 <div class="widget-wrap row">
